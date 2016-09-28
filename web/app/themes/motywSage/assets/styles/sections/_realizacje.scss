@@ -1,0 +1,119 @@
+section.realizacje {
+  position: relative;
+  max-width: 100%;
+  padding-bottom: 45px;
+  background: $blue;
+  color: $white;
+  overflow: hidden;
+  z-index: 11;
+
+  .clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(auto, auto, auto, auto);
+    z-index: -1;
+
+    .bullets {
+      .title {
+        color: rgba($light-grey, 0.20);
+      }
+
+      .square {
+        border-color: rgba($light-grey, 0.20);
+      }
+
+      .active {
+        .title {
+          color: $grey;
+        }
+
+        .square {
+          border-color: $red;
+        }
+      }
+    }
+  }
+
+  .bg-lines {
+    position: absolute;
+    height: 100%;
+    z-index: 0;
+
+    span {
+      height: 100%;
+      border-color: rgba($light-grey, 0.1);
+    }
+  }
+
+  h2 {
+    border-color: $white;
+  }
+
+  ul {
+    display: block;
+    width: 60%;
+
+    &:hover {
+      li {
+        span {
+          color: rgba($light-grey, 0.2);
+        }
+      }  
+    }
+
+    li {
+      margin-bottom: 5px;
+      cursor: pointer;
+
+      .fa {
+        margin-left: 10px;
+        color: rgba($light-grey, 0.2);
+        vertical-align: middle;
+      }
+
+      span {
+        display: inline-block;
+        font-size: 1.5em;
+        line-height: 200%;
+        font-weight: 700;
+        vertical-align: middle;
+      }
+
+      &:hover {
+        .fa {
+          color: $red;
+        }
+
+        span {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .container {
+    display: inline-block;
+    width: 60%;
+    overflow: hidden;
+    vertical-align: top;
+
+    img {
+      display: inline-block;
+      width: calc(100% / 3);
+      height: auto;
+      vertical-align: top;
+    }
+
+    p {
+      display: inline-block;
+      float: right;
+      width: calc(100% / 3 * 2);
+      vertical-align: top;
+      padding-left: 30px;
+      @include box-sizing(border-box);
+    }
+  }
+}

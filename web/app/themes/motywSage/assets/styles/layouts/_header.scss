@@ -1,0 +1,57 @@
+header {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  background: $white;
+  @include box-shadow(0 0 30px rgba(#000, 0.15));
+  z-index: 100;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+
+    .wrapper {
+      padding: 10px 0 37.5px;
+    }
+    
+    .contact {
+      top: 25px;
+    }
+
+    img {
+      height: 50px;
+    }
+  }
+
+  .wrapper {
+    padding: 15px 0 42.5px;
+  }
+
+  img {
+    display: block;
+  }
+
+  .contact {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    display: inline-block;
+
+    div {
+      display: inline-block;
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .fa {
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 14px;
+        color: $red;
+      }
+    }
+  }
+}

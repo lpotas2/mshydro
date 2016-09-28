@@ -1,0 +1,71 @@
+section.ms-hydro {
+  position: relative;
+  max-width: 100%;
+  padding-bottom: 45px;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/assembling-hydraulic-cylinders.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    @include filter(grayscale(100%));
+  }
+
+  .desc {
+    width: 100%;
+    max-width: 80%;
+
+    p {
+      font-size: 1.75em;
+      line-height: 150%;
+      font-weight: 300;
+      text-align: justify;
+
+      strong {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .wrapper > ul {
+    margin-top: 50px;
+
+    & > li {
+      display: inline-block;
+      width: 20%;
+      padding-right: 15px;
+      @include box-sizing(border-box);
+      vertical-align: top;
+      margin-bottom: 30px;
+
+      h4 {
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        line-height: 150%;
+      }
+
+      ul {
+        li {
+          position: relative;
+          display: block;
+          width: 100%;
+          padding-left: 17px;
+          @include box-sizing(border-box);
+
+          .fa {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+}

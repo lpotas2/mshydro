@@ -1,0 +1,64 @@
+section.praca {
+  ul {
+    width: 100%;
+    max-width: 60%;
+
+    li {
+      position: relative;
+      margin-bottom: 25px;
+
+      &.active {
+        .fa {
+          @include transform(rotate(180deg));
+        }
+      }
+      
+      .title {
+        position: relative;
+        padding: 15px 20px;
+        @include box-sizing(border-box);
+        border: 2px solid $grey;
+        background: $white;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        z-index: 1;
+
+        .fa {
+          position: absolute;
+          right: 20px;
+          top: 20px;
+        }
+
+        &:hover {
+          border-color: $red;
+        }
+      }
+
+      .desc {
+        display: none;
+        margin-top: -2px;
+        padding: 30px 35px;
+        @include box-sizing(border-box);
+        border: 2px solid $grey;
+        background: $light-grey;
+        font-size: 1em;
+        text-align: center;
+
+        p {
+          text-align: left;
+        }
+
+        .button {
+          margin-top: 30px;
+          border-color: $red;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
