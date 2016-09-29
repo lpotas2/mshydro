@@ -4,7 +4,7 @@ header {
   left: 0;
   width: 100%;
   background: $white;
-  @include box-shadow(0 0 30px rgba(#000, 0.15));
+  // @include box-shadow(0 0 30px rgba(#000, 0.15));
   z-index: 100;
 
   &.fixed {

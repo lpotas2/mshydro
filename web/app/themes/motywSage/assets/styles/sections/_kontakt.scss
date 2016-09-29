@@ -3,7 +3,7 @@ section.kontakt {
     display: inline-block;
     width: 50%;
     margin-top: 50px;
-    @include box-sizing(border-box);
+    // @include box-sizing(border-box);
     vertical-align: top;
   }
 
@@ -73,16 +73,16 @@ section.kontakt {
       width: calc(50% - 10px);
       padding: 15px;
       margin-bottom: 15px;
-      @include box-sizing(border-box);
+      // @include box-sizing(border-box);
       background: $white;
       border: 2px solid $grey;
       outline: none;
       font-family: 'Roboto', sans-serif;
       font-size: 12px;
 
-      @include input-placeholder {
+      // @include input-placeholder {
         //color: $light-grey;
-      }
+      // }
 
       &:focus {
         border-color: $red;

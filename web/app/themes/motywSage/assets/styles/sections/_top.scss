@@ -4,7 +4,7 @@ section.top {
   height: calc(100vh - 161.5px);
   margin-top: 161.5px;
   padding-top: 0;
-  background-image: url(../img/top.jpg);
+  // background-image: url("<?php print get_template_directory_uri(); ?>/dist/images/top.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -17,7 +17,7 @@ section.top {
     left: 0;
     width: 100%;
     height: 100%;
-    @include background-image(linear-gradient(to right, rgba(#000, 0.5), rgba(#000, 0)));
+    // @include background-image(linear-gradient(to right, rgba(#000, 0.5), rgba(#000, 0)));
   }
 
   .wrapper {
@@ -26,9 +26,9 @@ section.top {
     div {
       position: absolute;
       top: 50%;
-      @include transform(translateY(-50%));
+      // @include transform(translateY(-50%));
       color: $white;
-      @include text-shadow(0 0 15px rgba(#000, 0.5));
+      // @include text-shadow(0 0 15px rgba(#000, 0.5));
 
       h2 {
         border-top: none;

@@ -36,7 +36,7 @@ section.oferta {
       position: relative;
       min-height: 315px;
       padding: 25px 30px;
-      @include box-sizing(border-box);
+      // @include box-sizing(border-box);
       background-size: cover;
       background-position: center;
       border-bottom: 5px solid $red;
@@ -64,7 +64,7 @@ section.oferta {
 
         h3, .desc, .fa {
           color: $white;
-          @include text-shadow(0 0 15px rgba($black, 0.5));
+          // @include text-shadow(0 0 15px rgba($black, 0.5));
         }
       }
 
@@ -76,7 +76,7 @@ section.oferta {
         height: 100%;
         background: $light-grey;
         z-index: 0;
-        @include transition(0.35s top ease-out);
+        // @include transition(0.35s top ease-out);
       }
 
       .index {
@@ -90,7 +90,7 @@ section.oferta {
         font-size: 1.25em;
         line-height: 45px;
         font-weight: 700;
-        @include border-radius(50%);
+        // @include border-radius(50%);
         text-align: center;
       }
 
