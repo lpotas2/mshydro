@@ -129,4 +129,5 @@ $(document).on("ready", function() {
       $(this).next(".desc").slideDown();
     }
   });
-});s
+});
+
