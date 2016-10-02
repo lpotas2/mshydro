@@ -1,24 +1,70 @@
 <?php while (have_posts()) : the_post(); ?>
-  <?php get_template_part('templates/page', 'header'); ?>
+  <!-- <?php get_template_part('templates/page', 'header'); ?>-->
   <?php get_template_part('templates/content', 'page'); ?>
 <?php endwhile; ?>
 
 
 <aside>
     <div class="wrapper">
-      <strong>MS-HYDRO s.c.</strong> ul. Barniewicka 54F, 80-299 Gdańsk, NIP: 583-30-34-296
-      <div class="lang"><span>PL</span><a href="">EN</a></div>
+      <!-- <strong>MS-HYDRO s.c.</strong> ul. Barniewicka 54F, 80-299 Gdańsk, NIP: 583-30-34-296-->
+       <strong><?php if( have_rows('pierwszy_ekran') ):
+    while ( have_rows('pierwszy_ekran') ) : the_row();
+    the_sub_field('nazwa_firmy');
+    endwhile; endif;?></strong>
+       
+        <?php if( have_rows('pierwszy_ekran') ):
+    while ( have_rows('pierwszy_ekran') ) : the_row();
+    the_sub_field('adres');
+    the_sub_field('nip');
+    endwhile; endif;?>
+
+      <div class="lang">
+      <span>
+      <?php if( have_rows('pierwszy_ekran') ):
+    while ( have_rows('pierwszy_ekran') ) : the_row();
+    the_sub_field('język_polski');
+    endwhile; endif;?></span>
+
+      <a href="">  <?php if( have_rows('pierwszy_ekran') ):
+    while ( have_rows('pierwszy_ekran') ) : the_row();
+    the_sub_field('język_angielski');
+    endwhile; endif;?></a></div>
     </div>
   </aside>
 
   <header>
     <div class="wrapper">
-      <a href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php print get_template_directory_uri(); ?>/dist/images/ms-hydro-logo.png"/></a>
+    <?php if( have_rows('pierwszy_ekran') ):
+      while ( have_rows('pierwszy_ekran') ) : the_row();
+        if( get_sub_field('logo') ):?>
+          <a href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php the_sub_field('logo'); ?>" /></a>
+        <?php endif; 
+      endwhile; 
+    endif;?>
+
+
 
       <div class="contact">
-        <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>+48 (58) 306 90 08</div>
-        <div class="email"><i class="fa fa-envelope" aria-hidden="true"></i></i>biuro@mshydro.pl</div>
-        <div class="open"><i class="fa fa-clock-o" aria-hidden="true"></i>Pon. - Pt.: 8:00 - 16:00</div>
+        <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>
+          <?php if( have_rows('pierwszy_ekran') ):
+            while ( have_rows('pierwszy_ekran') ) : the_row();
+              the_sub_field('telefon');
+            endwhile;
+          endif;?></div>
+
+        <div class="email"><i class="fa fa-envelope" aria-hidden="true"></i>
+          <?php if( have_rows('pierwszy_ekran') ):
+            while ( have_rows('pierwszy_ekran') ) : the_row();
+              the_sub_field('e-mail');
+            endwhile; 
+          endif;?></div>
+
+        <div class="open"><i class="fa fa-clock-o" aria-hidden="true"></i>
+          <?php if( have_rows('pierwszy_ekran') ):
+            while ( have_rows('pierwszy_ekran') ) : the_row();
+              the_sub_field('godziny_otwarcia');
+            endwhile; 
+          endif;?></div>
       </div>
 
       <nav class="primary">
@@ -54,20 +100,38 @@
     <div><span class="title">KONTAKT</span><span class="square"></span></div>
   </div>
 
-  <section class="top" style="  background-image: url('<?php print get_template_directory_uri(); ?>/dist/images/top.jpg'); position: relative;
-  max-width: 100%;
-  height: calc(100vh - 161.5px);
-  margin-top: 161.5px;
-  padding-top: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 11;">
+
+    <?php if( have_rows('pierwszy_ekran') ):
+      while ( have_rows('pierwszy_ekran') ) : the_row();
+        if( get_sub_field('zdjęcie_zajawki') ):?>
+            <section class="top" style="background-image: url('<?php the_sub_field('zdjęcie_zajawki')?>');">
+        <?php endif; 
+      endwhile; 
+    endif;?>
+
     <div class="wrapper">
       <div>
-        <h2>We're very serious about our jobs</br>and we always deliver above expectations.</h2>
-        <p>We've started as a small but dedicated company 15 years ago and we've grown rapidly</br>ever since. Today we serve more than 100 great companies from all around the world.</p>
-        <a href="" class="button">View our Services<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+        <h2>
+          <?php if( have_rows('pierwszy_ekran') ):
+            while ( have_rows('pierwszy_ekran') ) : the_row();
+              the_sub_field('duzy_napis');
+            endwhile; 
+          endif;?>
+        </h2>
+        <p>
+          <?php if( have_rows('pierwszy_ekran') ):
+            while ( have_rows('pierwszy_ekran') ) : the_row();
+              the_sub_field('mały_napis');
+            endwhile; 
+          endif;?>
+        </p>
+        <a href="" class="button">
+          <?php if( have_rows('pierwszy_ekran') ):
+            while ( have_rows('pierwszy_ekran') ) : the_row();
+              the_sub_field('napis_przycisku');
+            endwhile; 
+          endif;?>
+          <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
       </div>
 
       <span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
@@ -75,50 +139,143 @@
   </section>
 
   <section class="ms-hydro" >
-    <div class="bg" style="background-image: url('<?php print get_template_directory_uri(); ?>/dist/images/assembling-hydraulic-cylinders.jpg'); background-size: cover;
-    background-position: center;
-    opacity: 0.1;"></div>
+        <?php if( have_rows('sekcja_ms-hydro') ):
+      while ( have_rows('sekcja_ms-hydro') ) : the_row();
+        if( get_sub_field('tło_sekcji_ms-hydro') ):?>
+    <div class="bg" style="background-image: url('<?php the_sub_field('tło_sekcji_ms-hydro')?>');"></div>
+        <?php endif; 
+      endwhile; 
+    endif;?>
+
 
     <div class="wrapper">
       <h2>MS-HYDRO</h2>
 
-      <div class="desc">
+ <!--     <div class="desc">
         <p><strong>Jesteśmy dostawcą rozwiązań hydrauliki siłowej</strong> w różnych gałęziach przemysłu. Stawiamy na <strong>kompleksowość</strong> i <strong>sprawność działania</strong>. Jesteśmy elastyczni wobec indywidualnych potrzeb klienta. Dbamy o rozwój i bezpieczeństwo.</p>
+      </div>-->
+
+      <div class="desc">
+        <p>
+          <?php if( have_rows('sekcja_ms-hydro')):
+            while ( have_rows('sekcja_ms-hydro')) : the_row();
+                the_sub_field('ogolny_opis_sekcji_ms-hydro');
+            endwhile;
+            endif?>
+        </p>
       </div>
 
       <ul>
+
+<!-- 1 kolumna --> 
         <li>
-          <h4>Co robimy:</h4>
+          <h4>
+          <?php if( have_rows('sekcja_ms-hydro')):
+            while ( have_rows('sekcja_ms-hydro')) : the_row();
+              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_1' ):
+                the_sub_field('tytuł_kolumny');?>
+          </h4>
           <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>wykonujemy projekty układów hydraulicznych i maszyn</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>prowadzimy modernizacje i serwis istniejących układów hydrauliki siłowej</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>wykonujemy instalacje rurowe wraz z dostawą niezbędnych elementów</li>
-          </ul>
-        </li><!--
-        --><li>
-          <h4>Zapewniamy:</h4>
-          <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>profesjonalne doradztwo i dobór elementów układu</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>dostawę i uruchomienie zamówienia u klienta</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>pełny serwis gwarancyjny i pogwarancyjny</li>
-          </ul>
-        </li><!--
-        --><li>
-          <h4>Oferujemy także:</h4>
-          <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>usługi w zakresie obróbki skrawaniem</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>dorabianie węży i dystrybucję komponentów hydrauliki siłowej</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>diagnostykę, monitoring oraz dobór i sprzedaż olejów i środków smarnych</li>
-          </ul>
-        </li><!--
-        --><li>
-          <h4>Wykorzystujemy:</h4>
-          <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>agregaty hydrauliczne</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>serwomechanizmy tj. siłowniki, silniki hydrauliczne</li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>systemy sterowania i zintegrowanej automatyki</li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+          <?php the_sub_field('punkt_1');?>
+  
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+
+                <?php the_sub_field('punkt_2');?>
+
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+               <?php the_sub_field('punkt_3');
+              endif;
+            endwhile; 
+          endif;?>
+            </li>
           </ul>
         </li>
+
+<!-- 2 kolumna -->        
+        <li>
+          <h4>
+          <?php if( have_rows('sekcja_ms-hydro')):
+            while ( have_rows('sekcja_ms-hydro')) : the_row();
+              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_2' ):
+                the_sub_field('tytuł_kolumny');?>
+          </h4>
+          <ul>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+          <?php the_sub_field('punkt_1');?>
+  
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+
+                <?php the_sub_field('punkt_2');?>
+
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+               <?php the_sub_field('punkt_3');
+              endif;
+            endwhile; 
+          endif;?>
+            </li>
+          </ul>
+        </li>
+
+<!-- 3 kolumna -->        
+        <li>
+          <h4>
+          <?php if( have_rows('sekcja_ms-hydro')):
+            while ( have_rows('sekcja_ms-hydro')) : the_row();
+              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_3' ):
+                the_sub_field('tytuł_kolumny');?>
+          </h4>
+          <ul>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+          <?php the_sub_field('punkt_1');?>
+  
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+
+                <?php the_sub_field('punkt_2');?>
+
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+               <?php the_sub_field('punkt_3');
+              endif;
+            endwhile; 
+          endif;?>
+            </li>
+          </ul>
+        </li>
+<!-- 4 kolumna -->        
+        <li>
+          <h4>
+          <?php if( have_rows('sekcja_ms-hydro')):
+            while ( have_rows('sekcja_ms-hydro')) : the_row();
+              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_4' ):
+                the_sub_field('tytuł_kolumny');?>
+          </h4>
+          <ul>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+          <?php the_sub_field('punkt_1');?>
+  
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+
+                <?php the_sub_field('punkt_2');?>
+
+            </li>
+            <li><i class="fa fa-check" aria-hidden="true"></i>
+               <?php the_sub_field('punkt_3');
+              endif;
+            endwhile; 
+          endif;?>
+            </li>
+          </ul>
+        </li>
+
+
+
       </ul>
     </div>
   </section>
