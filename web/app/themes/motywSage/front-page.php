@@ -44,6 +44,36 @@
 
 
 
+<!-- <?php echo get_children(); ?>-->
+<div id="submenu">
+
+<ul>
+
+<?php
+echo $post->post_parent;
+
+if($post->post_parent)
+
+$children = wp_list_pages("title_li=&child_of=".$post->post_parent."&echo=0");
+
+else
+$walker_oferta = new walker_oferta();
+?>
+<!-- $children = wp_list_pages("title_li=&child_of=8&echo=0&sort_column=IDwalker=".$thumb_menu.""); -->
+<?php wp_list_pages(array(
+  'walker' => $walker_oferta,
+  'sort_column' => "ID",
+  "title_li" => 0,
+  "child_of" => 8
+
+  ));
+
+?>
+</ul>
+
+</div>
+
+
       <div class="contact">
         <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>
           <?php if( have_rows('pierwszy_ekran') ):
@@ -279,7 +309,8 @@
       </ul>
     </div>
   </section>
-
+  
+<!-- OFERTA -->
   <section class="oferta">
     <h2>OFERTA</h2>
 
