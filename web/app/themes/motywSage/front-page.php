@@ -282,17 +282,47 @@
     </div>
   </section>
   
+
+
+
 <!-- OFERTA -->
   <section class="oferta">
-    <h2>OFERTA</h2>
+    <h2><?php echo get_the_title(8)?></h2>
+    <?php
+        $strony = get_pages( $args = array(
+        'child_of'=>8,
+        'sort_column' => 'ID',
+     ));
+    $i = 1;
+    foreach ( $strony as $strona ) { 
+    $i =& $numer;
+    $i++;
+    ?>
+        <div class="box">
+            <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
+                while ( have_rows('tło_ikony_opis',$strona->ID) ) : the_row();?>
+          <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
+            <div class="bg"></div>
+            <span class="index">.0<?php echo $numer;?></span>
+            <img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>"/>
+            <img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>"/>
+          <?php endwhile; endif;?>
 
-<?php $walker_oferta = new walker_oferta();
-  wp_list_pages(array(
-  'walker' => $walker_oferta,
-  'sort_column' => "ID",
-  "title_li" => 0,
-  "child_of" => 8
-  ));?>
+            <h3><?php echo $strona->post_title; ?></h3>
+            <div class="desc">
+              <p><?php the_sub_field('opis',$strona->ID)?></p>
+            </div>
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+        </div>
+    <?php } ?>
+
+    <div class="box">
+      <div class="container">
+        <span>POBIERZ OFERTĘ</span>
+        <img src="img/pdf-icon.png"/>
+      </div>
+    </div>
   
   </section>
 
