@@ -44,34 +44,6 @@
 
 
 
-<!-- <?php echo get_children(); ?>-->
-<div id="submenu">
-
-<ul>
-
-<?php
-echo $post->post_parent;
-
-if($post->post_parent)
-
-$children = wp_list_pages("title_li=&child_of=".$post->post_parent."&echo=0");
-
-else
-$walker_oferta = new walker_oferta();
-?>
-<!-- $children = wp_list_pages("title_li=&child_of=8&echo=0&sort_column=IDwalker=".$thumb_menu.""); -->
-<?php wp_list_pages(array(
-  'walker' => $walker_oferta,
-  'sort_column' => "ID",
-  "title_li" => 0,
-  "child_of" => 8
-
-  ));
-
-?>
-</ul>
-
-</div>
 
 
       <div class="contact">
@@ -314,97 +286,14 @@ $walker_oferta = new walker_oferta();
   <section class="oferta">
     <h2>OFERTA</h2>
 
-    <div class="box">
-      <div class="container" style="background-image: url(<?php print get_template_directory_uri(); ?>/dist/images/projektowanie-bg.png);">
-        <div class="bg"></div>
-
-        <span class="index">.01</span>
-
-        <img class="icon red" src="<?php print get_template_directory_uri(); ?>/dist/images/projektowanie-icon-red.png"/>
-        <img class="icon white" src="<?php print get_template_directory_uri(); ?>/dist/images/projektowanie-icon.png"/>
-
-        <h3>PROJEKTOWANIE</h3>
-        <div class="desc">
-          <p>Projektujemy urządzenia dla starych i nowych linii produkcyjnych. Modernizujemy istniejące projekty techniczne działających urządzeń i maszyn.</p>
-        </div>
-
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </div>
-    </div><!--
-    --><div class="box">
-      <div class="container" style="background-image: url(<?php print get_template_directory_uri(); ?>/dist/images/remonty-bg.png);">
-        <div class="bg"></div>
-
-        <span class="index">.02</span>
-
-        <img class="icon red" src="<?php print get_template_directory_uri(); ?>/dist/images/renovation-icon-red.png"/>
-        <img class="icon white" src="<?php print get_template_directory_uri(); ?>/dist/images/renovation-icon.png"/>
-
-        <h3>REMONTY I MODERNIZACJE</h3>
-        <div class="desc">
-          <p>Oferujemy kompleksowe remonty główne oraz remonty poszczególnych elementów roboczych istniejących maszyn.</p>
-        </div>
-
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </div>
-    </div><!--
-    --><div class="box">
-      <div class="container" style="background-image: url(<?php print get_template_directory_uri(); ?>/dist/images/utrzymanie-ruchu-bg.png);">
-        <div class="bg"></div>
-
-        <span class="index">.03</span>
-
-        <img class="icon red" src="<?php print get_template_directory_uri(); ?>/dist/images/gear_spiral_icon-red.png"/>
-        <img class="icon white" src="<?php print get_template_directory_uri(); ?>/dist/images/gear_spiral_icon.png"/>
-
-        <h3>UTRZYMANIE RUCHU</h3>
-        <div class="desc">
-          <p>Oferujemy kompleksowe remonty główne oraz remonty poszczególnych elementów roboczych istniejących maszyn.</p>
-        </div>
-
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </div>
-    </div><!--
-    --><div class="box">
-      <div class="container" style="background-image: url(<?php print get_template_directory_uri(); ?>/dist/images/toczenie-bg.png);">
-        <div class="bg"></div>
-
-        <span class="index">.04</span>
-
-        <img class="icon red" src="<?php print get_template_directory_uri(); ?>/dist/images/machining-icon-red.png"/>
-        <img class="icon white" src="<?php print get_template_directory_uri(); ?>/dist/images/machining-icon.png"/>
-
-        <h3>OBRÓBKA SKRAWANIEM</h3>
-        <div class="desc">
-          <p>Świadczymy usługi w zakresie obróbki skrawaniem na tokarce uniwersalnej.</p>
-        </div>
-
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </div>
-    </div><!--
-    --><div class="box">
-      <div class="container" style="background-image: url(<?php print get_template_directory_uri(); ?>/dist/images/serwis-olejowy-bg.png);">
-        <div class="bg"></div>
-
-        <span class="index">.05</span>
-
-        <img class="icon red" src="<?php print get_template_directory_uri(); ?>/dist/images/oil-icon-red.png"/>
-        <img class="icon white" src="<?php print get_template_directory_uri(); ?>/dist/images/oil-icon.png"/>
-
-        <h3>SERWIS OLEJOWY</h3>
-        <div class="desc">
-          <p></p>
-        </div>
-
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </div>
-    </div><!--
-    --><div class="box">
-      <div class="container">
-        <span>POBIERZ OFERTĘ</span>
-        <img src="<?php print get_template_directory_uri(); ?>/dist/images/pdf-icon.png"/>
-      </div>
-    </div>
+<?php $walker_oferta = new walker_oferta();
+  wp_list_pages(array(
+  'walker' => $walker_oferta,
+  'sort_column' => "ID",
+  "title_li" => 0,
+  "child_of" => 8
+  ));?>
+  
   </section>
 
   <section class="realizacje">

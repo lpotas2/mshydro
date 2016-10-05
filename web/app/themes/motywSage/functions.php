@@ -27,6 +27,8 @@ foreach ($sage_includes as $file) {
 }
 unset($file, $filepath);
 
+add_theme_support( 'post-thumbnails' );
+
 class walker_oferta extends Walker_page {
 function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
 		if ( $depth ) {
@@ -70,21 +72,27 @@ $css_classes = implode( ' ', apply_filters( 'page_css_class', $css_class, $page,
 
 
 
-
+		$feature_image_id = get_post_thumbnail_id($page->ID);
+		$feature_image_meta = wp_get_attachment_image_src($feature_image_id,"full");
+		$ikona_1 = get_field('ikona_1',$page->ID);
+		$ikona_2 = get_field('ikona_2',$page->ID);
 
 		$output .= $indent . sprintf(
-			'<div class="container" style="background-image: url(<?php print get_template_directory_uri(); ?>/dist/images/projektowanie-bg.png);">
+			'<div class="box">
+			<div class="container" style="background-image: url(%s);">
         <div class="bg"></div>
 
         <span class="index">.01</span>
 
-        <img class="icon red" src="<?php print get_template_directory_uri(); ?>/dist/images/projektowanie-icon-red.png"/>
-        <img class="icon white" src="<?php print get_template_directory_uri(); ?>/dist/images/projektowanie-icon.png"/>
+        <img class="icon red" src="%s"/>
+        <img class="icon white" src="%s"/>
         <h3><a href="%s">%s%s%s</a></h3>
         <div class="desc">
           <p>Projektujemy urządzenia dla starych i nowych linii produkcyjnych. Modernizujemy istniejące projekty techniczne działających urządzeń i maszyn.</p>
         </div>',
-
+			$feature_image_meta[0],
+			$ikona_1,
+			$ikona_2,
 			get_permalink( $page->ID ),
 			$args['link_before'],
 			/** This filter is documented in wp-includes/post-template.php */
@@ -105,6 +113,7 @@ $css_classes = implode( ' ', apply_filters( 'page_css_class', $css_class, $page,
     }
     public function end_el( &$output, $page, $depth = 0, $args = array() ) {
 		$output .= "<i class='fa fa-chevron-right' aria-hidden='true'></i>
-      </div>\n";
+      </div>
+	  </div>\n";
 	}
 }
