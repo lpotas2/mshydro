@@ -302,11 +302,13 @@
             <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
                 while ( have_rows('tło_ikony_opis',$strona->ID) ) : the_row();?>
           <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
+           
             <div class="bg"></div>
+           
             <span class="index">.0<?php echo $numer;?></span>
+           
             <img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>"/>
             <img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>"/>
-          <?php endwhile; endif;?>
 
             <h3><?php echo $strona->post_title; ?></h3>
             <div class="desc">
@@ -314,15 +316,19 @@
             </div>
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
           </div>
-        </div>
-    <?php } ?>
+        </div><!--
+        -->
+          <?php endwhile; endif;
+    }?>
+
 
     <div class="box">
       <div class="container">
         <span>POBIERZ OFERTĘ</span>
         <img src="img/pdf-icon.png"/>
       </div>
-    </div>
+    </div><!--
+    -->
   
   </section>
 
@@ -347,21 +353,27 @@
       --><span></span>
     </div>
     <div class="wrapper">
-      <h2>REALIZACJE</h2>
 
-      <ul>
-        <li><span>UKŁAD ROZŁADUNKU SAMOCHODÓW CIĘŻAROWYCH</span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-        <li><span>UNIWERSALNY AGREGAT HYDRAULICZNY</span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-        <li><span>PRASA HYDRAULICZNA</span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-        <li><span>UKŁAD ROZŁADUNKU SAMOCHODÓW CIĘŻAROWYCH</span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-        <li><span>UNIWERSALNY AGREGAT HYDRAULICZNY</span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-        <li><span>PRASA HYDRAULICZNA</span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+    <h2><?php echo get_the_title(10)?></h2>
+    <ul>
+    <?php
+        $strony = get_pages( $args = array(
+        'child_of'=>10,
+        'sort_column' => 'ID',
+     ));
+          foreach ( $strony as $strona ) { 
+    ?>
+
+        
+      <li><span><?php echo $strona->post_title; ?></span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+
+    <?php } ?>
       </ul>
     </div>
   </section>
 
   <section class="produkty">
-    <h2>PRODUKTY</h2>
+    <h2><?php echo get_the_title(12); ?></h2>
 
     <ul>
       <li><i class="fa fa-times" aria-hidden="true"></i><span>Elementy i systemy hydrauliki</span></li><!--
@@ -374,32 +386,23 @@
     <div class="slider-container">
       <div class="slider">
         <div>
-          <a href="product.html">
-            <strong>Rozdzielacze</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/337e5810f9.gif"/>
+          <?php
+              $strony = get_pages( $args = array(
+              'child_of'=>12,
+              'sort_column' => 'ID',
+          ));
+                foreach ( $strony as $strona ) { 
+                if( have_rows('produkty',$strona->ID) ):
+                while ( have_rows('produkty',$strona->ID) ) : the_row();?>
+
+          <a href="<?php echo get_page_link($strona->ID) ?>">
+            <strong><?php echo get_the_title($strona->ID) ?></strong>
+            <img src="<?php the_sub_field('zdjęcie',$strona->ID);?>"/>
           </a>
-          <a href="product.html">
-            <strong>Zawory zwrotne</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/c46d4cb295.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Zawory ciśnieniowe</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/zaworycisnieniowe.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Zawory sterujące przepływem</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/zaworysterujaceprzepywem.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Zawory hamujące</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/zaworyhamujace.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Zawory proporcjonalne</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/zaworyproporcjonalne.gif"/>
-          </a>
+          <?php
+          endwhile; endif; } ?>
         </div>
-        <div>
+  <!--      <div>
           <a href="product.html">
             <strong>Ssawne</strong>
             <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/cisnieniowe.gif"/>
@@ -440,7 +443,7 @@
             <strong>Akcesoria</strong>
             <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/agregatyfiltracyjne.gif"/>
           </a>
-        </div>
+        </div>-->
       </div>
     </div>
 
@@ -450,8 +453,8 @@
   </section>
 
   <section class="aktualnosci">
-    <h2>AKTUALNOŚCI</h2>
-  </section>
+    <h2><?php echo get_the_title(14); ?></h2>
+ </section>
 
   <section class="praca">
     <h2>PRACA</h2>
