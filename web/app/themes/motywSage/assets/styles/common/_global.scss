@@ -35,7 +35,7 @@ a {
     position: relative;
     left: 0;
     margin-left: 15px;
-    // @include transition(0.25s left ease-out);
+    transition: 0.2s left ease-out;
   }
 }
 
@@ -97,7 +97,7 @@ aside {
   position: absolute;
   bottom: 30px;
   left: 50%;
-  // @include transform(translateX(-50%));
+  transform: translateX(-50%);
   color: $white;
   font-size: 3em;
   line-height: 100%;
@@ -108,14 +108,14 @@ aside {
   position: fixed;
   left: 50%;
   top: 0;
-  // @include transform(translateX(-50%));
+  transform: translateX(-50%);
   z-index: -1;
 
   span {
     display: inline-block;
     width: 20%;
     height: 100vh;
-    // @include box-sizing(border-box);
+    box-sizin: (border-bx);
     border-right: 1px solid $light-grey;
 
     &:first-child {
@@ -128,7 +128,7 @@ aside {
   position: fixed;
   right: 15px;
   top: 50%;
-  // @include transform(translateY(-50%));
+  transform: translateY(-50%);
   text-align: right;
   z-index: 10;
   
@@ -144,7 +144,7 @@ aside {
       }
 
       .square {
-        //border-color: $black;
+        border-color: $black;
       }
     }
 

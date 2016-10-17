@@ -1,44 +1,47 @@
 <?php while (have_posts()) : the_post(); ?>
-  <!-- <?php get_template_part('templates/page', 'header'); ?>-->
-  <?php get_template_part('templates/content', 'page'); ?>
+<!-- <?php get_template_part('templates/page', 'header'); ?>-->
+<?php get_template_part('templates/content', 'page'); ?>
 <?php endwhile; ?>
 
 
 <aside>
-    <div class="wrapper">
-      <!-- <strong>MS-HYDRO s.c.</strong> ul. Barniewicka 54F, 80-299 Gdańsk, NIP: 583-30-34-296-->
-       <strong><?php if( have_rows('pierwszy_ekran') ):
+	<div class="wrapper">
+		<!-- <strong>MS-HYDRO s.c.</strong> ul. Barniewicka 54F, 80-299 Gdańsk, NIP: 583-30-34-296-->
+		<strong><?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('nazwa_firmy');
     endwhile; endif;?></strong>
-       
-        <?php if( have_rows('pierwszy_ekran') ):
+
+		<?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('adres');
     the_sub_field('nip');
     endwhile; endif;?>
 
-      <div class="lang">
-      <span>
+		<div class="lang">
+			<span>
       <?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('język_polski');
     endwhile; endif;?></span>
 
-      <a href="">  <?php if( have_rows('pierwszy_ekran') ):
+			<a href="">
+				<?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('język_angielski');
-    endwhile; endif;?></a></div>
-    </div>
-  </aside>
+    endwhile; endif;?>
+			</a>
+		</div>
+	</div>
+</aside>
 
-  <header>
-    <div class="wrapper">
-    <?php if( have_rows('pierwszy_ekran') ):
+<header>
+	<div class="wrapper">
+		<?php if( have_rows('pierwszy_ekran') ):
       while ( have_rows('pierwszy_ekran') ) : the_row();
         if( get_sub_field('logo') ):?>
-          <a href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php the_sub_field('logo'); ?>" /></a>
-        <?php endif; 
+		<a href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php the_sub_field('logo'); ?>" /></a>
+		<?php endif; 
       endwhile; 
     endif;?>
 
@@ -46,97 +49,100 @@
 
 
 
-      <div class="contact">
-        <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>
-          <?php if( have_rows('pierwszy_ekran') ):
+		<div class="contact">
+			<div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>
+				<?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('telefon');
             endwhile;
-          endif;?></div>
+          endif;?>
+			</div>
 
-        <div class="email"><i class="fa fa-envelope" aria-hidden="true"></i>
-          <?php if( have_rows('pierwszy_ekran') ):
+			<div class="email"><i class="fa fa-envelope" aria-hidden="true"></i>
+				<?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('e-mail');
             endwhile; 
-          endif;?></div>
+          endif;?>
+			</div>
 
-        <div class="open"><i class="fa fa-clock-o" aria-hidden="true"></i>
-          <?php if( have_rows('pierwszy_ekran') ):
+			<div class="open"><i class="fa fa-clock-o" aria-hidden="true"></i>
+				<?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('godziny_otwarcia');
             endwhile; 
-          endif;?></div>
-      </div>
+          endif;?>
+			</div>
+		</div>
+<?php 
+$args =  array(
+  "menu_class"=> 0,
+  "menu_id"=> 0,
+  "container"=>"nav",
+  "container_class"=>"primary",
+  "after"=>"<li class='search'><i class='fa fa-search' aria-hidden='true'></i>Szukaj</li>"
+  );
+wp_nav_menu($args);?>
+  
+</header>
 
-      <nav class="primary">
-        <ul>
-          <li><a href="">MS-Hydro</a></li>
-          <li><a href="">Oferta</a></li>
-          <li><a href="">Realizacje</a></li>
-          <li><a href="">Produkty</a></li>
-          <li><a href="">Aktualności</a></li>
-          <li><a href="">Praca <span class="count">(3)</span></a></li>
-          <li><a href="">Kontakt</a></li>
-          <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <div class="bg-lines">
-    <span></span><!--
-    --><span></span><!--
-    --><span></span><!--
-    --><span></span><!--
+<div class="bg-lines">
+	<span></span>
+	<!--
     --><span></span>
-  </div>
+	<!--
+    --><span></span>
+	<!--
+    --><span></span>
+	<!--
+    --><span></span>
+</div>
 
-  <div class="bullets">
-    <div><span class="title">MS-HYDRO</span><span class="square"></span></div>
-    <div><span class="title">OFERTA</span><span class="square"></span></div>
-    <div><span class="title">REALIZACJE</span><span class="square"></span></div>
-    <div><span class="title">PRODUKTY</span><span class="square"></span></div>
-    <div><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-    <div><span class="title">PRACY</span><span class="square"></span></div>
-    <div><span class="title">KONTAKT</span><span class="square"></span></div>
-  </div>
+<div class="bullets">
+	<div><span class="title">MS-HYDRO</span><span class="square"></span></div>
+	<div><span class="title">OFERTA</span><span class="square"></span></div>
+	<div><span class="title">REALIZACJE</span><span class="square"></span></div>
+	<div><span class="title">PRODUKTY</span><span class="square"></span></div>
+	<div><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+	<div><span class="title">PRACY</span><span class="square"></span></div>
+	<div><span class="title">KONTAKT</span><span class="square"></span></div>
+</div>
 
 
-    <?php if( have_rows('pierwszy_ekran') ):
+<?php if( have_rows('pierwszy_ekran') ):
       while ( have_rows('pierwszy_ekran') ) : the_row();
         if( get_sub_field('zdjęcie_zajawki') ):?>
-            <section class="top" style="background-image: url('<?php the_sub_field('zdjęcie_zajawki')?>');">
-        <?php endif; 
+<section class="top" style="background-image: url('<?php the_sub_field('zdjęcie_zajawki')?>');">
+	<?php endif; 
       endwhile; 
     endif;?>
 
-    <div class="wrapper">
-      <div>
-        <h2>
-          <?php if( have_rows('pierwszy_ekran') ):
+	<div class="wrapper">
+		<div>
+			<h2>
+				<?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('duzy_napis');
             endwhile; 
           endif;?>
-        </h2>
-        <p>
-          <?php if( have_rows('pierwszy_ekran') ):
+			</h2>
+			<p>
+				<?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('mały_napis');
             endwhile; 
           endif;?>
-        </p>
-        <a href="" class="button">
-          <?php if( have_rows('pierwszy_ekran') ):
+			</p>
+			<a href="" class="button">
+				<?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('napis_przycisku');
             endwhile; 
           endif;?>
-          <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-      </div>
+				<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+		</div>
 
-      <span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+		<span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
     </div>
   </section>
 
@@ -153,10 +159,6 @@
     <div class="wrapper">
       <h2>MS-HYDRO</h2>
 
- <!--     <div class="desc">
-        <p><strong>Jesteśmy dostawcą rozwiązań hydrauliki siłowej</strong> w różnych gałęziach przemysłu. Stawiamy na <strong>kompleksowość</strong> i <strong>sprawność działania</strong>. Jesteśmy elastyczni wobec indywidualnych potrzeb klienta. Dbamy o rozwój i bezpieczeństwo.</p>
-      </div>-->
-
       <div class="desc">
         <p>
           <?php if( have_rows('sekcja_ms-hydro')):
@@ -169,7 +171,6 @@
 
       <ul>
 
-<!-- 1 kolumna --> 
         <li>
           <h4>
           <?php if( have_rows('sekcja_ms-hydro')):
@@ -194,10 +195,8 @@
           endif;?>
             </li>
           </ul>
-        </li>
-
-<!-- 2 kolumna -->        
-        <li>
+        </li><!--     
+       --><li>
           <h4>
           <?php if( have_rows('sekcja_ms-hydro')):
             while ( have_rows('sekcja_ms-hydro')) : the_row();
@@ -221,10 +220,8 @@
           endif;?>
             </li>
           </ul>
-        </li>
-
-<!-- 3 kolumna -->        
-        <li>
+        </li><!--     
+       --><li>
           <h4>
           <?php if( have_rows('sekcja_ms-hydro')):
             while ( have_rows('sekcja_ms-hydro')) : the_row();
@@ -248,9 +245,8 @@
           endif;?>
             </li>
           </ul>
-        </li>
-<!-- 4 kolumna -->        
-        <li>
+        </li><!--     
+       --><li>
           <h4>
           <?php if( have_rows('sekcja_ms-hydro')):
             while ( have_rows('sekcja_ms-hydro')) : the_row();
@@ -287,8 +283,8 @@
 
 <!-- OFERTA -->
   <section class="oferta">
-    <h2><?php echo get_the_title(8)?></h2>
-    <?php
+    <h2><?php echo get_the_title(8)?></h2><!--
+    --><?php
         $strony = get_pages( $args = array(
         'child_of'=>8,
         'sort_column' => 'ID',
@@ -306,57 +302,68 @@
             <div class="bg"></div>
            
             <span class="index">.0<?php echo $numer;?></span>
-           
-            <img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>"/>
-            <img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>"/>
 
-            <h3><?php echo $strona->post_title; ?></h3>
-            <div class="desc">
-              <p><?php the_sub_field('opis',$strona->ID)?></p>
-            </div>
-            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-          </div>
-        </div><!--
+		<img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>" />
+		<img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>" />
+
+		<h3>
+			<?php echo $strona->post_title; ?>
+		</h3>
+		<div class="desc">
+			<p>
+				<?php the_sub_field('opis',$strona->ID)?>
+			</p>
+		</div>
+		<i class="fa fa-chevron-right" aria-hidden="true"></i>
+	</div>
+	</div>
+	<!--
         -->
-          <?php endwhile; endif;
-    }?>
+	<?php endwhile;endif;}?>
 
-
-    <div class="box">
-      <div class="container">
-        <span>POBIERZ OFERTĘ</span>
-        <img src="img/pdf-icon.png"/>
-      </div>
-    </div><!--
-    -->
+	<div class="box">
+		<div class="container">
+			<?php if( have_rows('pobierz_ofertę') ):
+        while ( have_rows('pobierz_ofertę') ) : the_row();?>
+			<span><?php the_sub_field('opis');?></span>
+			<img src="<?php the_sub_field('obrazek')?>" />
+			<?php endwhile; endif;?>
+		</div>
+	</div>
   
-  </section>
+</section>
 
-  <section class="realizacje">
-    <div class="clip">
-      <div class="bullets">
-        <div><span class="title">MS-HYDRO</span><span class="square"></span></div>
-        <div><span class="title">OFERTA</span><span class="square"></span></div>
-        <div><span class="title">REALIZACJE</span><span class="square"></span></div>
-        <div><span class="title">PRODUKTY</span><span class="square"></span></div>
-        <div><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-        <div><span class="title">PRACY</span><span class="square"></span></div>
-        <div><span class="title">KONTAKT</span><span class="square"></span></div>
-      </div>
-    </div>
+<section class="realizacje">
+	<div class="clip">
+		<div class="bullets">
+			<div><span class="title">MS-HYDRO</span><span class="square"></span></div>
+			<div><span class="title">OFERTA</span><span class="square"></span></div>
+			<div><span class="title">REALIZACJE</span><span class="square"></span></div>
+			<div><span class="title">PRODUKTY</span><span class="square"></span></div>
+			<div><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+			<div><span class="title">PRACY</span><span class="square"></span></div>
+			<div><span class="title">KONTAKT</span><span class="square"></span></div>
+		</div>
+	</div>
 
-    <div class="bg-lines">
-      <span></span><!--
-      --><span></span><!--
-      --><span></span><!--
-      --><span></span><!--
+	<div class="bg-lines">
+		<span></span>
+		<!--
       --><span></span>
-    </div>
-    <div class="wrapper">
+		<!--
+      --><span></span>
+		<!--
+      --><span></span>
+		<!--
+      --><span></span>
+	</div>
+	<div class="wrapper">
 
-    <h2><?php echo get_the_title(10)?></h2>
-    <ul>
-    <?php
+		<h2>
+			<?php echo get_the_title(10)?>
+		</h2>
+		<ul>
+			<?php
         $strony = get_pages( $args = array(
         'child_of'=>10,
         'sort_column' => 'ID',
@@ -364,29 +371,39 @@
           foreach ( $strony as $strona ) { 
     ?>
 
-        
-      <li><span><?php echo $strona->post_title; ?></span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 
-    <?php } ?>
-      </ul>
-    </div>
-  </section>
+				<li><span><?php echo $strona->post_title; ?></span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
 
-  <section class="produkty">
-    <h2><?php echo get_the_title(12); ?></h2>
+				<?php } ?>
+		</ul>
+	</div>
+</section>
 
-    <ul>
-      <li><i class="fa fa-times" aria-hidden="true"></i><span>Elementy i systemy hydrauliki</span></li><!--
-      --><li><i class="fa fa-times" aria-hidden="true"></i><span>Filtry</span></li><!--
-      --><li><i class="fa fa-times" aria-hidden="true"></i><span>Urządzenia pomiarowe</span></li><!--
-      --><li><i class="fa fa-times" aria-hidden="true"></i><span>Inne</span></li><!--
-      --><li><i class="fa fa-times" aria-hidden="true"></i><span>Węże hydrauliczne</span></li>
-    </ul>
+<section class="produkty">
+	<h2>
+		<?php echo get_the_title(12); ?>
+	</h2>
 
-    <div class="slider-container">
-      <div class="slider">
-        <div>
-          <?php
+	<ul>
+		<li><i class="fa fa-times" aria-hidden="true"></i><span>Elementy i systemy hydrauliki</span></li>
+		<!--
+      -->
+		<li><i class="fa fa-times" aria-hidden="true"></i><span>Filtry</span></li>
+		<!--
+      -->
+		<li><i class="fa fa-times" aria-hidden="true"></i><span>Urządzenia pomiarowe</span></li>
+		<!--
+      -->
+		<li><i class="fa fa-times" aria-hidden="true"></i><span>Inne</span></li>
+		<!--
+      -->
+		<li><i class="fa fa-times" aria-hidden="true"></i><span>Węże hydrauliczne</span></li>
+	</ul>
+
+	<div class="slider-container">
+		<div class="slider">
+			<div>
+				<?php
               $strony = get_pages( $args = array(
               'child_of'=>12,
               'sort_column' => 'ID',
@@ -395,153 +412,127 @@
                 if( have_rows('produkty',$strona->ID) ):
                 while ( have_rows('produkty',$strona->ID) ) : the_row();?>
 
-          <a href="<?php echo get_page_link($strona->ID) ?>">
-            <strong><?php echo get_the_title($strona->ID) ?></strong>
-            <img src="<?php the_sub_field('zdjęcie',$strona->ID);?>"/>
-          </a>
-          <?php
+					<a href="<?php echo get_page_link($strona->ID) ?>">
+						<strong><?php echo get_the_title($strona->ID) ?></strong>
+						<img src="<?php the_sub_field('zdjęcie',$strona->ID);?>" />
+					</a>
+					<?php
           endwhile; endif; } ?>
-        </div>
-  <!--      <div>
-          <a href="product.html">
-            <strong>Ssawne</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/cisnieniowe.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Powrotne</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/d997b84202.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Ssawno-powrotne</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/ssawnopowrotne.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Ciśnieniowe</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/cisnieniowe.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Wysoko ciśnieniowe</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/Wysoko-cinieniowe.gif"/>
-          </a>
-        </div>
-        <div>
-          <a href="product.html">
-            <strong>Przekaźniki ciśnienia</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/przekaznikicisnienia.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Diagnostyka oleju</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/diagnostykaoleju.gif"/>
-          </a>
-        </div>
-        <div>
-          <a href="product.html">
-            <strong>Urządzenia do serwisowania płynów</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/diagnostykaoleju.gif"/>
-          </a>
-          <a href="product.html">
-            <strong>Akcesoria</strong>
-            <img src="<?php print get_template_directory_uri(); ?>/dist/images/produkty/agregatyfiltracyjne.gif"/>
-          </a>
-        </div>-->
-      </div>
-    </div>
+			</div>
+		</div>
+	</div>
 
-    <div style="text-align: center;">
-      <a class="button" href="">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-    </div>
-  </section>
+	<div style="text-align: center;">
+		<a class="button" href="">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+	</div>
+</section>
 
-  <section class="aktualnosci">
-    <h2><?php echo get_the_title(14); ?></h2>
- </section>
+<section class="aktualnosci">
+	<h2>
+		<?php echo get_the_title(14); ?>
+	</h2>
+	<?php
+              $posty = get_posts( $args = array(
+              'category'=>10,
+              'sort_column' => 'ID',
+              'order'=> "ASC"
+          ));
+                foreach ( $posty as $post ) {?>
 
-  <section class="praca">
-    <h2>PRACA</h2>
+		<a href="<?php echo get_page_link($post->ID) ?>"><?php echo get_the_title($post->ID);?> </a>
+		<br>
+		<?php } ?>
+</section>
 
-    <ul>
-      <li>
-        <div class="title">PRACA<i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-        <div class="desc">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<section class="praca">
+	<h2>PRACA</h2>
 
-          <a href="" class="button">APLIKUJ</a>
-        </div>
-      </li>
-      <li>
-        <div class="title">PRACA<i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-        <div class="desc">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<ul>
+		<?php
+              $podstronyPraca = get_pages( $args = array(
+              'child_of'=>16,
+              'sort_column' => 'ID',
+              'order'=> "ASC"              
+          ));
+                foreach ( $podstronyPraca as $strona ) { ?>
+			<li>
+				<div class="title"><a href="<?php echo get_page_link($strona->ID) ?>"><strong><?php echo get_the_title($strona->ID) ?></strong></a><i class="fa fa-chevron-down"
+						aria-hidden="true"></i></div>
 
-          <a href="" class="button">APLIKUJ</a>
-        </div>
-      </li>
-      <li>
-        <div class="title">PRACA<i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-        <div class="desc">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class="desc">
 
-          <a href="" class="button">APLIKUJ</a>
-        </div>
-      </li>
-    </ul>
-  </section>
+					<?php $page = get_post($strona->ID); $content = apply_filters('the_content', $page->post_content); echo $content ?>
 
-  <section class="kontakt">
-    <h2>KONTAKT</h2>
+					<a href="" class="button">APLIKUJ</a>
+				</div>
+			</li>
+			<?php } ?>
+	</ul>
+</section>
+<?php if( have_rows('pierwszy_ekran') ):
+          echo "działa";
+endif;?>
 
-    <div>
-      <div class="address">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
-        <div>
-          ul. Barniewicka 54F</br>
-          80-299 Gdańsk
-        </div>
-      </div><!--
+<section class="kontakt">
+	<h2><?php echo get_the_title(18);?></h2>
+	<div>
+		<div class="address">
+			<i class="fa fa-map-marker" aria-hidden="true"></i>
+			<div>
+				ul. Barniewicka 54F</br>
+				80-299 Gdańsk
+			</div>
+		</div>
+		<!--
       --><div class="phone">
-        <i class="fa fa-mobile" aria-hidden="true"></i>
-        <div>
-          Tel: +48 (58) 306 90 08</br>
-          Fax: +48 (58) 320 11 13
-        </div>
-      </div><!--
+			<i class="fa fa-mobile" aria-hidden="true"></i>
+			<div>
+				Tel: +48 (58) 306 90 08</br>
+				Fax: +48 (58) 320 11 13
+			</div>
+		</div>
+		<!--
       --><div class="email">
-        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-        <div>biuro@mshydro.pl</div>
-      </div>
-    </div>
+			<i class="fa fa-envelope-o" aria-hidden="true"></i>
+			<div>biuro@mshydro.pl</div>
+		</div>
+	</div>
 
-    <div class="left">
-      <h4>FORMULARZ KONTAKTOWY</h4>
+	<div class="left">
+		<h4>FORMULARZ KONTAKTOWY</h4>
 
-      <form>
-        <fieldset>
-          <input type="text" name="name" id="form-name" placeholder="Imię i nazwisko" required>
-          <input type="email" name="email" id="form-email" placeholder="E-mail" required>
-          <input type="text" name="phone" id="form-phone" placeholder="Nr telefonu">
-          <input type="text" name="subject" id="form-subject" placeholder="Temat">
-        </fieldset><!--
-        --><fieldset>
-          <textarea rows="11" name="message" id="form-message" placeholder="Treść wiadomości" required></textarea>
-          <input type="submit" value="Wyślij">
-        </fieldset>
-      </form>
-    </div><!--
-    --><div class="right">
-      <h4>MAPA</h4>
-      <div id="map"></div>
-    </div>
-  </section>
+		<form>
+			<fieldset>
+				<input type="text" name="name" id="form-name" placeholder="Imię i nazwisko" required>
+				<input type="email" name="email" id="form-email" placeholder="E-mail" required>
+				<input type="text" name="phone" id="form-phone" placeholder="Nr telefonu">
+				<input type="text" name="subject" id="form-subject" placeholder="Temat">
+			</fieldset>
+			<!--
+        -->
+			<fieldset>
+				<textarea rows="11" name="message" id="form-message" placeholder="Treść wiadomości" required></textarea>
+				<input type="submit" value="Wyślij">
+			</fieldset>
+		</form>
+	</div>
+	<!--
+    -->
+	<div class="right">
+		<h4>MAPA</h4>
+		<div id="map"></div>
+	</div>
+</section>
 
-  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 
 
-  <script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>
+<script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>
 
 <!-- google map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script> 
-  <script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
+<script>
     google.maps.event.addDomListener(window, 'load', init);
     var map;
 

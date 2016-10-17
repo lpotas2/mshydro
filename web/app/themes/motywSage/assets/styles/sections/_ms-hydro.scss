@@ -9,11 +9,10 @@ section.ms-hydro {
     left: 0;
     width: 100%;
     height: 100%;
-    // background-image: url(../img/assembling-hydraulic-cylinders.jpg);
     background-size: cover;
     background-position: center;
     opacity: 0.1;
-    // @include filter(grayscale(100%));
+    filter: grayscale(100%);
   }
 
   .desc {
@@ -39,7 +38,7 @@ section.ms-hydro {
       display: inline-block;
       width: 20%;
       padding-right: 15px;
-      // @include box-sizing(border-box);
+      box-sizing: border-box;
       vertical-align: top;
       margin-bottom: 30px;
 
@@ -56,7 +55,7 @@ section.ms-hydro {
           display: block;
           width: 100%;
           padding-left: 17px;
-          // @include box-sizing(border-box);
+          box-sizing: border-box;
 
           .fa {
             position: absolute;

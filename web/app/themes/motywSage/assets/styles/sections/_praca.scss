@@ -9,14 +9,14 @@ section.praca {
 
       &.active {
         .fa {
-          // @include transform(rotate(180deg));
+          transform: rotate(180deg);
         }
       }
       
       .title {
         position: relative;
         padding: 15px 20px;
-        // @include box-sizing(border-box);
+        box-sizing: border-box;
         border: 2px solid $grey;
         background: $white;
         font-size: 14px;
@@ -40,7 +40,7 @@ section.praca {
         display: none;
         margin-top: -2px;
         padding: 30px 35px;
-        // @include box-sizing(border-box);
+        box-sizing: border-box;
         border: 2px solid $grey;
         background: $light-grey;
         font-size: 1em;

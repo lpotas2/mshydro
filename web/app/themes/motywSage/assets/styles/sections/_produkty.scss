@@ -83,14 +83,14 @@ section.produkty {
           width: calc(1025px / 6);
           height: 175px;
           padding: 15px;
-          // @include box-sizing(border-box);
+          box-sizing: border-box;
           border: 2px solid $grey;
           background: #fff;
           line-height: 125%;
           text-align: center;
           text-transform: uppercase;
           vertical-align: top;
-          // @include transition(0.5s opacity ease-out);
+          transition: 0.5s opacity ease-out;
 
           &:hover {
             opacity: 1;

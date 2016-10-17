@@ -102,15 +102,16 @@ $(document).on("ready", function() {
     }
   }
 
-  $("section.ms-hydro").fixTypography([
-    "bastards"
-  ]);
+  // $("section.ms-hydro").fixTypography([
+  //   "bastards"
+  // ]);
 
   $(window).on("scroll", function() {
     changeBullets();
 
     if((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
       header.addClass("fixed");
+
     } else {
       header.removeClass("fixed");
     }
