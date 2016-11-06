@@ -36,11 +36,13 @@ section.ms-hydro {
 
     & > li {
       display: inline-block;
-      width: 20%;
-      padding-right: 15px;
+      width: 40%;
+      padding-right: 30px;
       box-sizing: border-box;
       vertical-align: top;
-      margin-bottom: 30px;
+      &:first-child {
+        margin-bottom: 30px;
+      }
 
       h4 {
         margin-bottom: 15px;
@@ -54,7 +56,8 @@ section.ms-hydro {
           position: relative;
           display: block;
           width: 100%;
-          padding-left: 17px;
+          padding-left: 20px;
+          margin-bottom: 1em;
           box-sizing: border-box;
 
           .fa {

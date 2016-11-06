@@ -1,7 +1,10 @@
 section.praca {
   ul {
-    width: 100%;
-    max-width: 60%;
+    display: inline-block;
+    width: 50%;
+    padding-right: 25px;
+    box-sizing: border-box;
+    vertical-align: top;
 
     li {
       position: relative;
@@ -52,6 +55,7 @@ section.praca {
 
         .button {
           margin-top: 30px;
+          background: $white;
           border-color: $red;
         }
       }
@@ -60,5 +64,14 @@ section.praca {
         margin-bottom: 0;
       }
     }
+  }
+
+  img {
+    display: inline-block;
+    width: calc(50% - 25px);
+    margin-left: 25px;
+    box-sizing: border-box;
+    border: 2px solid $grey;
+    vertical-align: top;
   }
 }

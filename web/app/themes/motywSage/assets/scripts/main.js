@@ -10,32 +10,82 @@
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 
-(function($) {
+(function ($) {
 
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
   var Sage = {
     // All pages
     'common': {
-      init: function() {
+      init: function () {
         // JavaScript to be fired on all pages
+       
       },
-      finalize: function() {
+      finalize: function () {
         // JavaScript to be fired on all pages, after page specific JS is fired
       }
     },
     // Home page
     'home': {
-      init: function() {
+      init: function () {
         // JavaScript to be fired on the home page
+        var header = $('header');
+        var sections = $('section');
+        var sectionsCount = $('section').length;
+        var bullets = $('body > .bullets div');
+        var bulletsRealizacje = $('section.realizacje .bullets div');
+        var jobOffers = $('section.praca ul li');
+
+        function changeBullets() {
+          for (var i = 1; i < sectionsCount; i++) {
+            var sectionRectTop = sections[i].getBoundingClientRect().top;
+
+            if (sectionRectTop >= 0 && sectionRectTop < (sections[i].offsetHeight * 0.5)) {
+              bullets.removeClass("active");
+              bulletsRealizacje.removeClass("active");
+              bullets.eq(i - 1).addClass("active");
+              bulletsRealizacje.eq(i - 1).addClass("active");
+              break;
+            }
+          }
+        }
+
+        // $("section.ms-hydro").fixTypography([
+        //   "bastards"
+        // ]);
+
+        $(window).on("scroll", function () {
+          changeBullets();
+
+          if ((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
+            header.addClass("fixed");
+
+          } else {
+            header.removeClass("fixed");
+          }
+        });
+
+        jobOffers.children(".title").on("click", function () {
+          var parent = $(this).parent();
+
+          if (parent.hasClass("active")) {
+            parent.removeClass("active");
+            $(this).next(".desc").slideUp();
+          } else {
+            jobOffers.removeClass("active");
+            jobOffers.children(".desc").not(this).slideUp();
+            parent.addClass("active");
+            $(this).next(".desc").slideDown();
+          }
+        });
       },
-      finalize: function() {
+      finalize: function () {
         // JavaScript to be fired on the home page, after the init JS
       }
     },
     // About us page, note the change from about-us to about_us.
     'about_us': {
-      init: function() {
+      init: function () {
         // JavaScript to be fired on the about us page
       }
     }
@@ -44,7 +94,7 @@
   // The routing fires all common scripts, followed by the page specific scripts.
   // Add additional events for more control over timing e.g. a finalize event
   var UTIL = {
-    fire: function(func, funcname, args) {
+    fire: function (func, funcname, args) {
       var fire;
       var namespace = Sage;
       funcname = (funcname === undefined) ? 'init' : funcname;
@@ -56,12 +106,12 @@
         namespace[func][funcname](args);
       }
     },
-    loadEvents: function() {
+    loadEvents: function () {
       // Fire common init JS
       UTIL.fire('common');
 
       // Fire page-specific init JS, and then finalize JS
-      $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
+      $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function (i, classnm) {
         UTIL.fire(classnm);
         UTIL.fire(classnm, 'finalize');
       });
@@ -77,58 +127,4 @@
 })(jQuery); // Fully reference jQuery after this point.
 
 
-
-// Kod Pawła
-
-$(document).on("ready", function() {
-  var header = $('header');
-  var sections = $('section');
-  var sectionsCount = $('section').length;
-  var bullets = $('body > .bullets div');
-  var bulletsRealizacje = $('section.realizacje .bullets div');
-  var jobOffers = $('section.praca ul li');
-
-  function changeBullets() {
-    for(var i = 1; i < sectionsCount; i++) {
-      var sectionRectTop = sections[i].getBoundingClientRect().top;
-
-      if(sectionRectTop >= 0 && sectionRectTop < (sections[i].offsetHeight * 0.5)) {
-        bullets.removeClass("active");
-        bulletsRealizacje.removeClass("active");
-        bullets.eq(i - 1).addClass("active");
-        bulletsRealizacje.eq(i - 1).addClass("active");
-        break;
-      }
-    }
-  }
-
-  // $("section.ms-hydro").fixTypography([
-  //   "bastards"
-  // ]);
-
-  $(window).on("scroll", function() {
-    changeBullets();
-
-    if((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
-      header.addClass("fixed");
-
-    } else {
-      header.removeClass("fixed");
-    }
-  });
-
-  jobOffers.children(".title").on("click", function() {
-    var parent = $(this).parent();
-
-    if(parent.hasClass("active")) {
-      parent.removeClass("active");
-      $(this).next(".desc").slideUp();
-    } else {
-      jobOffers.removeClass("active");
-      jobOffers.children(".desc").not(this).slideUp();
-      parent.addClass("active");
-      $(this).next(".desc").slideDown();
-    }
-  });
-});
 

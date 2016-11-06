@@ -34,13 +34,14 @@ section.produkty {
       .fa {
         width: 14px;
         margin-right: 10px;
+        margin-top: -2px;
         border: 2px solid $grey;
         background: $white;
-        font-size: 13px;
+        font-size: 12px;
         line-height: 14px;
         font-weight: normal;
         text-align: center;
-        color: rgba($red, 0);
+        color: rgba($black, 0);
       }
     }
   }
@@ -90,7 +91,7 @@ section.produkty {
           text-align: center;
           text-transform: uppercase;
           vertical-align: top;
-          transition: 0.5s opacity ease-out;
+          /*transition: 0.5s opacity ease-out;*/
 
           &:hover {
             opacity: 1;

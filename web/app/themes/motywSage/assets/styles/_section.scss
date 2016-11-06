@@ -1,20 +1,10 @@
 section {
   @extend %wrapper;
-  padding: 75px 0;
+  padding-top: 75px;
 
   h2 {
     border-top: 5px solid $red;
     padding-top: 15px;
     margin-bottom: 30px;
-  }
-
-  .aaa {
-    position: fixed;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  background: red;
   }
 }

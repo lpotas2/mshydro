@@ -16,16 +16,21 @@ header {
     }
     
     .contact {
-      top: 25px;
+      top: 22.5px;
     }
 
     img {
-      height: 50px;
+      height: 45px;
     }
   }
 
   .wrapper {
     padding: 15px 0 42.5px;
+  }
+
+  .brand {
+    display: inline-block;
+    vertical-align: middle;
   }
 
   img {

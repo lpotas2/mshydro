@@ -1,0 +1,209 @@
+section.proces {
+  max-width: 100%;
+  padding-bottom: 75px;
+  background: $red;
+  color: $white;
+  overflow: hidden;
+  z-index: 11;
+
+  .clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(auto, auto, auto, auto);
+
+    .bullets {
+      .title {
+        color: rgba($light-grey, 0.20);
+      }
+
+      .square {
+        border-color: rgba($light-grey, 0.20);
+      }
+
+      .active {
+        .title {
+          color: $grey;
+        }
+
+        .square {
+          border-color: $white;
+        }
+      }
+    }
+  }
+
+  h2 {
+    border-color: $white;
+  }
+
+  .bg-lines {
+    position: absolute;
+    height: 100%;
+
+    span {
+      height: 100%;
+      border-color: rgba($light-grey, 0.1);
+    }
+  }
+
+  .char {
+    position: relative;
+    font-size: 0;
+    margin-bottom: 250px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: $white;
+      z-index: 0;
+    }
+
+    ul {
+      position: relative;
+      line-height: 0;
+      z-index: 1;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -4px;
+        margin-top: -4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $white;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -4px;
+        margin-top: -4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $white;
+      }
+
+      & > li {
+        &:hover {
+          & > .title:before {
+            opacity: 1;
+          }
+
+          & > .desc {
+            opacity: 1;
+          }
+        }
+      }
+      
+      li {
+        position: relative;
+        display: inline-block;
+        width: 20%;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+
+        .desc {
+          position: absolute;
+          top: 200px;
+          width: 100%;
+          padding: 15px 10px;
+          box-sizing: border-box;
+          background: $red;
+          border-top: 1px solid $white;
+          font-size: 12px;
+          line-height: 200%;
+          opacity: 0;
+        }
+
+        .title {
+          position: relative;
+          display: inline-block;
+          width: calc(100% - 30px);
+          height: 100px;
+          border: 1px solid $white;
+          box-sizing: border-box;
+          background: $red;
+
+          &:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            height: 150px;
+            width: 1px;
+            background: $white;
+            opacity: 0;
+            z-index: -1;
+          }
+
+          span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 150%;
+            text-transform: uppercase;
+          }
+        }
+        
+        &.parent {
+          width: 40%;
+          cursor: auto;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $white;
+            z-index: 1;
+          }
+
+          & > div {
+            height: 200px;
+            border: 1px dashed $white;
+
+            ul {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 100%;
+            }
+
+            li {
+              width: 30%;
+
+              & > div {
+                width: calc(100% - 10px);
+              }
+
+              .desc {
+                width: 220px;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

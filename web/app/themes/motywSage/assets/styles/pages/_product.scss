@@ -1,0 +1,131 @@
+body.product-page {
+  aside {
+    position: relative;
+  }
+
+  header {
+    position: relative;
+    top: 0;
+  }
+
+  section {
+    padding: 100px 0 0;
+
+    h2 {
+      padding-top: 0;
+      margin-bottom: 50px;
+      border-top: 0;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+
+      &:first-of-type {
+        left: 0;
+      }
+
+      &:last-of-type {
+        right: 0;
+      }
+    }
+
+    .filter-table {
+      position: relative;
+      display: block;
+      width: 20%;
+      margin: 0 auto 75px;
+      text-align: center;
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: -15px;
+        transform: translate(-100%, -50%);
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        content: "\f002";
+        font-size: 1.5em;
+        color: $red;
+      }
+
+      input {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 0;
+        border-bottom: 2px solid $red;
+        background: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1em;
+        line-height: 100%;
+
+        &::-ms-clear {
+          display: none; width : 0; height: 0;
+        }
+        
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+          display: none;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        input-placeholder {
+          //color: $grey;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 75px;
+
+      td {
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid $grey;
+      }
+
+      thead {
+        &:hover {
+          td {
+            background: $light-grey;
+            color: $black;
+          }
+        }
+
+        td {
+          background: $light-grey;
+          font-weight: 700;    
+          text-transform: uppercase;        
+        }
+      }
+
+      tbody {
+        tr {
+          &:hover {
+            td {
+              background: $blue;
+              color: $white;
+            }
+          }
+
+          td {
+            background: $white;
+          }
+        }
+      }
+    }
+  }
+}

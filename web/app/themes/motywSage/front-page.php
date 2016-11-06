@@ -6,7 +6,6 @@
 
 <aside>
 	<div class="wrapper">
-		<!-- <strong>MS-HYDRO s.c.</strong> ul. Barniewicka 54F, 80-299 Gdańsk, NIP: 583-30-34-296-->
 		<strong><?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('nazwa_firmy');
@@ -277,6 +276,79 @@ wp_nav_menu($args);?>
       </ul>
     </div>
   </section>
+    <section class="proces">
+    <div class="clip">
+      <div class="bullets">
+        <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
+        <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
+        <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+        <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
+        <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
+        <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+        <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
+        <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
+      </div>
+    </div>
+
+    <div class="bg-lines">
+      <span></span><!--
+      --><span></span><!--
+      --><span></span><!--
+      --><span></span><!--
+      --><span></span>
+    </div>
+
+    <div class="wrapper">
+      <h2>PROCES</h2>
+
+      <div class="char">
+        <ul>
+          <li>
+            <div class="title"><span>Specyfikacja</span></div>
+            <div class="desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </li>
+          <li>
+            <div class="title"><span>Planowanie</span></div>
+            <div class="desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </li>
+          <li class="parent">
+            <div>
+              <ul>
+                <li>
+                  <div class="title"><span>Projekt</span></div>
+                  <div class="desc">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="title"><span>Konstrukcja</br>i montaż</span></div>
+                  <div class="desc">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="title"><span>Testowanie</span></div>
+                  <div class="desc">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </li>
+              </ul>
+            </div> 
+          </li>
+          <li>
+            <div class="title"><span>Serwisowanie</span></div>
+            <div class="desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
   
 
 
@@ -300,8 +372,6 @@ wp_nav_menu($args);?>
           <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
            
             <div class="bg"></div>
-           
-            <span class="index">.0<?php echo $numer;?></span>
 
 		<img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>" />
 		<img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>" />
@@ -314,7 +384,7 @@ wp_nav_menu($args);?>
 				<?php the_sub_field('opis',$strona->ID)?>
 			</p>
 		</div>
-		<i class="fa fa-chevron-right" aria-hidden="true"></i>
+
 	</div>
 	</div>
 	<!--
@@ -333,51 +403,57 @@ wp_nav_menu($args);?>
   
 </section>
 
-<section class="realizacje">
-	<div class="clip">
-		<div class="bullets">
-			<div><span class="title">MS-HYDRO</span><span class="square"></span></div>
-			<div><span class="title">OFERTA</span><span class="square"></span></div>
-			<div><span class="title">REALIZACJE</span><span class="square"></span></div>
-			<div><span class="title">PRODUKTY</span><span class="square"></span></div>
-			<div><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-			<div><span class="title">PRACY</span><span class="square"></span></div>
-			<div><span class="title">KONTAKT</span><span class="square"></span></div>
-		</div>
-	</div>
 
-	<div class="bg-lines">
-		<span></span>
-		<!--
-      --><span></span>
-		<!--
-      --><span></span>
-		<!--
-      --><span></span>
-		<!--
-      --><span></span>
-	</div>
-	<div class="wrapper">
+  <section class="realizacje">
+    <div class="clip">
+      <div class="bullets">
+        <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
+        <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
+        <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+        <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
+        <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
+        <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+        <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
+        <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
+      </div>
+    </div>
 
-		<h2>
-			<?php echo get_the_title(10)?>
-		</h2>
-		<ul>
-			<?php
+<div class="bg-lines">
+      <span></span><!--
+      --><span></span><!--
+      --><span></span><!--
+      --><span></span><!--
+      --><span></span>
+    </div>
+
+    <div class="wrapper">
+      <h2><?php echo get_the_title(10)?></h2>
+
+      <div>
+        <div>
+        <?php
         $strony = get_pages( $args = array(
         'child_of'=>10,
         'sort_column' => 'ID',
      ));
           foreach ( $strony as $strona ) { 
     ?>
-
-
-				<li><span><?php echo $strona->post_title; ?></span><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-
-				<?php } ?>
-		</ul>
-	</div>
-</section>
+        
+          <div class="box">
+            <a href="<?php the_permalink($strona->ID); ?>">
+              <?php if( have_rows('realizacje',$strona->ID) ):
+                while ( have_rows('realizacje',$strona->ID) ) : the_row();?>
+              <img src="<?php the_sub_field('zdjecie_glowne')?>" />
+              <?php endwhile;endif;?>
+              <h3><?php echo $strona->post_title; ?></h3>
+            </a>
+          </div><!--
+          -->
+          <?php } ?>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <section class="produkty">
 	<h2>
@@ -469,9 +545,6 @@ wp_nav_menu($args);?>
 			<?php } ?>
 	</ul>
 </section>
-<?php if( have_rows('pierwszy_ekran') ):
-          echo "działa";
-endif;?>
 
 <section class="kontakt">
 	<h2><?php echo get_the_title(18);?></h2>
@@ -524,12 +597,10 @@ endif;?>
 	</div>
 </section>
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 
 
-<script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>
-
+<!--<script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>
+-->
 <!-- google map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
 <script>

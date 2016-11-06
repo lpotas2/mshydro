@@ -1,7 +1,9 @@
 section.kontakt {
+    padding-bottom: 75px;
+
   .left, .right {
     display: inline-block;
-    width: 49%;//zmienione z 50% bo sie rozjezdzało
+    width: 50%;
     margin-top: 50px;
     box-sizing:border-box;
     vertical-align: top;
@@ -17,7 +19,8 @@ section.kontakt {
 
   .address, .phone, .email {
     display: inline-block;
-    width: calc(100% / 5)-2%;// odjete 2% bo sie rozjezdzało
+    /*width: calc(100% / 5)-2%;// odjete 2% bo sie rozjezdzało*/
+        width: calc(100% / 5);
     margin-bottom: 15px;
     text-align: center;
 
@@ -51,7 +54,7 @@ section.kontakt {
     margin-left: calc(100% / 5);
 
     .fa {
-      font-size: 3em;
+      font-size: 2.25em;
     }
   }
 
@@ -81,7 +84,7 @@ section.kontakt {
       font-size: 12px;
 
       input-placeholder {
-        color: $light-grey;
+        /*color: $light-grey;*/
        }
 
       &:focus {
