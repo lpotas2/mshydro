@@ -1,15 +1,10 @@
-<?php if( have_rows('stopka') ):
-      while ( have_rows('stopka') ) : the_row();?>
-<!--<img src="<?php the_sub_field('logo'); ?>"/>-->
-<footer class="content-info" style="background-color: red">
-  <?php endwhile; 
-      endif;?>
   <footer class="content-info" style="background-image: url('<?php print get_template_directory_uri(); ?>/dist/images/footer-bg.png'); background-color: #1f1a17;">
     <div class="container">
       <div class="wrapper">
         <nav>
           <ul>
             <li><a href="">MS-Hydro</a></li>
+            <li><a href="">Proces</a></li>
             <li><a href="">Oferta</a></li>
             <li><a href="">Realizacje</a></li>
             <li><a href="">Produkty</a></li>

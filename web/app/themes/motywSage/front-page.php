@@ -168,7 +168,6 @@ wp_nav_menu($args);?>
       endwhile; 
     endif;?>
 
-
     <div class="wrapper">
       <h2>MS-HYDRO</h2>
 
@@ -286,8 +285,8 @@ wp_nav_menu($args);?>
         </li>
       </ul>
     </div>
-
   </section>
+
     <section class="proces">
     <div class="clip">
       <div class="bullets">
@@ -387,7 +386,9 @@ wp_nav_menu($args);?>
 <!-- OFERTA -->
 <section class="oferta">
   <h2>
-    <a href="<?php the_permalink(8);?>"><?php echo get_the_title(8)?></a>
+    <a href="<?php the_permalink(8);?>">
+      <?php echo get_the_title(8)?>
+    </a>
   </h2>
   <!--
     -->
@@ -402,25 +403,27 @@ wp_nav_menu($args);?>
     $i++;
     ?>
     <div class="box">
-      <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
+      <a href="<?php the_permalink($strona->ID);?>">
+        <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
                 while ( have_rows('tło_ikony_opis',$strona->ID) ) : the_row();?>
-      <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
+        <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
 
-        <div class="bg"></div>
+          <div class="bg"></div>
 
-        <img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>" />
-        <img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>" />
+          <img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>" />
+          <img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>" />
 
-        <h3>
-          <?php echo $strona->post_title; ?>
-        </h3>
-        <div class="desc">
-          <p>
-            <?php the_sub_field('opis',$strona->ID)?>
-          </p>
+          <h3>
+            <?php echo $strona->post_title; ?>
+          </h3>
+          <div class="desc">
+            <p>
+              <?php the_sub_field('opis',$strona->ID)?>
+            </p>
+          </div>
+
         </div>
-
-      </div>
+      </a>
     </div>
     <!--
     -->
@@ -428,11 +431,8 @@ wp_nav_menu($args);?>
 
     <div class="box">
       <div class="container">
-        <?php if( have_rows('pobierz_ofertę') ):
-        while ( have_rows('pobierz_ofertę') ) : the_row();?>
-        <span><?php the_sub_field('opis');?></span>
+        <span>Pobierz ofertę</span>
         <i class="fa fa-file-text-o" aria-hidden="true"></i>
-        <?php endwhile; endif;?>
       </div>
     </div>
 
@@ -467,7 +467,9 @@ wp_nav_menu($args);?>
 
   <div class="wrapper">
     <h2>
-      <a href="<?php the_permalink(10);?>"><?php echo get_the_title(10)?></a>
+      <a href="<?php the_permalink(10);?>">
+        <?php echo get_the_title(10)?>
+      </a>
     </h2>
 
     <div>
@@ -501,7 +503,9 @@ wp_nav_menu($args);?>
 
 <section class="produkty">
   <h2>
-    <a href="<?php the_permalink(12);?>"><?php echo get_the_title(12); ?></a>
+    <a href="<?php the_permalink(12);?>">
+      <?php echo get_the_title(12); ?>
+    </a>
   </h2>
 
   <ul>
@@ -550,45 +554,34 @@ wp_nav_menu($args);?>
 
 <section class="aktualnosci">
   <h2>
-    <a href="<?php the_permalink(14);?>"><?php echo get_the_title(14); ?></a>
+    <a href="<?php the_permalink(14);?>">
+      <?php echo get_the_title(14); ?>
+    </a>
   </h2>
   <div>
-    <?php
-              $posty = get_posts( $args = array(
-              'category'=>10,
-              'sort_column' => 'ID',
-              'order'=> "ASC"
-          ));
-                foreach ( $posty as $post ) {?>
-
-      <div class="box">
-        <div class="inner">
-          <div class="heading">
-
-<?php if(get_field('zdjecie_wpisu',$post->ID)){?>
-<div class="image" style="background-image: url(<?php the_field('zdjecie_wpisu',$post->ID);?>);"></div>
-<?php } ?>
-
-
-            <span><?php $time = $post->post_date;
-            $time = substr($time, 0, 10);
-            echo $time;?></span>
-            <h3>
-              <a href="<?php the_permalink($post->ID);?>"><?php echo get_the_title($post->ID);?></a>
-            </h3>
-          </div>
-          <p>
-            <?php $content = $post->post_content;
-            $content = substr($content, 0, 150);
-            $content = $content.'...';
-            echo $content;
-            ?>
-            <strong><a href="<?php the_permalink($post->ID);?>">więcej</a></strong>
-          </p>
-
+    <?php query_posts('cat=10&posts_per_page=8'); while (have_posts()) : the_post(); ?>
+    <div class="box">
+      <div class="inner">
+        <div class="heading">
+          <?php if(get_field('zdjecie_wpisu')){?>
+          <div class="image" style="background-image: url(<?php the_field('zdjecie_wpisu');?>);"></div>
+          <?php } ?>
+          <span><?php echo get_the_date();?></span>
+          <h3>
+            <a href="<?php the_permalink();?>">
+              <?php echo get_the_title();?>
+            </a>
+          </h3>
         </div>
+        <p>
+          <?php echo get_excerpt();?>
+        </p>
       </div>
-      <?php } ?>
+    </div>
+
+    <?php endwhile; ?>
+
+    <?php wp_reset_query(); ?>
   </div>
 </section>
 
@@ -604,7 +597,7 @@ wp_nav_menu($args);?>
           ));
                 foreach ( $podstronyPraca as $strona ) { ?>
       <li>
-        <div class="title"><a href="<?php echo get_page_link($strona->ID) ?>"><strong><?php echo get_the_title($strona->ID) ?></strong></a>
+        <div class="title"><a href=""><strong><?php echo get_the_title($strona->ID) ?></strong></a>
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
 
@@ -612,11 +605,13 @@ wp_nav_menu($args);?>
 
           <?php $page = get_post($strona->ID); $content = apply_filters('the_content', $page->post_content); echo $content ?>
 
-          <a href="" class="button">APLIKUJ</a>
+          <a href="<?php echo get_page_link($strona->ID) ?>" class="button">APLIKUJ</a>
         </div>
       </li>
       <?php } ?>
   </ul>
+  <!--
+    --><img src="<?php the_field('sekcja_praca');?>"/>
 </section>
 
 <section class="kontakt">
@@ -624,11 +619,14 @@ wp_nav_menu($args);?>
     <?php echo get_the_title(18);?>
   </h2>
   <div>
+    <?php if( have_rows('sekcja_kontakt') ):
+      while ( have_rows('sekcja_kontakt') ) : the_row();?>
+
     <div class="address">
       <i class="fa fa-map-marker" aria-hidden="true"></i>
       <div>
-        ul. Barniewicka 54F</br>
-        80-299 Gdańsk
+        <?php the_sub_field('ulica');?><br>
+        <?php the_sub_field('kod_pocztowy_i_miasto');?>
       </div>
     </div>
     <!--
@@ -636,16 +634,18 @@ wp_nav_menu($args);?>
     <div class="phone">
       <i class="fa fa-mobile" aria-hidden="true"></i>
       <div>
-        Tel: +48 (58) 306 90 08</br>
-        Fax: +48 (58) 320 11 13
+        <?php the_sub_field('telefon');?></br>
+        <?php the_sub_field('fax');?>
       </div>
     </div>
     <!--
       -->
     <div class="email">
       <i class="fa fa-envelope-o" aria-hidden="true"></i>
-      <div>biuro@mshydro.pl</div>
+      <div><?php the_sub_field('e-mail');?></div>
     </div>
+    <?php endwhile; 
+      endif;?>
   </div>
 
   <div class="left">
