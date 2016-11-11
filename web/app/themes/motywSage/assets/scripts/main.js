@@ -29,55 +29,200 @@
     'home': {
       init: function () {
         // JavaScript to be fired on the home page
-        var header = $('header');
-        var sections = $('section');
-        var sectionsCount = $('section').length;
-        var bullets = $('body > .bullets div');
-        var bulletsRealizacje = $('section.realizacje .bullets div');
-        var jobOffers = $('section.praca ul li');
+        // var header = $('header');
+        // var sections = $('section');
+        // var sectionsCount = $('section').length;
+        // var bullets = $('body > .bullets div');
+        // var bulletsRealizacje = $('section.realizacje .bullets div');
+        // var jobOffers = $('section.praca ul li');
 
-        function changeBullets() {
-          for (var i = 1; i < sectionsCount; i++) {
-            var sectionRectTop = sections[i].getBoundingClientRect().top;
+        // function changeBullets() {
+        //   for (var i = 1; i < sectionsCount; i++) {
+        //     var sectionRectTop = sections[i].getBoundingClientRect().top;
 
-            if (sectionRectTop >= 0 && sectionRectTop < (sections[i].offsetHeight * 0.5)) {
-              bullets.removeClass("active");
-              bulletsRealizacje.removeClass("active");
-              bullets.eq(i - 1).addClass("active");
-              bulletsRealizacje.eq(i - 1).addClass("active");
-              break;
-            }
+        //     if (sectionRectTop >= 0 && sectionRectTop < (sections[i].offsetHeight * 0.5)) {
+        //       bullets.removeClass("active");
+        //       bulletsRealizacje.removeClass("active");
+        //       bullets.eq(i - 1).addClass("active");
+        //       bulletsRealizacje.eq(i - 1).addClass("active");
+        //       break;
+        //     }
+        //   }
+        // }
+
+        // // $("section.ms-hydro").fixTypography([
+        // //   "bastards"
+        // // ]);
+
+        // $(window).on("scroll", function () {
+        //   changeBullets();
+
+        //   if ((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
+        //     header.addClass("fixed");
+
+        //   } else {
+        //     header.removeClass("fixed");
+        //   }
+        // });
+
+        // jobOffers.children(".title").on("click", function () {
+        //   var parent = $(this).parent();
+
+        //   if (parent.hasClass("active")) {
+        //     parent.removeClass("active");
+        //     $(this).next(".desc").slideUp();
+        //   } else {
+        //     jobOffers.removeClass("active");
+        //     jobOffers.children(".desc").not(this).slideUp();
+        //     parent.addClass("active");
+        //     $(this).next(".desc").slideDown();
+        //   }
+        // });
+
+  var header = $('header');
+  var footer = $('footer');
+  var sections = $('section');
+  var sectionsCount = $('section').length;
+  var bullets = $('.bullets');
+  var jobOffers = $('section.praca ul li');
+  var menu = $('nav.primary');
+
+  function menuSelect(name) {
+    menu.find('li').removeClass('active');
+    menu.find('.' + name).addClass('active');
+  }
+
+  function init() {
+    if($("body").hasClass("home")) {
+      $("section.ms-hydro").fixTypography([
+        "bastards"
+      ]);
+
+      $(window).on("scroll", function() {
+        if((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
+          header.addClass("fixed");
+        } else {
+          header.removeClass("fixed");
+        }
+      });
+
+      var waypointsUp = $('section').waypoint({
+        handler: function(direction) {
+          if(direction == 'up') {
+            bullets.children().removeClass('active');
+            bullets.find('.' + this.element.className).addClass('active');
+
+            menuSelect(this.element.className);
           }
+        },
+        offset: '-50%'
+      });
+
+      var waypointsDown = $('section').waypoint({
+        handler: function(direction) {
+          if(direction == 'down') {
+            bullets.children().removeClass('active');
+            bullets.find('.' + this.element.className).addClass('active');
+
+            menuSelect(this.element.className);
+          }
+        },
+        offset: '50%'
+      });
+
+      //praca
+      jobOffers.children(".title").on("click", function() {
+        var parent = $(this).parent();
+
+        if(parent.hasClass("active")) {
+          parent.removeClass("active");
+          $(this).next(".desc").slideUp();
+        } else {
+          jobOffers.removeClass("active");
+          jobOffers.children(".desc").not(this).slideUp();
+          parent.addClass("active");
+          $(this).next(".desc").slideDown();
+        }
+      });
+
+      Macy.init({
+        container: 'section.aktualnosci > div',
+        trueOrder: false,
+        waitForImages: false,
+        margin: 30,
+        columns: 4,
+      });
+
+      menu.find('li').on('click', function() {
+        if($(this).hasClass == 'search') {
+          return false;
         }
 
-        // $("section.ms-hydro").fixTypography([
-        //   "bastards"
-        // ]);
-
-        $(window).on("scroll", function () {
-          changeBullets();
-
-          if ((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
-            header.addClass("fixed");
-
-          } else {
-            header.removeClass("fixed");
-          }
+        Jump('section.' + this.className, {
+          offset: -75
         });
+      });
 
-        jobOffers.children(".title").on("click", function () {
-          var parent = $(this).parent();
+      bullets.children().on('click', function() {
+        if($(this).hasClass == 'active') {
+          return false;
+        }
 
-          if (parent.hasClass("active")) {
-            parent.removeClass("active");
-            $(this).next(".desc").slideUp();
-          } else {
-            jobOffers.removeClass("active");
-            jobOffers.children(".desc").not(this).slideUp();
-            parent.addClass("active");
-            $(this).next(".desc").slideDown();
+        menu.find('li.' + this.className).trigger('click');
+      });
+
+      $('.scroll-down').on('click', function() {
+        menu.find('li').first().trigger('click');
+      });
+
+      footer.find('li').on('click', function() {
+        menu.find('li.' + this.className).trigger('click');
+      });
+    }
+
+    if($("body").hasClass("product-page")) {
+      $('table').filterTable({
+        placeholder: "Szukaj",
+        label: "",
+        minRows: "1"
+      });
+    }
+
+    if($("body").hasClass("realization-page") || $("body").hasClass("offer-page")) {
+      var baguetteBoxInitialized = false;
+
+      baguetteBox.run('.gallery', {
+        buttons: false,
+        overlayBackgroundColor: 'rgba(254, 255, 255, 0.95)',
+        afterShow: function() {
+          if(!baguetteBoxInitialized) {
+            var nextButton = document.createElement('span');
+            nextButton.className = 'next-button';
+            nextButton.innerHTML = '<i class="fa fa-chevron-right" aria-hidden="true"></i>';
+            document.querySelectorAll('#baguetteBox-overlay')[0].appendChild(nextButton);
+
+            nextButton.addEventListener('click', function() {
+              baguetteBox.showNext();
+            });
+
+            var prevButton = document.createElement('span');
+            prevButton.className = 'prev-button';
+            prevButton.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
+            document.querySelectorAll('#baguetteBox-overlay')[0].appendChild(prevButton);
+
+            prevButton.addEventListener('click', function() {
+              baguetteBox.showPrevious();
+            });
+
+            baguetteBoxInitialized = true;
           }
-        });
+        }
+      });
+    }
+  }
+
+  init();
+
       },
       finalize: function () {
         // JavaScript to be fired on the home page, after the init JS

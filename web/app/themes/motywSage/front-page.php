@@ -5,75 +5,72 @@
 
 
 <aside>
-	<div class="wrapper">
-		<strong><?php if( have_rows('pierwszy_ekran') ):
+  <div class="wrapper">
+    <strong><?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('nazwa_firmy');
     endwhile; endif;?></strong>
 
-		<?php if( have_rows('pierwszy_ekran') ):
+    <?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('adres');
     the_sub_field('nip');
     endwhile; endif;?>
 
-		<div class="lang">
-			<span>
+    <div class="lang">
+      <span>
       <?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('język_polski');
     endwhile; endif;?></span>
 
-			<a href="">
-				<?php if( have_rows('pierwszy_ekran') ):
+      <a href="">
+        <?php if( have_rows('pierwszy_ekran') ):
     while ( have_rows('pierwszy_ekran') ) : the_row();
     the_sub_field('język_angielski');
     endwhile; endif;?>
-			</a>
-		</div>
-	</div>
+      </a>
+    </div>
+  </div>
 </aside>
 
 <header>
-	<div class="wrapper">
-		<?php if( have_rows('pierwszy_ekran') ):
+  <div class="wrapper">
+    <?php if( have_rows('pierwszy_ekran') ):
       while ( have_rows('pierwszy_ekran') ) : the_row();
         if( get_sub_field('logo') ):?>
-		<a href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php the_sub_field('logo'); ?>" /></a>
-		<?php endif; 
+    <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php the_sub_field('logo'); ?>" /></a>
+    <?php endif; 
       endwhile; 
     endif;?>
 
-
-
-
-
-		<div class="contact">
-			<div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>
-				<?php if( have_rows('pierwszy_ekran') ):
+    <div class="contact">
+      <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>
+        <?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('telefon');
             endwhile;
           endif;?>
-			</div>
+      </div>
 
-			<div class="email"><i class="fa fa-envelope" aria-hidden="true"></i>
-				<?php if( have_rows('pierwszy_ekran') ):
+      <div class="email"><i class="fa fa-envelope" aria-hidden="true"></i>
+        <?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('e-mail');
             endwhile; 
           endif;?>
-			</div>
+      </div>
 
-			<div class="open"><i class="fa fa-clock-o" aria-hidden="true"></i>
-				<?php if( have_rows('pierwszy_ekran') ):
+      <div class="open"><i class="fa fa-clock-o" aria-hidden="true"></i>
+        <?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('godziny_otwarcia');
             endwhile; 
           endif;?>
-			</div>
-		</div>
-<?php 
+      </div>
+    </div>
+    <!--tutaj powinno byc menu na sztywno-->
+    <!--<?php 
 $args =  array(
   "menu_class"=> 0,
   "menu_id"=> 0,
@@ -82,29 +79,45 @@ $args =  array(
   "after"=>"<li class='search'><i class='fa fa-search' aria-hidden='true'></i>Szukaj</li>"
   );
 wp_nav_menu($args);?>
-  
+  -->
+
+    <nav class="primary">
+      <ul>
+        <li class="ms-hydro">MS-Hydro</li>
+        <li class="proces">Proces</li>
+        <li class="oferta">Oferta</li>
+        <li class="realizacje">Realizacje</li>
+        <li class="produkty">Produkty</li>
+        <li class="aktualnosci">Aktualności</li>
+        <li class="praca">Praca</li>
+        <li class="kontakt">Kontakt</li>
+        <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <div class="bg-lines">
-	<span></span>
-	<!--
+  <span></span>
+  <!--
     --><span></span>
-	<!--
+  <!--
     --><span></span>
-	<!--
+  <!--
     --><span></span>
-	<!--
+  <!--
     --><span></span>
 </div>
 
 <div class="bullets">
-	<div><span class="title">MS-HYDRO</span><span class="square"></span></div>
-	<div><span class="title">OFERTA</span><span class="square"></span></div>
-	<div><span class="title">REALIZACJE</span><span class="square"></span></div>
-	<div><span class="title">PRODUKTY</span><span class="square"></span></div>
-	<div><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-	<div><span class="title">PRACY</span><span class="square"></span></div>
-	<div><span class="title">KONTAKT</span><span class="square"></span></div>
+  <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
+  <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
+  <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+  <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
+  <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
+  <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+  <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
+  <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
 </div>
 
 
@@ -112,40 +125,41 @@ wp_nav_menu($args);?>
       while ( have_rows('pierwszy_ekran') ) : the_row();
         if( get_sub_field('zdjęcie_zajawki') ):?>
 <section class="top" style="background-image: url('<?php the_sub_field('zdjęcie_zajawki')?>');">
-	<?php endif; 
+  <?php endif; 
       endwhile; 
     endif;?>
 
-	<div class="wrapper">
-		<div>
-			<h2>
-				<?php if( have_rows('pierwszy_ekran') ):
+  <div class="wrapper">
+    <div>
+      <h2>
+        <?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('duzy_napis');
             endwhile; 
           endif;?>
-			</h2>
-			<p>
-				<?php if( have_rows('pierwszy_ekran') ):
+      </h2>
+      <p>
+        <?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('mały_napis');
             endwhile; 
           endif;?>
-			</p>
-			<a href="" class="button">
-				<?php if( have_rows('pierwszy_ekran') ):
+      </p>
+      <a href="" class="button">
+        <?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('napis_przycisku');
             endwhile; 
           endif;?>
-				<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-		</div>
+        <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    </div>
 
-		<span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+    <span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
     </div>
   </section>
 
   <section class="ms-hydro" >
+    <a id="ms-hydro"></a>
         <?php if( have_rows('sekcja_ms-hydro') ):
       while ( have_rows('sekcja_ms-hydro') ) : the_row();
         if( get_sub_field('tło_sekcji_ms-hydro') ):?>
@@ -270,93 +284,114 @@ wp_nav_menu($args);?>
             </li>
           </ul>
         </li>
-
-
-
       </ul>
     </div>
+
   </section>
     <section class="proces">
     <div class="clip">
       <div class="bullets">
         <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
-        <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
-        <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
-        <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
-        <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
-        <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-        <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
-        <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
-      </div>
-    </div>
+  <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
+  <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+  <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
+  <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
+  <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+  <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
+  <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
+  </div>
+  </div>
 
-    <div class="bg-lines">
-      <span></span><!--
-      --><span></span><!--
-      --><span></span><!--
-      --><span></span><!--
+  <div class="bg-lines">
+    <span></span>
+    <!--
       --><span></span>
+    <!--
+      --><span></span>
+    <!--
+      --><span></span>
+    <!--
+      --><span></span>
+  </div>
+
+  <div class="wrapper">
+    <h2>PROCES</h2>
+
+    <div class="char">
+      <ul>
+        <li>
+          <div class="title"><span>Specyfikacja</span></div>
+          <div class="desc">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="title"><span>Planowanie</span></div>
+          <div class="desc">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+            </p>
+          </div>
+        </li>
+        <li class="parent">
+          <div>
+            <ul>
+              <li>
+                <div class="title"><span>Projekt</span></div>
+                <div class="desc">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</p>
+                </div>
+              </li>
+              <li>
+                <div class="title"><span>Konstrukcja</br>i montaż</span></div>
+                <div class="desc">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</p>
+                </div>
+              </li>
+              <li>
+                <div class="title"><span>Testowanie</span></div>
+                <div class="desc">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="title"><span>Serwisowanie</span></div>
+          <div class="desc">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
-
-    <div class="wrapper">
-      <h2>PROCES</h2>
-
-      <div class="char">
-        <ul>
-          <li>
-            <div class="title"><span>Specyfikacja</span></div>
-            <div class="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-          </li>
-          <li>
-            <div class="title"><span>Planowanie</span></div>
-            <div class="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-          </li>
-          <li class="parent">
-            <div>
-              <ul>
-                <li>
-                  <div class="title"><span>Projekt</span></div>
-                  <div class="desc">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="title"><span>Konstrukcja</br>i montaż</span></div>
-                  <div class="desc">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="title"><span>Testowanie</span></div>
-                  <div class="desc">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  </div>
-                </li>
-              </ul>
-            </div> 
-          </li>
-          <li>
-            <div class="title"><span>Serwisowanie</span></div>
-            <div class="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  
+  </div>
+</section>
 
 
 
+<!--tutaj dodać <a href offer-->
 <!-- OFERTA -->
-  <section class="oferta">
-    <h2><?php echo get_the_title(8)?></h2><!--
-    --><?php
+<section class="oferta">
+  <h2>
+    <a href="<?php the_permalink(8);?>"><?php echo get_the_title(8)?></a>
+  </h2>
+  <!--
+    -->
+  <?php
         $strony = get_pages( $args = array(
         'child_of'=>8,
         'sort_column' => 'ID',
@@ -366,71 +401,77 @@ wp_nav_menu($args);?>
     $i =& $numer;
     $i++;
     ?>
-        <div class="box">
-            <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
+    <div class="box">
+      <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
                 while ( have_rows('tło_ikony_opis',$strona->ID) ) : the_row();?>
-          <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
-           
-            <div class="bg"></div>
+      <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
 
-		<img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>" />
-		<img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>" />
+        <div class="bg"></div>
 
-		<h3>
-			<?php echo $strona->post_title; ?>
-		</h3>
-		<div class="desc">
-			<p>
-				<?php the_sub_field('opis',$strona->ID)?>
-			</p>
-		</div>
+        <img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>" />
+        <img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>" />
 
-	</div>
-	</div>
-	<!--
-        -->
-	<?php endwhile;endif;}?>
+        <h3>
+          <?php echo $strona->post_title; ?>
+        </h3>
+        <div class="desc">
+          <p>
+            <?php the_sub_field('opis',$strona->ID)?>
+          </p>
+        </div>
 
-	<div class="box">
-		<div class="container">
-			<?php if( have_rows('pobierz_ofertę') ):
+      </div>
+    </div>
+    <!--
+    -->
+    <?php endwhile;endif;}?>
+
+    <div class="box">
+      <div class="container">
+        <?php if( have_rows('pobierz_ofertę') ):
         while ( have_rows('pobierz_ofertę') ) : the_row();?>
-			<span><?php the_sub_field('opis');?></span>
-			<img src="<?php the_sub_field('obrazek')?>" />
-			<?php endwhile; endif;?>
-		</div>
-	</div>
-  
-</section>
-
-
-  <section class="realizacje">
-    <div class="clip">
-      <div class="bullets">
-        <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
-        <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
-        <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
-        <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
-        <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
-        <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-        <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
-        <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
+        <span><?php the_sub_field('opis');?></span>
+        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        <?php endwhile; endif;?>
       </div>
     </div>
 
-<div class="bg-lines">
-      <span></span><!--
-      --><span></span><!--
-      --><span></span><!--
-      --><span></span><!--
-      --><span></span>
+</section>
+
+
+<section class="realizacje">
+  <div class="clip">
+    <div class="bullets">
+      <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
+      <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
+      <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+      <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
+      <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
+      <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+      <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
+      <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
     </div>
+  </div>
 
-    <div class="wrapper">
-      <h2><?php echo get_the_title(10)?></h2>
+  <div class="bg-lines">
+    <span></span>
+    <!--
+      --><span></span>
+    <!--
+      --><span></span>
+    <!--
+      --><span></span>
+    <!--
+      --><span></span>
+  </div>
 
+  <div class="wrapper">
+    <h2>
+      <a href="<?php the_permalink(10);?>"><?php echo get_the_title(10)?></a>
+    </h2>
+
+    <div>
       <div>
-        <div>
         <?php
         $strony = get_pages( $args = array(
         'child_of'=>10,
@@ -438,48 +479,52 @@ wp_nav_menu($args);?>
      ));
           foreach ( $strony as $strona ) { 
     ?>
-        
+
           <div class="box">
             <a href="<?php the_permalink($strona->ID); ?>">
               <?php if( have_rows('realizacje',$strona->ID) ):
                 while ( have_rows('realizacje',$strona->ID) ) : the_row();?>
               <img src="<?php the_sub_field('zdjecie_glowne')?>" />
               <?php endwhile;endif;?>
-              <h3><?php echo $strona->post_title; ?></h3>
+              <h3>
+                <?php echo $strona->post_title; ?>
+              </h3>
             </a>
-          </div><!--
+          </div>
+          <!--
           -->
           <?php } ?>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <section class="produkty">
-	<h2>
-		<?php echo get_the_title(12); ?>
-	</h2>
+  <h2>
+    <a href="<?php the_permalink(12);?>"><?php echo get_the_title(12); ?></a>
+  </h2>
 
-	<ul>
-		<li><i class="fa fa-times" aria-hidden="true"></i><span>Elementy i systemy hydrauliki</span></li>
-		<!--
+  <ul>
+    <li><i class="fa fa-times" aria-hidden="true"></i><span>Elementy i systemy hydrauliki</span></li>
+    <!--
       -->
-		<li><i class="fa fa-times" aria-hidden="true"></i><span>Filtry</span></li>
-		<!--
+    <li><i class="fa fa-times" aria-hidden="true"></i><span>Filtry</span></li>
+    <!--
       -->
-		<li><i class="fa fa-times" aria-hidden="true"></i><span>Urządzenia pomiarowe</span></li>
-		<!--
+    <li><i class="fa fa-times" aria-hidden="true"></i><span>Urządzenia pomiarowe</span></li>
+    <!--
       -->
-		<li><i class="fa fa-times" aria-hidden="true"></i><span>Inne</span></li>
-		<!--
+    <li><i class="fa fa-times" aria-hidden="true"></i><span>Inne</span></li>
+    <!--
       -->
-		<li><i class="fa fa-times" aria-hidden="true"></i><span>Węże hydrauliczne</span></li>
-	</ul>
+    <li><i class="fa fa-times" aria-hidden="true"></i><span>Węże hydrauliczne</span></li>
+  </ul>
 
-	<div class="slider-container">
-		<div class="slider">
-			<div>
-				<?php
+  <!--dodac <a href product-->
+  <div class="slider-container">
+    <div class="slider">
+      <div>
+        <?php
               $strony = get_pages( $args = array(
               'child_of'=>12,
               'sort_column' => 'ID',
@@ -488,26 +533,27 @@ wp_nav_menu($args);?>
                 if( have_rows('produkty',$strona->ID) ):
                 while ( have_rows('produkty',$strona->ID) ) : the_row();?>
 
-					<a href="<?php echo get_page_link($strona->ID) ?>">
-						<strong><?php echo get_the_title($strona->ID) ?></strong>
-						<img src="<?php the_sub_field('zdjęcie',$strona->ID);?>" />
-					</a>
-					<?php
+          <a href="<?php echo get_page_link($strona->ID) ?>">
+            <strong><?php echo get_the_title($strona->ID) ?></strong>
+            <img src="<?php the_sub_field('zdjęcie',$strona->ID);?>" />
+          </a>
+          <?php
           endwhile; endif; } ?>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 
-	<div style="text-align: center;">
-		<a class="button" href="">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-	</div>
+  <div style="text-align: center;">
+    <a class="button" href="">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  </div>
 </section>
 
 <section class="aktualnosci">
-	<h2>
-		<?php echo get_the_title(14); ?>
-	</h2>
-	<?php
+  <h2>
+    <a href="<?php the_permalink(14);?>"><?php echo get_the_title(14); ?></a>
+  </h2>
+  <div>
+    <?php
               $posty = get_posts( $args = array(
               'category'=>10,
               'sort_column' => 'ID',
@@ -515,92 +561,123 @@ wp_nav_menu($args);?>
           ));
                 foreach ( $posty as $post ) {?>
 
-		<a href="<?php echo get_page_link($post->ID) ?>"><?php echo get_the_title($post->ID);?> </a>
-		<br>
-		<?php } ?>
+      <div class="box">
+        <div class="inner">
+          <div class="heading">
+
+<?php if(get_field('zdjecie_wpisu',$post->ID)){?>
+<div class="image" style="background-image: url(<?php the_field('zdjecie_wpisu',$post->ID);?>);"></div>
+<?php } ?>
+
+
+            <span><?php $time = $post->post_date;
+            $time = substr($time, 0, 10);
+            echo $time;?></span>
+            <h3>
+              <a href="<?php the_permalink($post->ID);?>"><?php echo get_the_title($post->ID);?></a>
+            </h3>
+          </div>
+          <p>
+            <?php $content = $post->post_content;
+            $content = substr($content, 0, 150);
+            $content = $content.'...';
+            echo $content;
+            ?>
+            <strong><a href="<?php the_permalink($post->ID);?>">więcej</a></strong>
+          </p>
+
+        </div>
+      </div>
+      <?php } ?>
+  </div>
 </section>
 
 <section class="praca">
-	<h2>PRACA</h2>
+  <h2>PRACA</h2>
 
-	<ul>
-		<?php
+  <ul>
+    <?php
               $podstronyPraca = get_pages( $args = array(
               'child_of'=>16,
               'sort_column' => 'ID',
               'order'=> "ASC"              
           ));
                 foreach ( $podstronyPraca as $strona ) { ?>
-			<li>
-				<div class="title"><a href="<?php echo get_page_link($strona->ID) ?>"><strong><?php echo get_the_title($strona->ID) ?></strong></a><i class="fa fa-chevron-down"
-						aria-hidden="true"></i></div>
+      <li>
+        <div class="title"><a href="<?php echo get_page_link($strona->ID) ?>"><strong><?php echo get_the_title($strona->ID) ?></strong></a>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
 
-				<div class="desc">
+        <div class="desc">
 
-					<?php $page = get_post($strona->ID); $content = apply_filters('the_content', $page->post_content); echo $content ?>
+          <?php $page = get_post($strona->ID); $content = apply_filters('the_content', $page->post_content); echo $content ?>
 
-					<a href="" class="button">APLIKUJ</a>
-				</div>
-			</li>
-			<?php } ?>
-	</ul>
+          <a href="" class="button">APLIKUJ</a>
+        </div>
+      </li>
+      <?php } ?>
+  </ul>
 </section>
 
 <section class="kontakt">
-	<h2><?php echo get_the_title(18);?></h2>
-	<div>
-		<div class="address">
-			<i class="fa fa-map-marker" aria-hidden="true"></i>
-			<div>
-				ul. Barniewicka 54F</br>
-				80-299 Gdańsk
-			</div>
-		</div>
-		<!--
-      --><div class="phone">
-			<i class="fa fa-mobile" aria-hidden="true"></i>
-			<div>
-				Tel: +48 (58) 306 90 08</br>
-				Fax: +48 (58) 320 11 13
-			</div>
-		</div>
-		<!--
-      --><div class="email">
-			<i class="fa fa-envelope-o" aria-hidden="true"></i>
-			<div>biuro@mshydro.pl</div>
-		</div>
-	</div>
+  <h2>
+    <?php echo get_the_title(18);?>
+  </h2>
+  <div>
+    <div class="address">
+      <i class="fa fa-map-marker" aria-hidden="true"></i>
+      <div>
+        ul. Barniewicka 54F</br>
+        80-299 Gdańsk
+      </div>
+    </div>
+    <!--
+      -->
+    <div class="phone">
+      <i class="fa fa-mobile" aria-hidden="true"></i>
+      <div>
+        Tel: +48 (58) 306 90 08</br>
+        Fax: +48 (58) 320 11 13
+      </div>
+    </div>
+    <!--
+      -->
+    <div class="email">
+      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      <div>biuro@mshydro.pl</div>
+    </div>
+  </div>
 
-	<div class="left">
-		<h4>FORMULARZ KONTAKTOWY</h4>
+  <div class="left">
+    <h4>FORMULARZ KONTAKTOWY</h4>
 
-		<form>
-			<fieldset>
-				<input type="text" name="name" id="form-name" placeholder="Imię i nazwisko" required>
-				<input type="email" name="email" id="form-email" placeholder="E-mail" required>
-				<input type="text" name="phone" id="form-phone" placeholder="Nr telefonu">
-				<input type="text" name="subject" id="form-subject" placeholder="Temat">
-			</fieldset>
-			<!--
+    <form>
+      <fieldset>
+        <input type="text" name="name" id="form-name" placeholder="Imię i nazwisko" required>
+        <input type="email" name="email" id="form-email" placeholder="E-mail" required>
+        <input type="text" name="phone" id="form-phone" placeholder="Nr telefonu">
+        <input type="text" name="subject" id="form-subject" placeholder="Temat">
+      </fieldset>
+      <!--
         -->
-			<fieldset>
-				<textarea rows="11" name="message" id="form-message" placeholder="Treść wiadomości" required></textarea>
-				<input type="submit" value="Wyślij">
-			</fieldset>
-		</form>
-	</div>
-	<!--
+      <fieldset>
+        <textarea rows="11" name="message" id="form-message" placeholder="Treść wiadomości" required></textarea>
+        <input type="submit" value="Wyślij">
+      </fieldset>
+    </form>
+  </div>
+  <!--
     -->
-	<div class="right">
-		<h4>MAPA</h4>
-		<div id="map"></div>
-	</div>
+  <div class="right">
+    <h4>MAPA</h4>
+    <div id="map"></div>
+  </div>
 </section>
 
 
 
-<!--<script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>
--->
+<!--<script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>-->
+
 <!-- google map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
 <script>

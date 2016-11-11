@@ -2,9 +2,10 @@
   "dependencies": {
     "main.js": {
       "files": [
-        "scripts/main.js"
+        "scripts/vendor/*",
+        "scripts/main.js"        
       ],
-      "main": true
+      "main": true 
     },
     "main.css": {
       "files": [
