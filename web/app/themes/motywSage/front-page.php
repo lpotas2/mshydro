@@ -611,7 +611,7 @@ wp_nav_menu($args);?>
       <?php } ?>
   </ul>
   <!--
-    --><img src="<?php the_field('sekcja_praca');?>"/>
+    --><img src="<?php the_field('sekcja_praca');?>" />
 </section>
 
 <section class="kontakt">
@@ -634,7 +634,8 @@ wp_nav_menu($args);?>
     <div class="phone">
       <i class="fa fa-mobile" aria-hidden="true"></i>
       <div>
-        <?php the_sub_field('telefon');?></br>
+        <?php the_sub_field('telefon');?>
+        </br>
         <?php the_sub_field('fax');?>
       </div>
     </div>
@@ -642,39 +643,27 @@ wp_nav_menu($args);?>
       -->
     <div class="email">
       <i class="fa fa-envelope-o" aria-hidden="true"></i>
-      <div><?php the_sub_field('e-mail');?></div>
+      <div>
+        <?php the_sub_field('e-mail');?>
+      </div>
     </div>
-    <?php endwhile; 
-      endif;?>
-  </div>
 
+  </div>
+ 
   <div class="left">
     <h4>FORMULARZ KONTAKTOWY</h4>
+    <?php the_sub_field('formularz_kontaktowy');?>
 
-    <form>
-      <fieldset>
-        <input type="text" name="name" id="form-name" placeholder="Imię i nazwisko" required>
-        <input type="email" name="email" id="form-email" placeholder="E-mail" required>
-        <input type="text" name="phone" id="form-phone" placeholder="Nr telefonu">
-        <input type="text" name="subject" id="form-subject" placeholder="Temat">
-      </fieldset>
-      <!--
-        -->
-      <fieldset>
-        <textarea rows="11" name="message" id="form-message" placeholder="Treść wiadomości" required></textarea>
-        <input type="submit" value="Wyślij">
-      </fieldset>
-    </form>
-  </div>
-  <!--
-    -->
+    <?php endwhile; 
+      endif;?>
+      
+      </div>
+
   <div class="right">
     <h4>MAPA</h4>
     <div id="map"></div>
   </div>
 </section>
-
-
 
 <!--<script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>-->
 

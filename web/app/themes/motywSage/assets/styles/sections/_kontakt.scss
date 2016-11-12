@@ -19,8 +19,7 @@ section.kontakt {
 
   .address, .phone, .email {
     display: inline-block;
-    /*width: calc(100% / 5)-2%;// odjete 2% bo sie rozjezdzało*/
-        width: calc(100% / 5);
+    width: calc(100% / 5);
     margin-bottom: 15px;
     text-align: center;
 
@@ -70,37 +69,40 @@ section.kontakt {
         display: inline-block;
         width: 100%;
       }
+    
+
+          input, textarea {
+            width: calc(50% - 10px);
+            padding: 15px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            background: $white;
+            border: 2px solid $grey;
+            outline: none;
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+
+            input-placeholder {
+              /*color: $light-grey;*/
+            }
+
+            &:focus {
+              border-color: $red;
+            }
+
+            &[type="submit"] {
+              border-color: $red;
+              font-weight: 700;
+              text-transform: uppercase;
+              cursor: pointer;
+            }
     }
-
-    input, textarea {
-      width: calc(50% - 10px);
-      padding: 15px;
-      margin-bottom: 15px;
-      box-sizing: border-box;
-      background: $white;
-      border: 2px solid $grey;
-      outline: none;
-      font-family: 'Roboto', sans-serif;
-      font-size: 12px;
-
-      input-placeholder {
-        /*color: $light-grey;*/
-       }
-
-      &:focus {
-        border-color: $red;
-      }
-
-      &[type="submit"] {
-        border-color: $red;
-        font-weight: 700;
-        text-transform: uppercase;
-        cursor: pointer;
-      }
-    }
+    
+    
 
     textarea {
       width: 100%;
+    }
     }
   }
 

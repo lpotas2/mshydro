@@ -1,4 +1,4 @@
-  <footer class="content-info" style="background-image: url('<?php print get_template_directory_uri(); ?>/dist/images/footer-bg.png'); background-color: #1f1a17;">
+  <footer class="content-info" style="background-image: url('<?php print get_template_directory_uri(); ?>/dist/images/footer-bg.png');">
     <div class="container">
       <div class="wrapper">
         <nav>
