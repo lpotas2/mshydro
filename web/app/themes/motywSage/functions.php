@@ -38,3 +38,11 @@ $excerpt = trim(preg_replace( '/s+/', ' ', $excerpt));
 $excerpt = $excerpt.'... <strong><a href="'.get_the_permalink().'">więcej</a></strong>';
 return $excerpt;
 }
+
+add_filter( 'body_class', 'custom_class' );
+function custom_class( $classes ) {
+    if ( is_page_template( 'product-category.php' ) ) {
+        $classes[] = 'product-page';
+    }
+    return $classes;
+}

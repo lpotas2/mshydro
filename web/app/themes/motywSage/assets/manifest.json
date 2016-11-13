@@ -2,7 +2,7 @@
   "dependencies": {
     "main.js": {
       "files": [
-        "scripts/vendor/*",
+        "scripts/lib/*",
         "scripts/main.js"        
       ],
       "main": true 

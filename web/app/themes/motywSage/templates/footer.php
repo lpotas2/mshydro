@@ -1,3 +1,12 @@
+  <?php
+$query = new WP_Query( array( 'page_id' => 6 ) );
+if ( $query->have_posts() ) {
+ 
+    // Start looping over the query results.
+    while ( $query->have_posts() ) {
+ 
+$query->the_post();
+?>
   <footer class="content-info" style="background-image: url('<?php print get_template_directory_uri(); ?>/dist/images/footer-bg.png');">
     <div class="container">
       <div class="wrapper">
@@ -25,3 +34,4 @@
       <!--<?php dynamic_sidebar('sidebar-footer'); ?>-->
     </div>
   </footer>
+<?php }}?>
