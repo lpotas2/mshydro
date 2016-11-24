@@ -301,14 +301,15 @@
   <!--
     -->
   <?php
-        $strony = get_pages( $args = array(
-        'child_of'=>8,
-        'sort_column' => 'ID',
-     ));
+      $strony = get_pages($args = array(
+      'sort_column' => 'ID',
+      'order'=> "ASC"      
+      ));
+
     $i = 1;
     foreach ( $strony as $strona ) { 
-    $i =& $numer;
-    $i++;
+        if(get_field("kategoria_strony", $strona->ID)=="Oferta"){
+
     ?>
     <div class="box">
       <a href="<?php the_permalink($strona->ID);?>">
@@ -335,7 +336,7 @@
     </div>
     <!--
     -->
-    <?php endwhile;endif;}?>
+    <?php endwhile;endif;}}?>
 
     <div class="box">
       <div class="container">
@@ -383,11 +384,14 @@
     <div>
       <div>
         <?php
-        $strony = get_pages( $args = array(
-        'child_of'=>10,
-        'sort_column' => 'ID',
-     ));
+          $strony = get_pages($args = array(
+          'sort_column' => 'ID',
+          'order'=> "ASC"
+       ));
+
+
           foreach ( $strony as $strona ) { 
+           if(get_field("kategoria_strony", $strona->ID)=="Realizacje"){
     ?>
 
           <div class="box">
@@ -403,7 +407,7 @@
           </div>
           <!--
           -->
-          <?php } ?>
+          <?php }} ?>
       </div>
     </div>
   </div>
@@ -437,11 +441,15 @@
     <div class="slider">
       <div>
         <?php
-              $strony = get_pages( $args = array(
-              'child_of'=>12,
-              'sort_column' => 'ID',
-          ));
-                foreach ( $strony as $strona ) { 
+          $strony = get_pages($args = array(
+          'sort_column' => 'ID',
+          'order'=> "ASC"
+       ));
+
+
+          foreach ( $strony as $strona ) { 
+           if(get_field("kategoria_strony", $strona->ID)=="Produkty"){
+
                 if( have_rows('produkty',$strona->ID) ):
                 while ( have_rows('produkty',$strona->ID) ) : the_row();?>
 
@@ -450,46 +458,13 @@
             <img src="<?php the_sub_field('zdjęcie',$strona->ID);?>" />
           </a>
           <?php
-          endwhile; endif; } ?>
+          endwhile; endif; }} ?>
       </div>
     </div>
   </div>
 
   <div style="text-align: center;">
     <a class="button" href="">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-  </div>
-</section>
-
-<section class="aktualnosci">
-  <h2>
-    <a href="<?php the_permalink(14);?>">
-      <?php echo get_the_title(14); ?>
-    </a>
-  </h2>
-  <div>
-    <?php query_posts('cat=10&posts_per_page=8'); while (have_posts()) : the_post(); ?>
-    <div class="box">
-      <div class="inner">
-        <div class="heading">
-          <?php if(get_field('zdjecie_wpisu')){?>
-          <div class="image" style="background-image: url(<?php the_field('zdjecie_wpisu');?>);"></div>
-          <?php } ?>
-          <span><?php echo get_the_date();?></span>
-          <h3>
-            <a href="<?php the_permalink();?>">
-              <?php echo get_the_title();?>
-            </a>
-          </h3>
-        </div>
-        <p>
-          <?php echo get_excerpt();?>
-        </p>
-      </div>
-    </div>
-
-    <?php endwhile; ?>
-
-    <?php wp_reset_query(); ?>
   </div>
 </section>
 
@@ -503,6 +478,7 @@
               'sort_column' => 'ID',
               'order'=> "ASC"              
           ));
+          
                 foreach ( $podstronyPraca as $strona ) { ?>
       <li>
         <div class="title"><a href=""><strong><?php echo get_the_title($strona->ID) ?></strong></a>
@@ -557,15 +533,15 @@
     </div>
 
   </div>
- 
+
   <div class="left">
     <h4>FORMULARZ KONTAKTOWY</h4>
     <?php the_sub_field('formularz_kontaktowy');?>
 
     <?php endwhile; 
       endif;?>
-      
-      </div>
+
+  </div>
 
   <div class="right">
     <h4>MAPA</h4>
