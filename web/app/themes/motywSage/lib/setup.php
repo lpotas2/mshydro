@@ -86,7 +86,12 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page_template('template-custom.php'),
-    is_page_template('product-category.php'),
+    is_page_template('product.php'),
+    is_page_template('products-main.php'),
+    is_page_template('realization.php'),
+    is_page_template('realization-main.php'),
+    is_page_template('offer.php'),
+    is_page_template('offer-main.php')
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

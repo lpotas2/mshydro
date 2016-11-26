@@ -38,6 +38,16 @@
     endif;?>
 
   <div class="wrapper">
+        <div style="height:300px; width: 500px; position:absolute; bottom:0; right:0; background-color: red;">
+          <?php if( have_rows('nieczynne') ):
+            while ( have_rows('nieczynne') ) : the_row();
+              echo "nieczynne od  ";
+              the_sub_field('nieczynne_od');
+              echo "   nieczynnne do  ";
+              the_sub_field('nieczynne_do');
+            endwhile; 
+          endif;?>
+    </div>
     <div>
       <h2>
         <?php if( have_rows('pierwszy_ekran') ):
@@ -64,6 +74,7 @@
 
     <span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
     </div>
+
   </section>
 
   <section class="ms-hydro" >
@@ -297,21 +308,21 @@
     <a href="<?php the_permalink(8);?>">
       <?php echo get_the_title(8)?>
     </a>
-  </h2>
-  <!--
-    -->
+  </h2><!--
+  
   <?php
-      $strony = get_pages($args = array(
-      'sort_column' => 'ID',
-      'order'=> "ASC"      
-      ));
+        $strony = get_pages( $args = array(
+        'child_of'=>8,
+        'sort_column' => 'ID',
+        'order'=> "ASC" 
+     ));
+    
 
-    $i = 1;
     foreach ( $strony as $strona ) { 
-        if(get_field("kategoria_strony", $strona->ID)=="Oferta"){
+
 
     ?>
-    <div class="box">
+    --><div class="box">
       <a href="<?php the_permalink($strona->ID);?>">
         <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
                 while ( have_rows('tło_ikony_opis',$strona->ID) ) : the_row();?>
@@ -333,18 +344,15 @@
 
         </div>
       </a>
-    </div>
-    <!--
-    -->
-    <?php endwhile;endif;}}?>
+    </div><!--
+    <?php endwhile;endif;}?>
 
-    <div class="box">
+    --><div class="box">
       <div class="container">
         <span>Pobierz ofertę</span>
         <i class="fa fa-file-text-o" aria-hidden="true"></i>
       </div>
     </div>
-
 </section>
 
 
@@ -379,22 +387,20 @@
       <a href="<?php the_permalink(10);?>">
         <?php echo get_the_title(10)?>
       </a>
-    </h2>
+    </h2><!--
 
     <div>
       <div>
         <?php
           $strony = get_pages($args = array(
+          'child_of'=>10,
           'sort_column' => 'ID',
           'order'=> "ASC"
        ));
 
-
           foreach ( $strony as $strona ) { 
-           if(get_field("kategoria_strony", $strona->ID)=="Realizacje"){
-    ?>
-
-          <div class="box">
+?>
+          --><div class="box">
             <a href="<?php the_permalink($strona->ID); ?>">
               <?php if( have_rows('realizacje',$strona->ID) ):
                 while ( have_rows('realizacje',$strona->ID) ) : the_row();?>
@@ -404,11 +410,10 @@
                 <?php echo $strona->post_title; ?>
               </h3>
             </a>
-          </div>
-          <!--
-          -->
-          <?php }} ?>
-      </div>
+          </div><!--
+          
+          <?php } ?>
+      --></div>
     </div>
   </div>
 </section>
@@ -442,13 +447,13 @@
       <div>
         <?php
           $strony = get_pages($args = array(
+          'child_of'=>12,
           'sort_column' => 'ID',
           'order'=> "ASC"
        ));
 
 
           foreach ( $strony as $strona ) { 
-           if(get_field("kategoria_strony", $strona->ID)=="Produkty"){
 
                 if( have_rows('produkty',$strona->ID) ):
                 while ( have_rows('produkty',$strona->ID) ) : the_row();?>
@@ -458,7 +463,7 @@
             <img src="<?php the_sub_field('zdjęcie',$strona->ID);?>" />
           </a>
           <?php
-          endwhile; endif; }} ?>
+          endwhile; endif; } ?>
       </div>
     </div>
   </div>
@@ -471,7 +476,7 @@
 <section class="praca">
   <h2>PRACA</h2>
 
-  <ul>
+  <ul><!--
     <?php
               $podstronyPraca = get_pages( $args = array(
               'child_of'=>16,
@@ -480,7 +485,7 @@
           ));
           
                 foreach ( $podstronyPraca as $strona ) { ?>
-      <li>
+      --><li>
         <div class="title"><a href=""><strong><?php echo get_the_title($strona->ID) ?></strong></a>
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
@@ -489,49 +494,44 @@
 
           <?php $page = get_post($strona->ID); $content = apply_filters('the_content', $page->post_content); echo $content ?>
 
-          <a href="<?php echo get_page_link($strona->ID) ?>" class="button">APLIKUJ</a>
+          <a href="<?php echo get_page_link($strona->ID)?>" class="button">APLIKUJ</a>
         </div>
       </li>
       <?php } ?>
-  </ul>
-  <!--
-    --><img src="<?php the_field('sekcja_praca');?>" />
-</section>
+  </ul><!--
+    --><img src="<?php the_field('sekcja_praca');?>" /><!--
+
+--></section>
 
 <section class="kontakt">
   <h2>
     <?php echo get_the_title(18);?>
   </h2>
-  <div>
+  <div><!--
     <?php if( have_rows('sekcja_kontakt') ):
       while ( have_rows('sekcja_kontakt') ) : the_row();?>
 
-    <div class="address">
+    --><div class="address">
       <i class="fa fa-map-marker" aria-hidden="true"></i>
       <div>
         <?php the_sub_field('ulica');?><br>
         <?php the_sub_field('kod_pocztowy_i_miasto');?>
       </div>
-    </div>
-    <!--
-      -->
-    <div class="phone">
+    </div><!--
+    --><div class="phone">
       <i class="fa fa-mobile" aria-hidden="true"></i>
       <div>
         <?php the_sub_field('telefon');?>
         </br>
         <?php the_sub_field('fax');?>
       </div>
-    </div>
-    <!--
-      -->
-    <div class="email">
+    </div><!--
+    --><div class="email">
       <i class="fa fa-envelope-o" aria-hidden="true"></i>
       <div>
         <?php the_sub_field('e-mail');?>
       </div>
     </div>
-
   </div>
 
   <div class="left">
@@ -541,9 +541,9 @@
     <?php endwhile; 
       endif;?>
 
-  </div>
+  </div><!--
 
-  <div class="right">
+  --><div class="right">
     <h4>MAPA</h4>
     <div id="map"></div>
   </div>

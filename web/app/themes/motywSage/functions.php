@@ -41,8 +41,14 @@ return $excerpt;
 
 add_filter( 'body_class', 'custom_class' );
 function custom_class( $classes ) {
-    if ( is_page_template( 'product-category.php' ) ) {
+    if ( is_page_template( 'product.php' ) ) {
         $classes[] = 'product-page';
+    }
+    if ( is_page_template( 'realization.php' ) ) {
+        $classes[] = 'realization-page';
+    }
+    if ( is_page_template( 'offer.php' ) ) {
+        $classes[] = 'offer-page';
     }
     return $classes;
 }
