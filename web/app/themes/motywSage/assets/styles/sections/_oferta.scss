@@ -50,54 +50,38 @@ section.oferta {
       background-size: cover;
       background-position: center;
       border-bottom: 5px solid $red;
+      color: #fff;
       overflow: hidden;
 
-      & > * {
-        position: relative;
-        z-index: 1;
-      }
-
       &:hover {
-        .icon {
-          &.white {
-            display: block;
-          }
-
-          &.red {
-            display: none;
-          }
-        }
-        
-        .bg {
-          height: 0;
-        }
-
-        h3, .desc, .fa-chevron-right {
-          color: $white;
-          text-shadow: 0 0 15px rgba($black, 0.5);
+        .desc {
+          transform: translateY(0%);
         }
       }
 
-      .bg {
+      .bar {
         position: absolute;
-        top: 0%;
+        top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        background: $light-grey;
-        z-index: 0;
-        //@include transition(0.35s height ease-out);
-      }
+        padding: 10px 20px;
+        box-sizing: border-box;
+        background: rgba($red, 0.95);
+        box-shadow: 0 5px 15px rgba(#000, 0.15);
 
-      .icon {
-        position: absolute;
-        top: 25px;
-        left: 30px;
-        display: block;
-        height: 75px;
+        * {
+          display: inline-block;
+          vertical-align: middle;
+        }
 
-        &.white {
-          display: none;
+        .icon {
+          width: 45px;
+          margin-right: 15px;
+        }
+
+        h4 {
+          font-weight: 600;
+          text-transform: uppercase;
         }
       }
 
@@ -105,21 +89,13 @@ section.oferta {
         position: absolute;
         bottom: 0;
         left: 0;
+        transform: translateY(100%);
         width: 100%;
-        padding: 25px 30px;
-       box-sizing: border-box;
-      }
-
-      h3 {
-        margin: 75px 0 15px;
-      }
-
-      .fa-chevron-right {
-        position: absolute;
-        bottom: 25px;
-        left: 30px;
-        font-size: 1.75em;
-        color: $red;
+        padding: 25px 25px 15px;
+        box-sizing: border-box;
+        background-image: linear-gradient(rgba(#000, 0), rgba(#000, 0.9));
+        text-shadow: 0 0 5px rgba(#000, 0.5);
+        transition: 0.5s all ease-out;
       }
     }
   }

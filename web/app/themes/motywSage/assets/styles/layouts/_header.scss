@@ -60,3 +60,10 @@ header {
     }
   }
 }
+
+.page-parent, .page-child {
+  header {
+    position: relative;
+    top: 0;
+  }
+}

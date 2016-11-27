@@ -3,18 +3,12 @@
 <?php get_template_part('templates/content', 'page'); ?>
 <?php endwhile; ?>
 
-
-
 <div class="bg-lines">
-  <span></span>
-  <!--
-    --><span></span>
-  <!--
-    --><span></span>
-  <!--
-    --><span></span>
-  <!--
-    --><span></span>
+  <span></span><!--
+  --><span></span><!--
+  --><span></span><!--
+  --><span></span><!--
+  --><span></span>
 </div>
 
 <div class="bullets">
@@ -206,30 +200,28 @@
     </div>
   </section>
 
-    <section class="proces">
-    <div class="clip">
-      <div class="bullets">
-        <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
-  <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
-  <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
-  <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
-  <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
-  <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-  <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
-  <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
-  </div>
+<?php include "offer-main.php" ?>
+
+<section class="proces">
+  <div class="clip">
+    <div class="bullets">
+      <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
+      <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
+      <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+      <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
+      <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
+      <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
+      <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
+      <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
+    </div>
   </div>
 
   <div class="bg-lines">
-    <span></span>
-    <!--
-      --><span></span>
-    <!--
-      --><span></span>
-    <!--
-      --><span></span>
-    <!--
-      --><span></span>
+    <span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span>
   </div>
 
   <div class="wrapper">
@@ -299,63 +291,6 @@
   </div>
 </section>
 
-
-
-<!--tutaj dodać <a href offer-->
-<!-- OFERTA -->
-<section class="oferta">
-  <h2>
-    <a href="<?php the_permalink(8);?>">
-      <?php echo get_the_title(8)?>
-    </a>
-  </h2><!--
-  
-  <?php
-        $strony = get_pages( $args = array(
-        'child_of'=>8,
-        'sort_column' => 'ID',
-        'order'=> "ASC" 
-     ));
-    
-
-    foreach ( $strony as $strona ) { 
-
-
-    ?>
-    --><div class="box">
-      <a href="<?php the_permalink($strona->ID);?>">
-        <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
-                while ( have_rows('tło_ikony_opis',$strona->ID) ) : the_row();?>
-        <div class="container" style="background-image: url(<?php the_sub_field('tło',$strona->ID);?>);">
-
-          <div class="bg"></div>
-
-          <img class="icon red" src="<?php the_sub_field('ikona_1',$strona->ID);?>" />
-          <img class="icon white" src="<?php the_sub_field('ikona_2',$strona->ID)?>" />
-
-          <h3>
-            <?php echo $strona->post_title; ?>
-          </h3>
-          <div class="desc">
-            <p>
-              <?php the_sub_field('opis',$strona->ID)?>
-            </p>
-          </div>
-
-        </div>
-      </a>
-    </div><!--
-    <?php endwhile;endif;}?>
-
-    --><div class="box">
-      <div class="container">
-        <span>Pobierz ofertę</span>
-        <i class="fa fa-file-text-o" aria-hidden="true"></i>
-      </div>
-    </div>
-</section>
-
-
 <section class="realizacje">
   <div class="clip">
     <div class="bullets">
@@ -371,15 +306,11 @@
   </div>
 
   <div class="bg-lines">
-    <span></span>
-    <!--
-      --><span></span>
-    <!--
-      --><span></span>
-    <!--
-      --><span></span>
-    <!--
-      --><span></span>
+    <span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span>
   </div>
 
   <div class="wrapper">
@@ -387,121 +318,47 @@
       <a href="<?php the_permalink(10);?>">
         <?php echo get_the_title(10)?>
       </a>
-    </h2><!--
+    </h2>
 
     <div>
       <div>
         <?php
           $strony = get_pages($args = array(
-          'child_of'=>10,
-          'sort_column' => 'ID',
-          'order'=> "ASC"
-       ));
+            'child_of'=>10,
+            'sort_column' => 'ID',
+            'order'=> "ASC"
+          ));
 
           foreach ( $strony as $strona ) { 
-?>
-          --><div class="box">
-            <a href="<?php the_permalink($strona->ID); ?>">
-              <?php if( have_rows('realizacje',$strona->ID) ):
-                while ( have_rows('realizacje',$strona->ID) ) : the_row();?>
-              <img src="<?php the_sub_field('zdjecie_glowne')?>" />
-              <?php endwhile;endif;?>
-              <h3>
-                <?php echo $strona->post_title; ?>
-              </h3>
-            </a>
-          </div><!--
+          ?>
+          <div class="box">
+            <div class="desc">
+              <h3><?php echo $strona->post_title; ?></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div><!--
+            --><div class="gallery">
+              <div class="slider" style="width: 1100px;">
+                <!--
+                <?php if( have_rows('realizacje',$strona->ID) ):
+                  while ( have_rows('realizacje',$strona->ID) ) : the_row();?>
+                    --><div style="background-image: url(<?php the_sub_field('zdjecie_glowne')?>);"><!--
+                <?php endwhile; endif;?>
+                -->
+              </div>
+              <i class="fa fa-chevron-left prev" aria-hidden="true"></i>
+              <i class="fa fa-chevron-right next" aria-hidden="true"></i>
+            </div>
+          </div>
           
           <?php } ?>
-      --></div>
-    </div>
-  </div>
-</section>
-
-<section class="produkty">
-  <h2>
-    <a href="<?php the_permalink(12);?>">
-      <?php echo get_the_title(12); ?>
-    </a>
-  </h2>
-
-  <ul>
-    <li><i class="fa fa-times" aria-hidden="true"></i><span>Elementy i systemy hydrauliki</span></li>
-    <!--
-      -->
-    <li><i class="fa fa-times" aria-hidden="true"></i><span>Filtry</span></li>
-    <!--
-      -->
-    <li><i class="fa fa-times" aria-hidden="true"></i><span>Urządzenia pomiarowe</span></li>
-    <!--
-      -->
-    <li><i class="fa fa-times" aria-hidden="true"></i><span>Inne</span></li>
-    <!--
-      -->
-    <li><i class="fa fa-times" aria-hidden="true"></i><span>Węże hydrauliczne</span></li>
-  </ul>
-
-  <!--dodac <a href product-->
-  <div class="slider-container">
-    <div class="slider">
-      <div>
-        <?php
-          $strony = get_pages($args = array(
-          'child_of'=>12,
-          'sort_column' => 'ID',
-          'order'=> "ASC"
-       ));
-
-
-          foreach ( $strony as $strona ) { 
-
-                if( have_rows('produkty',$strona->ID) ):
-                while ( have_rows('produkty',$strona->ID) ) : the_row();?>
-
-          <a href="<?php echo get_page_link($strona->ID) ?>">
-            <strong><?php echo get_the_title($strona->ID) ?></strong>
-            <img src="<?php the_sub_field('zdjęcie',$strona->ID);?>" />
-          </a>
-          <?php
-          endwhile; endif; } ?>
       </div>
     </div>
   </div>
-
-  <div style="text-align: center;">
-    <a class="button" href="">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-  </div>
 </section>
 
-<section class="praca">
-  <h2>PRACA</h2>
-
-  <ul><!--
-    <?php
-              $podstronyPraca = get_pages( $args = array(
-              'child_of'=>16,
-              'sort_column' => 'ID',
-              'order'=> "ASC"              
-          ));
-          
-                foreach ( $podstronyPraca as $strona ) { ?>
-      --><li>
-        <div class="title"><a href=""><strong><?php echo get_the_title($strona->ID) ?></strong></a>
-          <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </div>
-
-        <div class="desc">
-
-          <?php $page = get_post($strona->ID); $content = apply_filters('the_content', $page->post_content); echo $content ?>
-
-          <a href="<?php echo get_page_link($strona->ID)?>" class="button">APLIKUJ</a>
-        </div>
-      </li>
-      <?php } ?>
-  </ul><!--
-    --><img src="<?php the_field('sekcja_praca');?>" /><!--
-
---></section>
+<?php include "products-main.php" ?>
 
 <section class="kontakt">
   <h2>

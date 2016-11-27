@@ -102,6 +102,13 @@ aside {
   }
 }
 
+.page-parent, .page-child {
+  aside {
+    position: relative;
+    top: 0;
+  }
+}
+
 .wrapper, %wrapper {
   position: relative;
   width: 100%;
