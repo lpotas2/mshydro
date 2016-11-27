@@ -229,63 +229,90 @@
 
     <div class="char">
       <ul>
-        <li>
-          <div class="title"><span>Specyfikacja</span></div>
-          <div class="desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div class="title"><span>Planowanie</span></div>
-          <div class="desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-        </li>
+      <?php if( have_rows('proces')):
+            while ( have_rows('proces')) : the_row();
+              if( get_row_layout() == 'etap_1' ):?>
+                <li>
+                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
+                  <div class="desc">
+                    <p><?php the_sub_field('opis');?></p>
+                    <img src="<?php the_sub_field('ikona');?>" />           
+                  </div>
+                </li>
+          <?php endif;
+        endwhile; 
+      endif;?>
+      <?php if( have_rows('proces')):
+            while ( have_rows('proces')) : the_row();
+              if( get_row_layout() == 'etap_2' ):?>
+                <li>
+                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
+                  <div class="desc">
+                    <p><?php the_sub_field('opis');?></p>
+                    <img src="<?php the_sub_field('ikona');?>" />           
+                  </div>
+                </li>
+          <?php endif;
+        endwhile; 
+      endif;?>
         <li class="parent">
           <div>
             <ul>
-              <li>
-                <div class="title"><span>Projekt</span></div>
-                <div class="desc">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.</p>
-                </div>
-              </li>
-              <li>
-                <div class="title"><span>Konstrukcja</br>i montaż</span></div>
-                <div class="desc">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.</p>
-                </div>
-              </li>
-              <li>
-                <div class="title"><span>Testowanie</span></div>
-                <div class="desc">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.</p>
-                </div>
-              </li>
-            </ul>
+      <?php if( have_rows('proces')):
+            while ( have_rows('proces')) : the_row();
+              if( get_row_layout() == 'etap_3' ):?>
+                <li>
+                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
+                  <div class="desc">
+                    <p><?php the_sub_field('opis');?></p>
+                    <img src="<?php the_sub_field('ikona');?>" />           
+                  </div>
+                </li>
+          <?php endif;
+        endwhile; 
+      endif;?>
+      <?php if( have_rows('proces')):
+            while ( have_rows('proces')) : the_row();
+              if( get_row_layout() == 'etap_4' ):?>
+                <li>
+                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
+                  <div class="desc">
+                    <p><?php the_sub_field('opis');?></p>
+                    <img src="<?php the_sub_field('ikona');?>" />           
+                  </div>
+                </li>
+          <?php endif;
+        endwhile; 
+      endif;?>
+      <?php if( have_rows('proces')):
+            while ( have_rows('proces')) : the_row();
+              if( get_row_layout() == 'etap_5' ):?>
+                <li>
+                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
+                  <div class="desc">
+                    <p><?php the_sub_field('opis');?></p>
+                    <img src="<?php the_sub_field('ikona');?>" />           
+                  </div>
+                </li>
+          <?php endif;
+        endwhile; 
+      endif;?>
+      </ul>
           </div>
         </li>
-        <li>
-          <div class="title"><span>Serwisowanie</span></div>
-          <div class="desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-        </li>
+      <?php if( have_rows('proces')):
+            while ( have_rows('proces')) : the_row();
+              if( get_row_layout() == 'etap_6' ):?>
+                <li>
+                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
+                  <div class="desc">
+                    <p><?php the_sub_field('opis');?></p>
+                    <img src="<?php the_sub_field('ikona');?>" />           
+                  </div>
+                </li>
+          <?php endif;
+        endwhile; 
+      endif;?>
       </ul>
     </div>
   </div>

@@ -91,7 +91,9 @@ function display_sidebar() {
     is_page_template('realization.php'),
     is_page_template('realization-main.php'),
     is_page_template('offer.php'),
-    is_page_template('offer-main.php')
+    is_page_template('offer-main.php'),
+    is_page_template('jobs-page.php')
+    
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
