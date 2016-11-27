@@ -21,10 +21,17 @@
             </ul>
           </nav>
 
-          <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/ms-hydro-logo.png" /></a>
+          <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa"></a>
+          <?php if( have_rows('pierwszy_ekran') ):
+            while ( have_rows('pierwszy_ekran') ) : the_row();?>
+              <img src="<?php the_sub_field('logo')?>";/></a>
+            <?php endwhile; 
+          endif;?>
 
           <div class="copyright">Copyright © 2015 <strong>MS-Hydro s.c.</strong> All Rights Reserved</div>
         </div>
       </div>
     </footer>
-<?php }} ?>
+<?php }}
+wp_reset_postdata(); 
+ ?>

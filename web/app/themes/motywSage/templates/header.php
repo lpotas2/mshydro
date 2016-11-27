@@ -78,7 +78,7 @@ if ( $query->have_posts() ) {
           <li class="produkty"><a>Produkty</a></li>
           <li class="aktualnosci"><a>Aktualności</a></li>
           <li class="kontakt"><a>Kontakt</a></li>
-          <li class="praca"><a>Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
+          <li class="praca"><a href="<?php echo get_permalink(16);?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
         <?php } else { ?>
           <li><a href="<?php echo get_home_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
