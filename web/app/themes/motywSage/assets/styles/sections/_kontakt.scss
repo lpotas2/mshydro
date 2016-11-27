@@ -61,48 +61,56 @@ section.kontakt {
     margin-top: 15px;
 
     fieldset {
-      text-align: justify;
-      line-height: 0;
-
-      &:after {
-        content: "";
+      span {
         display: inline-block;
-        width: 100%;
+        width: calc(50% - 10px);
+        margin-bottom: 15px;
+
+        &:nth-child(odd) {
+          margin-right: 10px;
+        }
+
+        &:nth-child(even) {
+          margin-left: 10px;
+        }
+
+        &.your-message {
+          width: 100%;
+        }
       }
     
+      input, textarea {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        background: $white;
+        border: 2px solid $grey;
+        outline: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
 
-          input, textarea {
-            width: calc(50% - 10px);
-            padding: 15px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            background: $white;
-            border: 2px solid $grey;
-            outline: none;
-            font-family: 'Roboto', sans-serif;
-            font-size: 12px;
+        input-placeholder {
+          /*color: $light-grey;*/
+        }
 
-            input-placeholder {
-              /*color: $light-grey;*/
-            }
+        &:focus {
+          border-color: $red;
+        }
 
-            &:focus {
-              border-color: $red;
-            }
-
-            &[type="submit"] {
-              border-color: $red;
-              font-weight: 700;
-              text-transform: uppercase;
-              cursor: pointer;
-            }
-    }
+        &.wpcf7-submit {
+          width: auto;
+          padding: 15px 25px;
+          border-color: $red;
+          font-weight: 700;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+      }
     
-    
-
-    textarea {
-      width: 100%;
-    }
+      textarea {
+        width: 100%;
+        resize: vertical;
+      }
     }
   }
 

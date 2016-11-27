@@ -52,65 +52,64 @@ section.realizacje {
 
   .wrapper > div {
     position: relative;
-  }
-
-  .box {
-    position: relative;
     display: inline-block;
-    width: calc((100% - 60px) / 3);
+    width: 100%;
     height: 250px;
     margin-bottom: 30px;
-    margin-right: 30px;
     background: $blue;
-    border-bottom: 3px solid transparent;
+    border: 2px solid #fff;
     box-sizing: border-box;
     vertical-align: top;
-    overflow: hidden;
-    cursor: pointer;
-    
-    &:nth-of-type(3), &:nth-of-type(6) {
-      margin-right: 0;
-    }
 
-    &:hover {
-      border-color: #fff;
-
-      h3 {
-        //transform(translateY(0%));
-        opacity: 1;
-      }
-      
-      img {
-        opacity: 0.25;
-        filter: grayscale(100%);
-      }
-    }
-
-    img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: auto;
-      transform: translate(-50%, -50%);
-      opacity: 1;
-      z-index: 0;
-      filter: grayscale(0%);
-    }
-
-    h3 {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      //transform(translateY(100%));
-      width: 100%;
-      padding: 0 30px 20px;
+    div {
+      display: inline-block;
       box-sizing: border-box;
-      text-shadow: 0 0 5px rgba(#000, 0.25);
-      line-height: 125%;
-      //transition(0.5s all ease);
-      opacity: 0;
-      z-index: 1;
+      vertical-align: top;
+    }
+
+    .desc {
+      width: 60%;
+      padding: 25px 30px;
+    }
+
+    .gallery {
+      position: relative;
+      width: 40%;
+      height: 100%;
+      overflow: hidden;
+      border-left: 2px solid #fff;
+
+      .slider {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+
+        div {
+          
+        }
+      }
+
+      .prev, .next {
+        position: absolute;
+        bottom: -2px;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #fff;
+        background: rgba(#000, 0.15);
+        font-size: 1.5em;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .prev {
+        left: -2px;
+      }
+
+      .next {
+        right: -2px;
+      }
     }
   }
 }

@@ -13,15 +13,13 @@
 
 <div class="bullets">
   <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
-  <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
   <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+  <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
   <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
   <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
   <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-  <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
   <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
 </div>
-
 
 <?php if( have_rows('pierwszy_ekran') ):
       while ( have_rows('pierwszy_ekran') ) : the_row();
@@ -206,12 +204,11 @@
   <div class="clip">
     <div class="bullets">
       <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
-      <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
       <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
+      <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
       <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
       <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
       <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-      <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
       <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
     </div>
   </div>
@@ -229,7 +226,7 @@
 
     <div class="char">
       <ul>
-        <li>
+        <li class="active">
           <div class="title"><span>Specyfikacja</span></div>
           <div class="desc">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -291,72 +288,7 @@
   </div>
 </section>
 
-<section class="realizacje">
-  <div class="clip">
-    <div class="bullets">
-      <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
-      <div class="proces"><span class="title">PROCES</span><span class="square"></span></div>
-      <div class="oferta"><span class="title">OFERTA</span><span class="square"></span></div>
-      <div class="realizacje"><span class="title">REALIZACJE</span><span class="square"></span></div>
-      <div class="produkty"><span class="title">PRODUKTY</span><span class="square"></span></div>
-      <div class="aktualnosci"><span class="title">AKTUALNOŚCI</span><span class="square"></span></div>
-      <div class="praca"><span class="title">PRACA</span><span class="square"></span></div>
-      <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
-    </div>
-  </div>
-
-  <div class="bg-lines">
-    <span></span><!--
-    --><span></span><!--
-    --><span></span><!--
-    --><span></span><!--
-    --><span></span>
-  </div>
-
-  <div class="wrapper">
-    <h2>
-      <a href="<?php the_permalink(10);?>">
-        <?php echo get_the_title(10)?>
-      </a>
-    </h2>
-
-    <div>
-      <div>
-        <?php
-          $strony = get_pages($args = array(
-            'child_of'=>10,
-            'sort_column' => 'ID',
-            'order'=> "ASC"
-          ));
-
-          foreach ( $strony as $strona ) { 
-          ?>
-          <div class="box">
-            <div class="desc">
-              <h3><?php echo $strona->post_title; ?></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div><!--
-            --><div class="gallery">
-              <div class="slider" style="width: 1100px;">
-                <!--
-                <?php if( have_rows('realizacje',$strona->ID) ):
-                  while ( have_rows('realizacje',$strona->ID) ) : the_row();?>
-                    --><div style="background-image: url(<?php the_sub_field('zdjecie_glowne')?>);"><!--
-                <?php endwhile; endif;?>
-                -->
-              </div>
-              <i class="fa fa-chevron-left prev" aria-hidden="true"></i>
-              <i class="fa fa-chevron-right next" aria-hidden="true"></i>
-            </div>
-          </div>
-          
-          <?php } ?>
-      </div>
-    </div>
-  </div>
-</section>
+<?php include "realization-main.php" ?>
 
 <?php include "products-main.php" ?>
 
