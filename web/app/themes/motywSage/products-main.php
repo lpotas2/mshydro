@@ -2,41 +2,46 @@
   <h2><?php echo get_the_title(12); ?></h2>
 
   <ul>
-    <li class="s0"><i class="fa fa-times" aria-hidden="true"></i><span>Elementy i systemy hydrauliki</span></li><!--
-  --><li class="s1"><i class="fa fa-times" aria-hidden="true"></i><span>Filtry</span></li><!--
-  --><li class="s2"><i class="fa fa-times" aria-hidden="true"></i><span>Urządzenia pomiarowe</span></li><!--
-  --><li class="s3"><i class="fa fa-times" aria-hidden="true"></i><span>Inne</span></li><!--
-  --><li class="s4"><i class="fa fa-times" aria-hidden="true"></i><span>Węże hydrauliczne</span></li>
-  </ul>
+  <!--
+  <?php
+    $categorys = [];
 
+    $strony = get_pages($args = array(
+      'child_of' => 12,
+      'sort_column' => 'ID',
+      'order'=> 'ASC'
+    ));
+
+    foreach ( $strony as $strona ) { 
+      if( have_rows('produkty', $strona->ID) ) :
+        while ( have_rows('produkty', $strona->ID) ) : the_row();
+          $strona->category = get_sub_field('kategoria', $strona->ID);
+          array_push($categorys, $strona->category);
+        endwhile;
+      endif;
+    }
+
+    $categorys = array_unique($categorys);
+    sort($categorys);
+
+    function cmp($a, $b) {
+      return strcmp($a->category, $b->category);
+    }
+
+    usort($strony, "cmp");
+
+    $i = 0;
+    foreach ( $categorys as $category ) {
+      echo '--><li class="' . ($i == 0 ? 'active ' : '') . 's' . $i++ . '"><i class="fa fa-times" aria-hidden="true"></i><span>' . $category . '</span></li><!--';
+    }
+  ?>
+  -->
+  </ul>
+  
   <div class="slider-container">
     <div class="slider">
       <div>
-
-      <?php
-        $lastCategory = 'ELEMENTY I SYSTEMY HYDRAULIKI';
-
-        $strony = get_pages($args = array(
-          'child_of' => 12,
-          'sort_column' => 'ID',
-          'order'=> 'ASC'
-        ));
-
-        foreach ( $strony as $strona ) { 
-          if( have_rows('produkty', $strona->ID) ) :
-            while ( have_rows('produkty', $strona->ID) ) : the_row();
-              $strona->category = get_sub_field('kategoria', $strona->ID);
-            endwhile;
-          endif;
-        }
-
-        function cmp($a, $b) {
-          return strcmp($a->category, $b->category);
-        }
-
-        usort($strony, "cmp");
-
-        foreach ( $strony as $strona ) {
+        <?php foreach ( $strony as $strona ) {
           if( have_rows('produkty', $strona->ID) ) :
             while ( have_rows('produkty', $strona->ID) ) : the_row();
               $currentCategory = get_sub_field('kategoria', $strona->ID);
