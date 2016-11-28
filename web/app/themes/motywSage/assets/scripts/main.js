@@ -33,7 +33,6 @@
     menu.find('li').removeClass('active');
     menu.find('.' + name).addClass('active');
   }
-          console.log('dupa');
   function init() {
     if($("body").hasClass("home")) {
       $("section.ms-hydro").fixTypography([

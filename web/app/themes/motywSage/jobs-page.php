@@ -17,7 +17,7 @@
 
         <div class="desc">
           <?php the_sub_field('opis'); ?>
-          <a href="<?php echo get_page_link($strona->ID)?>" class="button">APLIKUJ</a>
+          <a href="mailto: mshydro@mshydro.pl" class="button">APLIKUJ</a>
         </div>
       </li>
         <?php endwhile;endif;?>

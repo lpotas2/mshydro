@@ -16,19 +16,6 @@ if ( $query->have_posts() ) {
   the_sub_field('nip');
   endwhile; endif;?>
 
-      <div class="lang">
-        <span>
-    <?php if( have_rows('pierwszy_ekran') ):
-  while ( have_rows('pierwszy_ekran') ) : the_row();
-  the_sub_field('język_polski');
-  endwhile; endif;?></span>
-
-        <a href="">
-          <?php if( have_rows('pierwszy_ekran') ):
-  while ( have_rows('pierwszy_ekran') ) : the_row();
-  the_sub_field('język_angielski');
-  endwhile; endif;?>
-        </a>
       </div>
     </div>
   </aside>
