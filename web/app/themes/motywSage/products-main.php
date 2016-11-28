@@ -24,6 +24,8 @@
     $categorys = array_unique($categorys);
     sort($categorys);
 
+    $lastCategory = $categorys[0];
+
     function cmp($a, $b) {
       return strcmp($a->category, $b->category);
     }
