@@ -10,6 +10,7 @@
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 
+
 (function ($) {
 
   // Use this variable to set up the common and page specific functions. If you
@@ -18,6 +19,7 @@
     // All pages
     'common': {
       init: function () {
+
         // JavaScript to be fired on all pages
   var header = $('header');
   var footer = $('footer');
@@ -31,7 +33,7 @@
     menu.find('li').removeClass('active');
     menu.find('.' + name).addClass('active');
   }
-
+          console.log('dupa');
   function init() {
     if($("body").hasClass("home")) {
       $("section.ms-hydro").fixTypography([
@@ -70,20 +72,7 @@
         offset: '50%'
       });
 
-      //praca
-      jobOffers.children(".title").on("click", function() {
-        var parent = $(this).parent();
-
-        if(parent.hasClass("active")) {
-          parent.removeClass("active");
-          $(this).next(".desc").slideUp();
-        } else {
-          jobOffers.removeClass("active");
-          jobOffers.children(".desc").not(this).slideUp();
-          parent.addClass("active");
-          $(this).next(".desc").slideDown();
-        }
-      });
+    
 
       Macy.init({
         container: 'section.aktualnosci > div',
@@ -127,6 +116,20 @@
         minRows: "1"
       });
     }
+      //praca
+      jobOffers.children(".title").on("click", function() {
+        var parent = $(this).parent();
+
+        if(parent.hasClass("active")) {
+          parent.removeClass("active");
+          $(this).next(".desc").slideUp();
+        } else {
+          jobOffers.removeClass("active");
+          jobOffers.children(".desc").not(this).slideUp();
+          parent.addClass("active");
+          $(this).next(".desc").slideDown();
+        }
+      });
 
     $("section.produkty > ul li").on("click", function() {
       if($(this).hasClass("active")) {
