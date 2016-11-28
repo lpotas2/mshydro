@@ -128,37 +128,37 @@
       });
     }
 
-    if($("body").hasClass("realization-page") || $("body").hasClass("offer-page")) {
-      var baguetteBoxInitialized = false;
+    $("section.produkty > ul li").on("click", function() {
+      if($(this).hasClass("active")) {
+        return false;
+      }
 
-      baguetteBox.run('.gallery', {
-        buttons: false,
-        overlayBackgroundColor: 'rgba(254, 255, 255, 0.95)',
-        afterShow: function() {
-          if(!baguetteBoxInitialized) {
-            var nextButton = document.createElement('span');
-            nextButton.className = 'next-button';
-            nextButton.innerHTML = '<i class="fa fa-chevron-right" aria-hidden="true"></i>';
-            document.querySelectorAll('#baguetteBox-overlay')[0].appendChild(nextButton);
+      var pos = $(this).attr("class").substr(1);
 
-            nextButton.addEventListener('click', function() {
-              baguetteBox.showNext();
-            });
+      $(this).addClass("active");
+      $(this).siblings().removeClass("active");
 
-            var prevButton = document.createElement('span');
-            prevButton.className = 'prev-button';
-            prevButton.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
-            document.querySelectorAll('#baguetteBox-overlay')[0].appendChild(prevButton);
+      var slider = $("section.produkty .slider");
 
-            prevButton.addEventListener('click', function() {
-              baguetteBox.showPrevious();
-            });
+      slider.css("left", -pos * slider.parent().innerWidth());
+    });
 
-            baguetteBoxInitialized = true;
-          }
-        }
-      });
-    }
+    //realizacje
+    $("section.realizacje .gallery span").on("click", function() {
+      var gallery = $(this).parent();
+      var galleryWidth = gallery.innerWidth();
+      var gallerySlider = gallery.children(".slider");
+      var gallerySliderWidth = gallerySlider.innerWidth();
+
+      var leftPos = gallerySlider.css("left");
+      leftPos = parseInt(leftPos);
+
+      if($(this).hasClass("next") && leftPos < gallerySliderWidth) {
+        gallerySlider.css("left", leftPos - galleryWidth);
+      } else if($(this).hasClass("prev") && leftPos < 0) {
+        gallerySlider.css("left", leftPos + galleryWidth);
+      }
+    });
   }
 
   init();

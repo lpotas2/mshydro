@@ -18,16 +18,10 @@ section.produkty {
         }
       }
 
-      &:active {
-        .fa {
-          color: $red;
-        }
-      }
-
       &.active {
         .fa {
           color: $red;
-          border-color: $black;
+          border-color: $red;
         }
       }
 
@@ -58,19 +52,15 @@ section.produkty {
       left: 0;
       top: 0;
       width: 5500px;
+      height: 100%;
+      font-size: 0;
+      transition: 0.4s left ease-out;
 
       div {
         display: inline-block;
         width: 100%;
         max-width: $max-width;
-        line-height: 0;
-        text-align: justify;
-
-        &:after {
-          content: "";
-          display: inline-block;
-          width: 100%;
-        }
+        vertical-align: top;
 
         &:hover {
           a {
@@ -82,16 +72,17 @@ section.produkty {
           position: relative;
           display: inline-block;
           width: calc(1025px / 6);
+          margin-right: 15px;
           height: 175px;
           padding: 15px;
           box-sizing: border-box;
           border: 2px solid $grey;
           background: #fff;
+          font-size: 12px;
           line-height: 125%;
           text-align: center;
           text-transform: uppercase;
           vertical-align: top;
-          /*transition: 0.5s opacity ease-out;*/
 
           &:hover {
             opacity: 1;

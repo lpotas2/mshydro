@@ -84,9 +84,16 @@ section.realizacje {
         left: 0;
         top: 0;
         height: 100%;
+        transition: 0.4s left ease-out;
 
         div {
-          
+          display: inline-block;
+          width: 436px;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          vertical-align: top;
         }
       }
 

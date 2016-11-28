@@ -1,3 +1,9 @@
+<?php
+/**
+ * Template Name: Oferta
+ */
+?>
+
 <section class="oferta">
   <div class="bg-lines">
     <span></span><!--
@@ -19,19 +25,17 @@
         <h2><?php the_title()?></h2>
 
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-          </p>
           <?php the_content(); ?>
         </div>
       </div>
         
     <div class="gallery">
+      <!--
       <?php if( have_rows('zdjęcia_galeryjne') ):
         while ( have_rows('zdjęcia_galeryjne') ) : the_row();?>
-          <div style="background-image: url(<?php the_sub_field('zdjęcie')?>);"></div>
+          --><div style="background-image: url(<?php the_sub_field('zdjęcie')?>);"></div><!--
       <?php endwhile; endif;?>
+      -->
     </div>
 
     <div class="other-projects">

@@ -45,25 +45,34 @@
         }
 
         foreach ( $strony as $strona ) { ?>
-        <div>
-          <div class="desc">
-            <h3><?php echo $strona->post_title; ?></h3>
-            <?php the_content(); ?>
-          </div><!--
-          --><div class="gallery">
-            <div class="slider" style="width: 1100px;">
-              <!--
-              <?php if( have_rows('realizacje', $strona->ID) ):
-                while ( have_rows('realizacje', $strona->ID) ) : the_row();?>
-                  --><div style="background-image: url(<?php the_sub_field('zdjecie_glowne')?>);"></div><!--
-              <?php endwhile; endif;?>
-              -->
+          <div>
+            <div class="desc">
+              <h3><?php echo $strona->post_title; ?></h3>
+              <?php the_content(); ?>
+            </div><!--
+            --><div class="gallery">
+              <?php
+                $rows = get_field('realizacje', $strona->ID);
+                $rowsCount = count($rows);
+                
+                if($rows): ?>
+
+                <div class="slider" style="width: <?php echo ($rowsCount * 436); ?>px;">
+                  <!--
+                  <?php
+                    foreach($rows as $row) {
+                      echo '--><div style="background-image: url(' . $row['zdjecie_glowne'] . ');"></div><!--';
+                    }
+                  ?>
+                  -->
+                </div>
+
+              <?php endif;?>
+              <span class="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+              <span class="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
             </div>
-            <div class="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-            <div class="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
           </div>
-        </div>
-      <?php } ?>
+        <?php } ?>
 
       <?php if( !$isRealizationPage ): ?>
         <a class="button" href="<?php the_permalink(10); ?>">Zobacz wszystkie realizacje<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
