@@ -29,17 +29,17 @@
       endwhile; 
     endif;?>
 
+  <?php if(have_rows('nieczynne')):
+    while(have_rows('nieczynne')) : the_row(); ?>
+      <div class="monit">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        <p>Jesteśmy dostawcą rozwiązań hydrauliki siłowej, począwszy od dystrybucji komponentów, poprzez zaawansowane systemy hydrauliczne zintegrowane z automatyką i na wyspecjalizowanym serwisie kończąc. Oferujemy kompleksowe rozwiązania w różnych gałęziach przemysłu.</p>
+      </div>
+    <?php endwhile; ?>
+  <?php endif; ?> 
+
   <div class="wrapper">
-        <div style="height:300px; width: 500px; position:absolute; bottom:0; right:0; background-color: red;">
-          <?php if( have_rows('nieczynne') ):
-            while ( have_rows('nieczynne') ) : the_row();
-              echo "nieczynne od  ";
-              the_sub_field('nieczynne_od');
-              echo "   nieczynnne do  ";
-              the_sub_field('nieczynne_do');
-            endwhile; 
-          endif;?>
-    </div>
     <div>
       <h2>
         <?php if( have_rows('pierwszy_ekran') ):

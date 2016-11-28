@@ -209,44 +209,34 @@ aside {
   }
 }
 
-//baguetteBox
-#baguetteBox-overlay {
-  cursor: cell;
+.monit {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 350px;
+  min-height: 50px;
+  padding: 25px 55px 25px 105px;
+  background: $red;
+  border: 2px solid #fff;
+  color: #fff;
 
-  .full-image {
-    img {
-      max-height: 75vh;
-      max-width: 90vw;
-      box-shadow: none;
-      cursor: auto;
-    }
-  }
-
-  .next-button, .prev-button {
+  .fa-exclamation-triangle {
     position: absolute;
+    left: 30px;
     top: 50%;
-    right: 50px;
     transform: translateY(-50%);
-    border: 2px solid $grey;
+    font-size: 4em;
+    color: #fff;
+  }
+
+  .fa-times {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    padding: 10px;
+    border: 2px solid #fff;
     font-size: 1.5em;
-    line-height: 50px;
-    width: 50px;
-    color: $black;
-    text-align: center;
-    cursor: pointer;
-
-    &:hover {
-      border-color: $red;
-    }
+    color: #fff;
   }
-
-  .prev-button {
-    right: auto;
-    left: 50px;
-  }
-}
-
-.baguetteBox-button#close-button {
-  display: none;
 }
 
