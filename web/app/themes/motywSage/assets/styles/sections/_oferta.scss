@@ -67,7 +67,7 @@ section.oferta {
         padding: 10px 20px;
         box-sizing: border-box;
         background: rgba($red, 0.95);
-        box-shadow: 0 5px 15px rgba($black, 0.5);
+        box-shadow: 0 5px 15px rgba(#191415, 0.5);
 
         * {
           display: inline-block;
@@ -93,8 +93,8 @@ section.oferta {
         width: 100%;
         padding: 25px 25px 15px;
         box-sizing: border-box;
-        background-image: linear-gradient(rgba($black, 0), rgba($black, 1));
-        text-shadow: 0 0 5px $black;
+        background-image: linear-gradient(rgba(#191415, 0), rgba(#191415, 1));
+        text-shadow: 0 0 5px #191415;
         transition: 0.7s all ease-out;
       }
     }
