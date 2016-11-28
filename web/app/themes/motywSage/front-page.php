@@ -90,111 +90,29 @@
             endwhile;
             endif?>
         </p>
-      </div>
-
-      <ul>
-
+      </div><!--
+      --><ul>
         <li>
-          <h4>
           <?php if( have_rows('sekcja_ms-hydro')):
             while ( have_rows('sekcja_ms-hydro')) : the_row();
-              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_1' ):
-                the_sub_field('tytuł_kolumny');?>
+          if( get_row_layout() == 'szczegołowy_opis' ):?>
+          <h4>
+
+                <?php the_sub_field('tytuł_kolumny');?>
           </h4>
           <ul>
             <li><i class="fa fa-check" aria-hidden="true"></i>
-          <?php the_sub_field('punkt_1');?>
+          <?php the_sub_field('szczegoły');?>
   
             </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-
-                <?php the_sub_field('punkt_2');?>
-
-            </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-               <?php the_sub_field('punkt_3');
+           <?php
               endif;
             endwhile; 
           endif;?>
             </li>
           </ul>
         </li><!--     
-       --><li>
-          <h4>
-          <?php if( have_rows('sekcja_ms-hydro')):
-            while ( have_rows('sekcja_ms-hydro')) : the_row();
-              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_2' ):
-                the_sub_field('tytuł_kolumny');?>
-          </h4>
-          <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-          <?php the_sub_field('punkt_1');?>
-  
-            </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-
-                <?php the_sub_field('punkt_2');?>
-
-            </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-               <?php the_sub_field('punkt_3');
-              endif;
-            endwhile; 
-          endif;?>
-            </li>
-          </ul>
-        </li><!--     
-       --><li>
-          <h4>
-          <?php if( have_rows('sekcja_ms-hydro')):
-            while ( have_rows('sekcja_ms-hydro')) : the_row();
-              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_3' ):
-                the_sub_field('tytuł_kolumny');?>
-          </h4>
-          <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-          <?php the_sub_field('punkt_1');?>
-  
-            </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-
-                <?php the_sub_field('punkt_2');?>
-
-            </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-               <?php the_sub_field('punkt_3');
-              endif;
-            endwhile; 
-          endif;?>
-            </li>
-          </ul>
-        </li><!--     
-       --><li>
-          <h4>
-          <?php if( have_rows('sekcja_ms-hydro')):
-            while ( have_rows('sekcja_ms-hydro')) : the_row();
-              if( get_row_layout() == 'szczegołowy_opis_-_kolumna_4' ):
-                the_sub_field('tytuł_kolumny');?>
-          </h4>
-          <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-          <?php the_sub_field('punkt_1');?>
-  
-            </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-
-                <?php the_sub_field('punkt_2');?>
-
-            </li>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-               <?php the_sub_field('punkt_3');
-              endif;
-            endwhile; 
-          endif;?>
-            </li>
-          </ul>
-        </li>
-      </ul>
+       --></ul>
     </div>
   </section>
 
@@ -226,9 +144,16 @@
 
     <div class="char">
       <ul>
-      <?php if( have_rows('proces')):
-            while ( have_rows('proces')) : the_row();
-              if( get_row_layout() == 'etap_1' ):?>
+      <?php
+      $item = 0;
+       if( have_rows('sekcja_proces')):
+            while ( have_rows('sekcja_proces')) : the_row();
+              if( get_row_layout() == 'etap' ):
+              if($item==2){?>
+                <li class="parent">
+                <div>
+                  <ul>
+              <?php } ?>
                 <li>
                   <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
                   <div class="desc">
@@ -236,78 +161,13 @@
                     <img src="<?php the_sub_field('ikona');?>" />           
                   </div>
                 </li>
-          <?php endif;
-        endwhile; 
-      endif;?>
-      <?php if( have_rows('proces')):
-            while ( have_rows('proces')) : the_row();
-              if( get_row_layout() == 'etap_2' ):?>
-                <li>
-                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
-                  <div class="desc">
-                    <p><?php the_sub_field('opis');?></p>
-                    <img src="<?php the_sub_field('ikona');?>" />           
-                  </div>
+                 <?php if($item==4){?>
                 </li>
-          <?php endif;
-        endwhile; 
-      endif;?>
-        <li class="parent">
-          <div>
-            <ul>
-      <?php if( have_rows('proces')):
-            while ( have_rows('proces')) : the_row();
-              if( get_row_layout() == 'etap_3' ):?>
-                <li>
-                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
-                  <div class="desc">
-                    <p><?php the_sub_field('opis');?></p>
-                    <img src="<?php the_sub_field('ikona');?>" />           
-                  </div>
-                </li>
-          <?php endif;
-        endwhile; 
-      endif;?>
-      <?php if( have_rows('proces')):
-            while ( have_rows('proces')) : the_row();
-              if( get_row_layout() == 'etap_4' ):?>
-                <li>
-                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
-                  <div class="desc">
-                    <p><?php the_sub_field('opis');?></p>
-                    <img src="<?php the_sub_field('ikona');?>" />           
-                  </div>
-                </li>
-          <?php endif;
-        endwhile; 
-      endif;?>
-      <?php if( have_rows('proces')):
-            while ( have_rows('proces')) : the_row();
-              if( get_row_layout() == 'etap_5' ):?>
-                <li>
-                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
-                  <div class="desc">
-                    <p><?php the_sub_field('opis');?></p>
-                    <img src="<?php the_sub_field('ikona');?>" />           
-                  </div>
-                </li>
-          <?php endif;
-        endwhile; 
-      endif;?>
-      </ul>
-          </div>
-        </li>
-      <?php if( have_rows('proces')):
-            while ( have_rows('proces')) : the_row();
-              if( get_row_layout() == 'etap_6' ):?>
-                <li>
-                  <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
-                  <div class="desc">
-                    <p><?php the_sub_field('opis');?></p>
-                    <img src="<?php the_sub_field('ikona');?>" />           
-                  </div>
-                </li>
-          <?php endif;
+                </div>
+                  </ul>
+              <?php } ?>
+          <?php $item = $item+1;
+           endif;
         endwhile; 
       endif;?>
       </ul>
