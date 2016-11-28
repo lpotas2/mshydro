@@ -8,18 +8,22 @@
     <footer class="content-info">
       <div class="container">
         <div class="wrapper">
-          <nav>
-            <ul>
-              <li class="ms-hydro"><a>MS-Hydro</a></li>
-              <li class="oferta"><a>Oferta</a></li>
-              <li class="proces"><a>Proces</a></li>
-              <li class="realizacje"><a>Realizacje</a></li>
-              <li class="produkty"><a>Produkty</a></li>
-              <li class="aktualnosci"><a>Aktualności</a></li>
-              <li class="kontakt"><a>Kontakt</a></li>
-              <li class="praca"><a>Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
-            </ul>
-          </nav>
+
+          <?php 
+            if(is_front_page()) : ?>
+              <nav>
+                <ul>
+                  <li class="ms-hydro"><a>MS-Hydro</a></li>
+                  <li class="oferta"><a>Oferta</a></li>
+                  <li class="proces"><a>Proces</a></li>
+                  <li class="realizacje"><a>Realizacje</a></li>
+                  <li class="produkty"><a>Produkty</a></li>
+                  <li class="aktualnosci"><a>Aktualności</a></li>
+                  <li class="kontakt"><a>Kontakt</a></li>
+                  <li class="praca"><a href="<?php echo get_permalink(16);?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
+                </ul>
+              </nav>
+          <?php endif; ?>
 
           <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa"></a>
           <?php if( have_rows('pierwszy_ekran') ):
