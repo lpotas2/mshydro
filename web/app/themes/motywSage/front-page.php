@@ -166,6 +166,39 @@
 <?php include "realization-main.php" ?>
 <?php include "products-main.php" ?>
 
+<section class="aktualnosci">
+  <h2>
+    <a href="<?php the_permalink(14);?>">
+      <?php echo get_the_title(14); ?>
+    </a>
+  </h2>
+  <div>
+    <?php query_posts('cat=10&posts_per_page=8'); while (have_posts()) : the_post(); ?>
+    <div class="box">
+      <div class="inner">
+        <div class="heading">
+          <?php if(get_field('zdjecie_wpisu')){?>
+          <div class="image" style="background-image: url(<?php the_field('zdjecie_wpisu');?>);"></div>
+          <?php } ?>
+          <span><?php echo get_the_date();?></span>
+          <h3>
+ 
+              <?php echo get_the_title();?>
+
+          </h3>
+        </div>
+        <p>
+          <?php echo get_excerpt();?>
+        </p>
+      </div>
+    </div>
+
+    <?php endwhile; ?>
+
+    <?php wp_reset_query(); ?>
+  </div>
+</section>
+
 <section class="kontakt">
   <h2>
     <?php echo get_the_title(18);?>
