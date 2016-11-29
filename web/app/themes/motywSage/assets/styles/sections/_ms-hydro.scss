@@ -15,57 +15,48 @@ section.ms-hydro {
     filter: grayscale(100%);
   }
 
-  .desc {
-    width: 100%;
-    max-width: 80%;
+  p {
+    font-size: 1.75em;
+    line-height: 150%;
+    font-weight: 300;
+    text-align: justify;
 
-    p {
-      font-size: 1.75em;
-      line-height: 150%;
-      font-weight: 300;
-      text-align: justify;
-
-      strong {
-        font-weight: 500;
-      }
+    strong {
+      font-weight: 500;
     }
   }
 
-  .wrapper > ul {
-    margin-top: 50px;
+  .wrapper div {
+    display: inline-block;
+    width: 40%;
+    margin-top: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+    vertical-align: top;
 
-    & > li {
-      display: inline-block;
-      width: 40%;
-      padding-right: 30px;
-      box-sizing: border-box;
-      vertical-align: top;
-      &:first-child {
-        margin-bottom: 30px;
-      }
+    h4 {
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      font-size: 1.5em;
+      line-height: 150%;
+    }
 
-      h4 {
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        font-size: 1.5em;
-        line-height: 150%;
-      }
+    ul {
+      li {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding-left: 20px;
+        margin-bottom: 1em;
+        box-sizing: border-box;
 
-      ul {
-        li {
-          position: relative;
-          display: block;
-          width: 100%;
-          padding-left: 20px;
-          margin-bottom: 1em;
-          box-sizing: border-box;
-
-          .fa {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: $red;
-          }
+        &:before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: $red;
+          font-family: FontAwesome;
+          content: "\f00c";
         }
       }
     }

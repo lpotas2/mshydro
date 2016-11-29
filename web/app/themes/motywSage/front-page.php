@@ -34,7 +34,7 @@
       <div class="monit">
         <i class="fa fa-times" aria-hidden="true"></i>
         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        the_sub_field('nieczynne_komunikat');
+        <?php the_sub_field('nieczynne_komunikat'); ?>
       </div>
     <?php endwhile; ?>
   <?php endif; ?> 
@@ -81,27 +81,22 @@
     <div class="wrapper">
       <h2>MS-HYDRO</h2>
 
-      <div class="desc">
-        <p>
-          <?php if( have_rows('sekcja_ms-hydro')):
-            while ( have_rows('sekcja_ms-hydro')) : the_row();
-                the_sub_field('ogolny_opis_sekcji_ms-hydro');
-            endwhile;
-          endif?>
-        </p>
-      </div><!--
-      --><ul>
-        <li>
-          <?php if( have_rows('sekcja_ms-hydro')):
-            while ( have_rows('sekcja_ms-hydro')) : the_row();
-              if( get_row_layout() == 'szczegołowy_opis' ):?>
-                <h4><?php the_sub_field('tytuł_kolumny'); ?></h4>
-                <?php the_sub_field('szczegoły');?>
-              <?php endif; ?>
-            <?php endwhile; ?>
+      <?php if( have_rows('sekcja_ms-hydro')):
+        while ( have_rows('sekcja_ms-hydro')) : the_row();
+            the_sub_field('ogolny_opis_sekcji_ms-hydro');
+        endwhile;
+      endif?>
+
+      <?php if( have_rows('sekcja_ms-hydro')):
+        while ( have_rows('sekcja_ms-hydro')) : the_row();
+          if( get_row_layout() == 'szczegołowy_opis' ): ?>
+          <div>
+            <h4><?php the_sub_field('tytuł_kolumny'); ?></h4>
+            <?php the_sub_field('szczegoły');?>
+          </div>
           <?php endif; ?>
-        </li>
-      </ul>
+        <?php endwhile; ?>
+      <?php endif; ?>
     </div>
   </section>
 
