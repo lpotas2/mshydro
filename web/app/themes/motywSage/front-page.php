@@ -34,7 +34,7 @@
       <div class="monit">
         <i class="fa fa-times" aria-hidden="true"></i>
         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        <p>Jesteśmy dostawcą rozwiązań hydrauliki siłowej, począwszy od dystrybucji komponentów, poprzez zaawansowane systemy hydrauliczne zintegrowane z automatyką i na wyspecjalizowanym serwisie kończąc. Oferujemy kompleksowe rozwiązania w różnych gałęziach przemysłu.</p>
+        the_sub_field('nieczynne_komunikat');
       </div>
     <?php endwhile; ?>
   <?php endif; ?> 
@@ -64,20 +64,19 @@
         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
     </div>
 
-    <span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-    </div>
-
-  </section>
+    <span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i>
+  </div>
+</section>
 
   <section class="ms-hydro" >
     <a id="ms-hydro"></a>
-        <?php if( have_rows('sekcja_ms-hydro') ):
+    <?php if( have_rows('sekcja_ms-hydro') ):
       while ( have_rows('sekcja_ms-hydro') ) : the_row();
         if( get_sub_field('tło_sekcji_ms-hydro') ):?>
-    <div class="bg" style="background-image: url('<?php the_sub_field('tło_sekcji_ms-hydro')?>');"></div>
-        <?php endif; 
-      endwhile; 
-    endif;?>
+          <div class="bg" style="background-image: url('<?php the_sub_field('tło_sekcji_ms-hydro')?>');"></div>
+        <?php endif; ?>
+      <?php endwhile; ?>
+    <?php endif; ?>
 
     <div class="wrapper">
       <h2>MS-HYDRO</h2>
@@ -88,31 +87,21 @@
             while ( have_rows('sekcja_ms-hydro')) : the_row();
                 the_sub_field('ogolny_opis_sekcji_ms-hydro');
             endwhile;
-            endif?>
+          endif?>
         </p>
       </div><!--
       --><ul>
         <li>
           <?php if( have_rows('sekcja_ms-hydro')):
             while ( have_rows('sekcja_ms-hydro')) : the_row();
-          if( get_row_layout() == 'szczegołowy_opis' ):?>
-          <h4>
-
-                <?php the_sub_field('tytuł_kolumny');?>
-          </h4>
-          <ul>
-            <li><i class="fa fa-check" aria-hidden="true"></i>
-          <?php the_sub_field('szczegoły');?>
-  
-            </li>
-           <?php
-              endif;
-            endwhile; 
-          endif;?>
-            </li>
-          </ul>
-        </li><!--     
-       --></ul>
+              if( get_row_layout() == 'szczegołowy_opis' ):?>
+                <h4><?php the_sub_field('tytuł_kolumny'); ?></h4>
+                <?php the_sub_field('szczegoły');?>
+              <?php endif; ?>
+            <?php endwhile; ?>
+          <?php endif; ?>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -144,10 +133,9 @@
 
     <div class="char">
       <ul><!--
-      <?php
-      $item = 0;
+      <?php $item = 0;
        if( have_rows('sekcja_proces')):
-            while ( have_rows('sekcja_proces')) : the_row();
+          while ( have_rows('sekcja_proces')) : the_row();
               if( get_row_layout() == 'etap' ):
               if($item==2){?>
                 --><li class="parent">
@@ -166,7 +154,7 @@
                 </div>
                   </li><!--
               <?php } ?>
-          <?php $item = $item+1;
+          <?php $item++;
            endif;
         endwhile; 
       endif;?>
@@ -176,7 +164,6 @@
 </section>
 
 <?php include "realization-main.php" ?>
-
 <?php include "products-main.php" ?>
 
 <section class="kontakt">
@@ -224,8 +211,6 @@
     <div id="map"></div>
   </div>
 </section>
-
-<!--<script src="<?php print get_template_directory_uri(); ?>/dist/scripts/main.js"></script>-->
 
 <!-- google map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
