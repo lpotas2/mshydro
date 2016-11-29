@@ -71,8 +71,6 @@
         offset: '50%'
       });
 
-    
-
       Macy.init({
         container: 'section.aktualnosci > div',
         trueOrder: false,
@@ -115,20 +113,21 @@
         minRows: "1"
       });
     }
-      //praca
-      jobOffers.children(".title").on("click", function() {
-        var parent = $(this).parent();
 
-        if(parent.hasClass("active")) {
-          parent.removeClass("active");
-          $(this).next(".desc").slideUp();
-        } else {
-          jobOffers.removeClass("active");
-          jobOffers.children(".desc").not(this).slideUp();
-          parent.addClass("active");
-          $(this).next(".desc").slideDown();
-        }
-      });
+    //praca
+    jobOffers.children(".title").on("click", function() {
+      var parent = $(this).parent();
+
+      if(parent.hasClass("active")) {
+        parent.removeClass("active");
+        $(this).next(".desc").slideUp();
+      } else {
+        jobOffers.removeClass("active");
+        jobOffers.children(".desc").not(this).slideUp();
+        parent.addClass("active");
+        $(this).next(".desc").slideDown();
+      }
+    });
 
     $("section.produkty > ul li").on("click", function() {
       if($(this).hasClass("active")) {
@@ -160,6 +159,13 @@
       } else if($(this).hasClass("prev") && leftPos < 0) {
         gallerySlider.css("left", leftPos + galleryWidth);
       }
+    });
+
+    //proces
+    var stages = $("section.proces .char ul li").not(".parent");
+    stages.children(".title").on("mouseenter", function() {
+      stages.removeClass("active");
+      $(this).parent().addClass("active");
     });
   }
 

@@ -117,13 +117,29 @@ section.proces {
         .desc {
           position: absolute;
           top: 200px;
-          width: 100%;
-          padding: 15px 10px;
+          left: 0;
+          width: calc(1100px / 5 * 2);
+          padding: 15px 15px 15px 100px;
           box-sizing: border-box;
           border-top: 1px solid $white;
           font-size: 12px;
           line-height: 200%;
+          text-align: left;
           opacity: 0;
+
+          img {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 50%;
+          }
+        }
+
+        &:last-child {
+          .desc {
+            left: auto;
+            right: 0;
+          }
         }
 
         .title {
@@ -190,12 +206,11 @@ section.proces {
             li {
               width: 30%;
 
-              & > div {
+              & .title {
                 width: calc(100% - 10px);
               }
 
               .desc {
-                width: 220px;
                 left: 50%;
                 transform: translateX(-50%);
               }
