@@ -35,7 +35,7 @@ $excerpt = strip_tags($excerpt);
 $excerpt = substr($excerpt, 0, 150);
 $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
 $excerpt = trim(preg_replace( '/s+/', ' ', $excerpt));
-$excerpt = $excerpt.'... <strong><a href="'.get_the_permalink().'">więcej</a></strong>';
+// $excerpt = $excerpt.'... <strong><a href="'.get_the_permalink().'">więcej</a></strong>';
 return $excerpt;
 }
 
