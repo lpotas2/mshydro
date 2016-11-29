@@ -132,19 +132,19 @@
        if( have_rows('sekcja_proces')):
           while ( have_rows('sekcja_proces')) : the_row();
               if( get_row_layout() == 'etap' ):
-              if($item==2){?>
+              if($item == 2){ ?>
                 --><li class="parent">
                 <div>
                   <ul><!--
               <?php } ?>
-                --><li>
+                --><li class="<?php echo ($item == 0 ? 'active' : ''); ?>">
                   <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
                   <div class="desc">
-                    <p><?php the_sub_field('opis');?></p>
-                    <img src="<?php the_sub_field('ikona');?>" />           
+                    <img src="<?php the_sub_field('ikona');?>" /> 
+                    <p><?php the_sub_field('opis'); ?></p>
                   </div>
                 </li><!--
-                 <?php if($item==4){?>
+                 <?php if($item == 4){?>
                 --></ul>
                 </div>
                   </li><!--
