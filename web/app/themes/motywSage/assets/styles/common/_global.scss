@@ -2,7 +2,7 @@ body {
   position: relative;
   min-height: 100vh;
   box-sizing: border-box;
-  padding-bottom: 266px;
+  padding-bottom: 212px;
   background: $white;
   color: $black;
   font-family: 'Roboto', sans-serif;
@@ -11,7 +11,10 @@ body {
 
   &.home {
     padding-top: 161.5px;
+    padding-bottom: 266px;
   }
+
+
 }
 
 p {
@@ -237,6 +240,7 @@ aside {
     border: 2px solid #fff;
     font-size: 1.5em;
     color: #fff;
+    cursor: pointer;
   }
 }
 

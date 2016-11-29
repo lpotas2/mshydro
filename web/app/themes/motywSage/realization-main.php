@@ -45,7 +45,7 @@
         }
 
         foreach ( $strony as $strona ) { ?>
-          <div>
+          <div class="realization">
             <div class="desc">
               <h3><?php echo $strona->post_title; ?></h3>
               <?php the_field('opis',$strona->ID)?>       
@@ -76,8 +76,10 @@
         <?php } ?>
 
       <?php if( !$isRealizationPage ): ?>
+      <div style="text-align: center;">
         <a class="button" href="<?php the_permalink(10); ?>">Zobacz wszystkie realizacje<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
       <?php endif; ?>
+      </div>
     </div>
   </div>
 </section>

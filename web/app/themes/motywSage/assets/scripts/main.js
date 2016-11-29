@@ -161,6 +161,8 @@
     });
 
     //realizacje
+    $("section.realizacje .desc").perfectScrollbar();
+
     $("section.realizacje .gallery span").on("click", function() {
       var gallery = $(this).parent();
       var galleryWidth = gallery.innerWidth();
@@ -170,7 +172,7 @@
       var leftPos = gallerySlider.css("left");
       leftPos = parseInt(leftPos);
 
-      if($(this).hasClass("next") && leftPos < gallerySliderWidth) {
+      if($(this).hasClass("next") && -(leftPos - galleryWidth) < gallerySliderWidth) {
         gallerySlider.css("left", leftPos - galleryWidth);
       } else if($(this).hasClass("prev") && leftPos < 0) {
         gallerySlider.css("left", leftPos + galleryWidth);
@@ -182,6 +184,10 @@
     stages.children(".title").on("mouseenter", function() {
       stages.removeClass("active");
       $(this).parent().addClass("active");
+    });
+
+    $(".monit .fa-times").on("click", function() {
+      $(this).parent().hide();
     });
   }
 

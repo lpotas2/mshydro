@@ -13,21 +13,17 @@
     </div>
     <div class="wrapper">
       <div class="desc">
-
-              <?php the_field('opis')?>       
-
+        <?php the_field('opis')?>
       </div>
 
       <div class="gallery">
         <?php if( have_rows('zdjęcia_galeryjne') ):
-                while ( have_rows('zdjęcia_galeryjne') ) : the_row();?>
-        <a class="thumb" href="<?php the_sub_field('zdjęcie')?>">
-          <div style="background-image: url(<?php the_sub_field('zdjęcie')?>);"></div>
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </a>
-                        <?php endwhile;endif;?>
-        
-      
+          while ( have_rows('zdjęcia_galeryjne') ) : the_row();?>
+            <a class="thumb" href="<?php the_sub_field('zdjęcie')?>">
+              <div style="background-image: url(<?php the_sub_field('zdjęcie')?>);"></div>
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+        <?php endwhile; endif;?>
       </div>
     </div>
 

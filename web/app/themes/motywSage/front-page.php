@@ -209,7 +209,7 @@
       </div>
     </div><!--
     --><div class="phone">
-      <i class="fa fa-mobile" aria-hidden="true"></i>
+      <i class="fa fa-phone" aria-hidden="true"></i>
       <div>
         <?php the_sub_field('telefon');?>
         </br>
@@ -217,7 +217,7 @@
       </div>
     </div><!--
     --><div class="email">
-      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      <i class="fa fa-envelope" aria-hidden="true"></i>
       <div>
         <?php the_sub_field('e-mail');?>
       </div>
