@@ -143,34 +143,34 @@
     <h2>PROCES</h2>
 
     <div class="char">
-      <ul>
+      <ul><!--
       <?php
       $item = 0;
        if( have_rows('sekcja_proces')):
             while ( have_rows('sekcja_proces')) : the_row();
               if( get_row_layout() == 'etap' ):
               if($item==2){?>
-                <li class="parent">
+                --><li class="parent">
                 <div>
-                  <ul>
+                  <ul><!--
               <?php } ?>
-                <li>
+                --><li>
                   <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
                   <div class="desc">
                     <p><?php the_sub_field('opis');?></p>
                     <img src="<?php the_sub_field('ikona');?>" />           
                   </div>
-                </li>
+                </li><!--
                  <?php if($item==4){?>
-                </li>
+                --></ul>
                 </div>
-                  </ul>
+                  </li><!--
               <?php } ?>
           <?php $item = $item+1;
            endif;
         endwhile; 
       endif;?>
-      </ul>
+      --></ul>
     </div>
   </div>
 </section>

@@ -13,12 +13,10 @@
     ));
 
     foreach ( $strony as $strona ) { 
-      if( have_rows('produkty', $strona->ID) ) :
-        while ( have_rows('produkty', $strona->ID) ) : the_row();
-          $strona->category = get_sub_field('kategoria', $strona->ID);
+
+          $strona->category = get_field('kategoria', $strona->ID);
           array_push($categorys, $strona->category);
-        endwhile;
-      endif;
+
     }
 
     $categorys = array_unique($categorys);
@@ -44,9 +42,7 @@
     <div class="slider">
       <div>
         <?php foreach ( $strony as $strona ) {
-          if( have_rows('produkty', $strona->ID) ) :
-            while ( have_rows('produkty', $strona->ID) ) : the_row();
-              $currentCategory = get_sub_field('kategoria', $strona->ID);
+              $currentCategory = get_field('kategoria', $strona->ID);
 
               if ( $currentCategory != $lastCategory ) {
                 echo '</div><div>';
@@ -57,9 +53,9 @@
 
             <a href="<?php echo get_page_link($strona->ID) ?>">
               <strong><?php echo get_the_title($strona->ID) ?></strong>
-              <img src="<?php the_sub_field('zdjęcie', $strona->ID);?>" />
+              <img src="<?php the_field('zdjęcie', $strona->ID);?>" />
             </a>
-        <?php endwhile; endif; } ?>
+        <?php } ?>
 
           </div>
         <div> 

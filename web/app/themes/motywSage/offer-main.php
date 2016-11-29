@@ -11,25 +11,22 @@
     <a href="<?php the_permalink(8);?>">
       <?php echo get_the_title(8)?>
     </a>
-  </h2><!--
-  
+  </h2><!-- 
   <?php foreach ( $strony as $strona ) { ?>
     --><div class="box">
       <a href="<?php the_permalink($strona->ID);?>">
-        <?php if( have_rows('tło_ikony_opis',$strona->ID) ):
-          while ( have_rows('tło_ikony_opis',$strona->ID) ) : the_row();?>
-        <div class="container" style="background-image: url(<?php the_sub_field('tło', $strona->ID);?>);">
+        <div class="container" style="background-image: url(<?php the_field('tło', $strona->ID);?>);">
           <div class="bar">
-            <img class="icon" src="<?php the_sub_field('ikona_2', $strona->ID)?>" />
+            <img class="icon" src="<?php the_field('ikona_2', $strona->ID)?>" />
             <h4><?php echo $strona->post_title; ?></h4>
           </div>
           <div class="desc">
-            <?php the_sub_field('opis', $strona->ID)?>
+            <?php the_field('opis', $strona->ID)?>
           </div>
         </div>
       </a>
     </div><!--
-  <?php endwhile; endif;}?>
+  <?php }?>
     --><div class="box">
       <div class="container">
         <span>Pobierz ofertę</span>

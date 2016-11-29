@@ -13,12 +13,8 @@
     </div>
     <div class="wrapper">
       <div class="desc">
-             <?php if( have_rows('realizacje') ):
-                while ( have_rows('realizacje') ) : the_row();?>
-              <?php the_sub_field('opis')?>
-              <?php endwhile;endif;?>
 
-          
+              <?php the_field('opis')?>       
 
       </div>
 

@@ -18,13 +18,9 @@
       <h2><?php echo get_the_title()?></h2>
 
 
-<?php if( have_rows('produkty') ):
-                while ( have_rows('produkty') ) : the_row();?>
-          <img src="<?php the_sub_field('grafika_-_lewa');?>" />
-          <img src="<?php the_sub_field('grafika_-_prawa')?>" />
+          <img src="<?php the_field('grafika_-_lewa');?>" />
+          <img src="<?php the_field('grafika_-_prawa')?>" />
 
-    <?php endwhile;endif;
-
-      the_content();
+    <?php the_content();
       ?>
   </section>

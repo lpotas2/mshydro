@@ -48,11 +48,12 @@
           <div>
             <div class="desc">
               <h3><?php echo $strona->post_title; ?></h3>
-              <?php the_content(); ?>
+              <?php the_field('opis',$strona->ID)?>       
+
             </div><!--
             --><div class="gallery">
               <?php
-                $rows = get_field('realizacje', $strona->ID);
+                $rows = get_field('zdjęcia_galeryjne', $strona->ID);
                 $rowsCount = count($rows);
                 
                 if($rows): ?>
@@ -61,7 +62,7 @@
                   <!--
                   <?php
                     foreach($rows as $row) {
-                      echo '--><div style="background-image: url(' . $row['zdjecie_glowne'] . ');"></div><!--';
+                      echo '--><div style="background-image: url(' . $row['zdjęcie'] . ');"></div><!--';
                     }
                   ?>
                   -->
