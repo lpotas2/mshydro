@@ -81,3 +81,7 @@ if ( $query->have_posts() ) {
     </nav>
   </div>
 </header>
+
+<div class="overlay">
+  <img src="<?php print get_template_directory_uri(); ?>/dist/images/gear-icon.png" />
+</div>

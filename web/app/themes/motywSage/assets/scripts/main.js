@@ -106,6 +106,22 @@
       });
     }
 
+    $("a").on("click", function(e) {
+      e.preventDefault();
+
+      var url = $(this).attr("href");
+
+      if(url && url !== '') {
+        $(".overlay").show();
+
+        setTimeout(function() {
+          window.location.href = url;
+        }, 2000);
+      }
+      
+      return true;
+    });
+
     if($("body").hasClass("product-page")) {
       $('table').filterTable({
         placeholder: "Szukaj",
