@@ -175,11 +175,7 @@
           <div class="image" style="background-image: url(<?php the_field('zdjecie_wpisu');?>);"></div>
           <?php } ?>
           <span><?php echo get_the_date();?></span>
-          <h3>
- 
-              <?php echo get_the_title();?>
-
-          </h3>
+          <h3><?php echo get_the_title();?></h3>
         </div>
         <p>
           <?php echo get_excerpt();?>

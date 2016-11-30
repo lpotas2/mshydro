@@ -8,9 +8,7 @@
 
 <section class="oferta">
   <h2>
-    <a href="<?php the_permalink(8);?>">
-      <?php echo get_the_title(8)?>
-    </a>
+    <a href="<?php the_permalink(8);?>"><?php echo get_the_title(8)?></a>
   </h2><!-- 
   <?php foreach ( $strony as $strona ) { ?>
     --><div class="box">
@@ -29,8 +27,10 @@
   <?php }?>
     --><div class="box">
       <div class="container">
-        <span>Pobierz ofertę</span>
-        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        <a href="">
+          <img src="<?php print get_template_directory_uri(); ?>/dist/images/pdf-icon.png" />
+          <span>Pobierz całą ofertę</span>
+        </a>
       </div>
     </div>
 </section>

@@ -18,23 +18,21 @@ section.oferta {
       .container {
         top: 50%;
         left: 50%;
-        transform: ranslate(-50%, -50%);
+        transform: translate(-50%, -50%);
         width: auto;
         height: auto;
+        background: $light-grey;
         border-bottom: none;
         text-align: center;
 
         span {
           display: block;
-          margin-bottom: 15px;
+          margin-top: 15px;
+          color: $black;
           font-size: 1.25em;
           font-weight: 700;
           white-space: nowrap;
-        }
-
-        .fa {
-          font-size: 2.5em;
-          color: $red;
+          text-transform: uppercase;
         }
       }
     }

@@ -79,6 +79,28 @@ if ( $query->have_posts() ) {
         <?php } ?>
       </ul>
     </nav>
+
+    <?php 
+      if(is_front_page()) {
+        $strony = get_pages( $args = array(
+          'child_of' => 8,
+          'sort_column' => 'ID',
+          'order' => "ASC" 
+        )); ?>
+        <nav class="secondary">
+          <ul>
+            <!--
+            <?php foreach ($strony as $strona) { ?>
+            --><div class="box">
+              <a href="<?php the_permalink($strona->ID);?>">
+                <img class="icon" src="<?php the_field('ikona_2', $strona->ID)?>" />
+              </a>
+            </div><!--
+            <?php }?>
+            -->
+          </ul>
+        </nav>
+    <?php } ?>
   </div>
 </header>
 
