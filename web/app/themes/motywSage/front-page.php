@@ -238,129 +238,128 @@
 <!-- google map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
 <script>
-    google.maps.event.addDomListener(window, 'load', init);
-    var map;
+  google.maps.event.addDomListener(window, 'load', init);
+  var map;
 
-    function init() {
-      var LatLng = new google.maps.LatLng(54.4236226,18.4559181);
-      var mapOptions = {
-        center: new google.maps.LatLng(54.4236226,18.4559181),
-        zoom: 10,
-        zoomControl: true,
-        zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.LARGE,
+  function init() {
+    var LatLng = new google.maps.LatLng(54.4236226,18.4559181);
+    var mapOptions = {
+      center: new google.maps.LatLng(54.4236226,18.4559181),
+      zoom: 10,
+      zoomControl: true,
+      zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.LARGE,
+      },
+      disableDoubleClickZoom: true,
+      mapTypeControl: false,
+      scaleControl: true,
+      scrollwheel: false,
+      streetViewControl: false,
+      draggable : true,
+      overviewMapControl: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [
+        {
+            "featureType": "landscape",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
         },
-        disableDoubleClickZoom: true,
-        mapTypeControl: false,
-        scaleControl: true,
-        scrollwheel: false,
-        streetViewControl: false,
-        draggable : true,
-        overviewMapControl: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-          {
-              "featureType": "landscape",
-              "elementType": "labels",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "featureType": "transit",
-              "elementType": "labels",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "featureType": "poi",
-              "elementType": "labels",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "featureType": "water",
-              "elementType": "labels",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "featureType": "road",
-              "elementType": "labels.icon",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "stylers": [
-                  {
-                      "hue": "#0000FF"
-                  },
-                  {
-                      "saturation": -100
-                  },
-                  {
-                      "gamma": 2.15
-                  },
-                  {
-                      "lightness": 12
-                  }
-              ]
-          },
-          {
-              "featureType": "road",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                  {
-                      "visibility": "on"
-                  },
-                  {
-                      "lightness": 24
-                  }
-              ]
-          },
-          {
-              "featureType": "road",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "lightness": 57
-                  }
-              ]
-          }
-      ]
-      }
-
-      var mapElement = document.getElementById('map');
-      var map = new google.maps.Map(mapElement, mapOptions);
-
-      var icon = { 
-          url: '<?php print get_template_directory_uri(); ?>/dist/images/ms-hydro-marker.png'
-      };
-
-      marker = new google.maps.Marker({
-          icon: '',
-          position: LatLng,
-          map: map,
-          icon: icon
-      });
-      
-      google.maps.event.addListener(map, 'click', function(event){
-          this.setOptions({scrollwheel:true});
-      });
+        {
+            "featureType": "transit",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "stylers": [
+                {
+                    "hue": "#0000FF"
+                },
+                {
+                    "saturation": -100
+                },
+                {
+                    "gamma": 2.15
+                },
+                {
+                    "lightness": 12
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "visibility": "on"
+                },
+                {
+                    "lightness": 24
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "lightness": 57
+                }
+            ]
+        }
+    ]
     }
+
+    var mapElement = document.getElementById('map');
+    var map = new google.maps.Map(mapElement, mapOptions);
+
+    var icon = { 
+        url: '<?php print get_template_directory_uri(); ?>/dist/images/ms-hydro-marker.png'
+    };
+
+    marker = new google.maps.Marker({
+        icon: '',
+        position: LatLng,
+        map: map,
+        icon: icon
+    });
     
-  </script>
+    google.maps.event.addListener(map, 'click', function(event){
+        this.setOptions({scrollwheel:true});
+    });
+  }
+</script>

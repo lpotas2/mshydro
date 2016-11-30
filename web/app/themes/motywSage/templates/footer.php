@@ -20,22 +20,21 @@
                   <li class="produkty"><a>Produkty</a></li>
                   <li class="aktualnosci"><a>Aktualności</a></li>
                   <li class="kontakt"><a>Kontakt</a></li>
-                  <li class="praca"><a href="<?php echo get_permalink(16);?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
+                  <li class="praca"><a href="<?php echo get_permalink(16); ?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
+                  <li class="warunki-sprzedazy"><a href="<?php echo get_permalink(540); ?>">Warunki sprzedazy <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
                 </ul>
               </nav>
           <?php endif; ?>
 
           <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa"></a>
-          <?php if( have_rows('pierwszy_ekran') ):
-            while ( have_rows('pierwszy_ekran') ) : the_row();?>
-              <img src="<?php the_sub_field('logo')?>";/></a>
-            <?php endwhile; 
-          endif;?>
+            <?php if( have_rows('pierwszy_ekran') ):
+              while ( have_rows('pierwszy_ekran') ) : the_row();?>
+                <img src="<?php the_sub_field('logo')?>";/></a>
+            <?php endwhile; endif;?>
+          </a>
 
           <div class="copyright">Copyright © 2015 <strong>MS-Hydro s.c.</strong> All Rights Reserved</div>
         </div>
       </div>
     </footer>
-<?php }}
-wp_reset_postdata(); 
- ?>
+<?php }} wp_reset_postdata(); ?>

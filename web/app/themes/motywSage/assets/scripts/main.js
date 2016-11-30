@@ -28,6 +28,7 @@
   var bullets = $('.bullets');
   var jobOffers = $('section.praca ul li');
   var menu = $('nav.primary');
+  var menuOffer = $('nav.secondary');
 
   function menuSelect(name) {
     menu.find('li').removeClass('active');
@@ -42,8 +43,10 @@
       $(window).on("scroll", function() {
         if((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
           header.addClass("fixed");
+          menuOffer.addClass("fixed");
         } else {
           header.removeClass("fixed");
+          menuOffer.removeClass("fixed");
         }
       });
 
@@ -89,6 +92,20 @@
         });
       });
 
+      function slideUpMenu() {
+        menuOffer.removeClass("slideDown");
+      }
+
+      menu.find('li').on('mouseenter', function() {
+        if($(this).hasClass('oferta')) {
+          menuOffer.addClass("slideDown");
+          menuOffer.on("mouseleave", slideUpMenu);
+        } else {
+          menuOffer.removeClass("slideDown");
+          menuOffer.off("mouseleave", slideUpMenu);
+        }        
+      });
+
       bullets.children().on('click', function() {
         if($(this).hasClass == 'active') {
           return false;
@@ -116,7 +133,7 @@
 
         setTimeout(function() {
           window.location.href = url;
-        }, 2000);
+        }, Math.floor(Math.random() * (15 - 10 + 1) + 10) * 100);
       }
       
       return true;

@@ -14,26 +14,23 @@
   </div>
 
   <div class="wrapper">
-    <?php if( have_rows('tło_ikony_opis') ):
-      while ( have_rows('tło_ikony_opis') ) : the_row();?>
-        <div class="icon">
-          <img src="<?php the_sub_field('ikona_1')?>"/>
-        </div>
-      <?php endwhile; endif;?>
+    <div class="icon">
+      <img src="<?php the_field('ikona_1')?>" />
+    </div>
 
-      <div class="desc">
-        <h2><?php the_title()?></h2>
+    <div class="desc">
+      <h2><?php the_title()?></h2>
 
-        <div class="content">
-          <?php the_content(); ?>
-        </div>
+      <div class="content">
+        <?php the_field('opis')?>
       </div>
+    </div>
         
     <div class="gallery">
       <!--
-      <?php if( have_rows('zdjęcia_galeryjne') ):
-        while ( have_rows('zdjęcia_galeryjne') ) : the_row();?>
-          --><div style="background-image: url(<?php the_sub_field('zdjęcie')?>);"></div><!--
+      <?php if( have_rows('galeria') ):
+        while ( have_rows('galeria') ) : the_row();?>
+          --><div style="background-image: url(<?php the_sub_field('zdjecie')?>);"></div><!--
       <?php endwhile; endif;?>
       -->
     </div>

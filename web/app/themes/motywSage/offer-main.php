@@ -19,7 +19,7 @@
             <h4><?php echo $strona->post_title; ?></h4>
           </div>
           <div class="desc">
-            <?php the_field('opis', $strona->ID)?>
+            <?php the_field('zajawka', $strona->ID)?>
           </div>
         </div>
       </a>

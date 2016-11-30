@@ -3,19 +3,13 @@ $query = new WP_Query( array( 'page_id' => 6 ) );
 if ( $query->have_posts() ) {
   while ( $query->have_posts() ) {
     $query->the_post(); ?>
+  
   <aside>
     <div class="wrapper">
-      <strong><?php if( have_rows('pierwszy_ekran') ):
-  while ( have_rows('pierwszy_ekran') ) : the_row();
-  the_sub_field('nazwa_firmy');
-  endwhile; endif;?></strong>
-
       <?php if( have_rows('pierwszy_ekran') ):
-  while ( have_rows('pierwszy_ekran') ) : the_row();
-  the_sub_field('adres');
-  the_sub_field('nip');
-  endwhile; endif;?>
-
+        while ( have_rows('pierwszy_ekran') ) : the_row(); ?>
+          <strong><?php the_sub_field('nazwa_firmy'); ?></strong> <?php the_sub_field('adres'); ?> <?php the_sub_field('nip'); ?>
+        <?php endwhile; endif;?>
       </div>
     </div>
   </aside>
@@ -50,10 +44,11 @@ if ( $query->have_posts() ) {
           endwhile; endif;?>
         </div>
       </div>
-      
-      <?php wp_reset_postdata(); 
-    } 
-  } ?>
+
+      <?php wp_reset_postdata();
+    }
+  } 
+?>
 
     <nav class="primary">
       <ul>
@@ -65,7 +60,8 @@ if ( $query->have_posts() ) {
           <li class="produkty"><a>Produkty</a></li>
           <li class="aktualnosci"><a>Aktualności</a></li>
           <li class="kontakt"><a>Kontakt</a></li>
-          <li class="praca"><a href="<?php echo get_permalink(16);?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
+          <li class="praca"><a href="<?php echo get_permalink(16); ?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
+          <li class="warunki-sprzedazy"><a href="<?php echo get_permalink(540); ?>">Warunki sprzedaży <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
         <?php } else { ?>
           <li><a href="<?php echo get_home_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
@@ -79,30 +75,34 @@ if ( $query->have_posts() ) {
         <?php } ?>
       </ul>
     </nav>
-
-    <?php 
-      if(is_front_page()) {
-        $strony = get_pages( $args = array(
-          'child_of' => 8,
-          'sort_column' => 'ID',
-          'order' => "ASC" 
-        )); ?>
-        <nav class="secondary">
-          <ul>
-            <!--
-            <?php foreach ($strony as $strona) { ?>
-            --><div class="box">
-              <a href="<?php the_permalink($strona->ID);?>">
-                <img class="icon" src="<?php the_field('ikona_2', $strona->ID)?>" />
-              </a>
-            </div><!--
-            <?php }?>
-            -->
-          </ul>
-        </nav>
-    <?php } ?>
   </div>
 </header>
+
+<?php
+  if(is_front_page()) {
+    $strony = get_pages( $args = array(
+      'child_of' => 8,
+      'sort_column' => 'ID',
+      'order' => "ASC"
+    )); ?>
+
+    <nav class="secondary">
+      <div class="wrapper">
+        <ul>
+          <!--
+          <?php foreach ($strony as $strona) { ?>
+          --><li>
+            <a href="<?php the_permalink($strona->ID); ?>">
+              <img class="icon" src="<?php the_field('ikona_2', $strona->ID)?>" />
+              <span><?php echo $strona->post_title; ?></span>
+            </a>
+          </li><!--
+          <?php }?>
+          -->
+        </ul>
+      </div>
+    </nav>
+<?php } ?>
 
 <div class="overlay">
   <img src="<?php print get_template_directory_uri(); ?>/dist/images/gear-icon.png" />
