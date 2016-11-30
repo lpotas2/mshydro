@@ -26,10 +26,10 @@
               </nav>
           <?php endif; ?>
 
-          <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa"></a>
+          <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa">
             <?php if( have_rows('pierwszy_ekran') ):
               while ( have_rows('pierwszy_ekran') ) : the_row();?>
-                <img src="<?php the_sub_field('logo')?>";/></a>
+                <img src="<?php the_sub_field('logo'); ?>";/>
             <?php endwhile; endif;?>
           </a>
 

@@ -29,6 +29,9 @@
     endif;?>
 
   <?php if(have_rows('nieczynne')):
+    $currentDate = getdate();
+    $currentDate = $currentDate['year'] . $currentDate['mon'] . $currentDate['mday'];
+
     while(have_rows('nieczynne')) : the_row(); ?>
       <div class="monit">
         <i class="fa fa-times" aria-hidden="true"></i>

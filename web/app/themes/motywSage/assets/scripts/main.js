@@ -74,14 +74,6 @@
         offset: '50%'
       });
 
-      Macy.init({
-        container: 'section.aktualnosci > div',
-        trueOrder: false,
-        waitForImages: false,
-        margin: 30,
-        columns: 4,
-      });
-
       menu.find('li').on('click', function() {
         if($(this).hasClass == 'search') {
           return false;
