@@ -59,8 +59,18 @@ header {
       }
     }
   }
-}
 
+}
+  #contactUs{
+    width:200px;
+    height: 120px;
+    background-color: red;
+    position: fixed;
+    left:50%;
+    top:50%
+    z-index:9999;
+    display: none;
+}
 .page-parent, .page-child {
   header {
     position: relative;
