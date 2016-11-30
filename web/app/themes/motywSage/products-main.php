@@ -50,7 +50,7 @@
 
           <a href="<?php echo get_page_link($strona->ID) ?>">
             <strong><?php echo get_the_title($strona->ID) ?></strong>
-            <img src="<?php the_field('zdjęcie', $strona->ID);?>" />
+            <img src="<?php the_field('zdjecie', $strona->ID);?>" />
           </a>
         <?php } ?>
 

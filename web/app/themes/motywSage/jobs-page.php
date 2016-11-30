@@ -22,5 +22,5 @@
       </li>
         <?php endwhile;endif;?>
   </ul><!--
-    --><img src="<?php the_field('zdjęcie');?>" /><!--
+    --><img src="<?php the_field('zdjecie');?>" /><!--
 --></section>

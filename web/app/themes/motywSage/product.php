@@ -17,7 +17,7 @@
 
   <div class="wrapper">
     <h2><?php echo get_the_title()?></h2>
-    <img src="<?php the_field('grafika_-_lewa');?>" />
-    <img src="<?php the_field('grafika_-_prawa')?>" />
+    <img src="<?php the_field('grafika_lewa');?>" />
+    <img src="<?php the_field('grafika_prawa')?>" />
     <?php the_content();?>
   </section>

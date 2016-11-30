@@ -17,11 +17,10 @@
       </div>
 
       <div class="gallery">
-        <?php if( have_rows('zdjęcia_galeryjne') ):
-          while ( have_rows('zdjęcia_galeryjne') ) : the_row();?>
-            <a class="thumb" href="<?php the_sub_field('zdjęcie')?>">
-              <div style="background-image: url(<?php the_sub_field('zdjęcie')?>);"></div>
-              <i class="fa fa-search" aria-hidden="true"></i>
+        <?php if( have_rows('galeria') ):
+          while ( have_rows('galeria') ) : the_row();?>
+            <a class="thumb" href="<?php the_sub_field('zdjecie')?>">
+              <div style="background-image: url(<?php the_sub_field('zdjecie')?>);"></div>
             </a>
         <?php endwhile; endif;?>
       </div>
