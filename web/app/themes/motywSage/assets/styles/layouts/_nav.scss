@@ -27,11 +27,12 @@ nav.primary {
 
       .fa-home {
         position: relative;
+        margin-left: 0;
         top: 2px;
         font-size: 1.5em;
       }
 
-      .fa-external-link-square {
+      .fa {
         margin-left: 3px;
       }
 
@@ -89,7 +90,7 @@ nav.secondary {
 
   &.fixed {
     position: fixed;
-    margin-top: 94px;
+    margin-top: 93px;
   }
 
   &.slideDown {

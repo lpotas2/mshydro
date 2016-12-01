@@ -54,7 +54,7 @@ if ( $query->have_posts() ) {
       <ul>
         <?php if(is_front_page()){ ?>
           <li class="ms-hydro"><a>MS-Hydro</a></li>
-          <li class="oferta"><a>Oferta</a></li>
+          <li class="oferta"><a>Oferta</a> <i class="fa fa-chevron-down" aria-hidden="true"></i></li>
           <li class="proces"><a>Proces</a></li>
           <li class="realizacje"><a>Realizacje</a></li>
           <li class="produkty"><a>Produkty</a></li>

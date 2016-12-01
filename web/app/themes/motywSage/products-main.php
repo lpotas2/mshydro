@@ -18,7 +18,7 @@
     }
 
     $categorys = array_unique($categorys);
-    sort($categorys);
+    //sort($categorys);
 
     $lastCategory = $categorys[0];
 
