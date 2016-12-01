@@ -103,7 +103,9 @@ if ( $query->have_posts() ) {
       </div>
     </nav>
 <?php } ?>
-
+<div id="contactUs">
+  Podaj nam swój ades email
+</div>
 <div class="overlay">
   <img src="<?php print get_template_directory_uri(); ?>/dist/images/gear-icon.png" />
 </div>

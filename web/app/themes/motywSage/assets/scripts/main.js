@@ -198,6 +198,20 @@
     $(".monit .fa-times").on("click", function() {
       $(this).parent().hide();
     });
+
+     var handler = function () {
+            var mshydroScrollValue = $("section.ms-hydro").offset().top;
+            var windowScrollValue = $(document).scrollTop();
+            if (windowScrollValue > mshydroScrollValue) {
+              setTimeout(function() {
+                $("#contactUs").css("display","none");
+              }, 3000);
+              window.removeEventListener("scroll", handler);
+            }
+          }
+
+          window.addEventListener("scroll", handler);
+
   }
 
   init();
