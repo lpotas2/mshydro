@@ -203,11 +203,14 @@
           var timeToGetEmail = 300; //w milisekundach
 
           if (document.cookie != "") {
-              var cookies = document.cookie;
-              cookies = cookies.split(';');
-              cookies.find(function (value) {
+            var cookies = document.cookie;
+            cookies = cookies.split(';');
+            console.log(cookies)
+            cookies = cookies.find(function (value, index) {
+              // debugger;
+              console.log(index)
               value = value.trim();
-              isCookie = value.match(/^(canSee=true);?$/)
+              isCookie = value.match(/^canSee=true$/)
               return typeof (isCookie) == 'object';
 
             })
@@ -220,10 +223,11 @@
 
             if ((windowScrollValue > mshydroScrollValue) && (isCookie == null)) {
               setTimeout(function () {
-                $("#contactUs").css("display", "block");
+                // $("#contactUs").css("display", "block");
 
                 var currentTime = new Date();
                 currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
+                document.cookie = 'canSesade=true;expires=' + currentTime + ';';
 
                 document.cookie = 'canSee=true;expires=' + currentTime + ';';
 
@@ -270,11 +274,10 @@
 
         if (document.cookie != "") {
           var cookies = document.cookie;
-
           cookies = cookies.split(';');
           cookies = cookies.find(function (value) {
             value = value.trim();
-
+// debugger
             isCookie = value.match(/^canSeeOnNonFrontPage=true$/);
 
             return typeof (isCookie) == 'object';
@@ -285,7 +288,7 @@
 
         if (isCookie == null) {
           setTimeout(function () {
-            $("#contactUs").css("display", "block");
+            // $("#contactUs").css("display", "block");
 
             var currentTime = new Date();
             currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
