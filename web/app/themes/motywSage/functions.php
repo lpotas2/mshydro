@@ -26,29 +26,3 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
-
-function get_excerpt(){
-$excerpt = get_the_content();
-$excerpt = preg_replace(" ([.*?])",'',$excerpt);
-$excerpt = strip_shortcodes($excerpt);
-$excerpt = strip_tags($excerpt);
-$excerpt = substr($excerpt, 0, 150);
-$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-$excerpt = trim(preg_replace( '/s+/', ' ', $excerpt));
-// $excerpt = $excerpt.'... <strong><a href="'.get_the_permalink().'">więcej</a></strong>';
-return $excerpt;
-}
-
-add_filter( 'body_class', 'custom_class' );
-function custom_class( $classes ) {
-    if ( is_page_template( 'product.php' ) ) {
-        $classes[] = 'product-page';
-    }
-    if ( is_page_template( 'realization.php' ) ) {
-        $classes[] = 'realization-page';
-    }
-    if ( is_page_template( 'offer.php' ) ) {
-        $classes[] = 'offer-page';
-    }
-    return $classes;
-}

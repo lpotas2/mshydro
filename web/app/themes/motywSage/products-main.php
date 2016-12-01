@@ -12,21 +12,14 @@
       'order'=> 'ASC'
     ));
 
-    foreach($strony as $strona) { 
+    foreach($strony as $strona) {
       $strona->category = get_field('kategoria', $strona->ID);
-      array_push($categorys, $strona->category);
     }
 
-    $categorys = array_unique($categorys);
-    //sort($categorys);
+    $strony = array_merge(array_flip($categorys), $strony);
 
+    $categorys = get_field_object('kategoria', $strony[0]->ID)['choices'];
     $lastCategory = $categorys[0];
-
-    function cmp($a, $b) {
-      return strcmp($a->category, $b->category);
-    }
-
-    usort($strony, "cmp");
 
     $i = 0;
     foreach($categorys as $category) {
@@ -38,25 +31,20 @@
   
   <div class="slider-container">
     <div class="slider">
-      <div>
-        <?php foreach ( $strony as $strona ) {
-          $currentCategory = get_field('kategoria', $strona->ID);
+      <?php foreach($categorys as $category) {
+        echo '<div>';
 
-          if ( $currentCategory != $lastCategory ) {
-            echo '</div><div>';
-          }
+        foreach($strony as $strona) {
+          if($category == get_field('kategoria', $strona->ID)) : ?>
+            <a href="<?php echo get_page_link($strona->ID) ?>">
+              <strong><?php echo get_the_title($strona->ID) ?></strong>
+              <img src="<?php the_field('thumb', $strona->ID);?>" />
+            </a>
+          <?php endif; ?>
+        <?php }
 
-          $lastCategory = $currentCategory; ?>
-
-          <a href="<?php echo get_page_link($strona->ID) ?>">
-            <strong><?php echo get_the_title($strona->ID) ?></strong>
-            <img src="<?php the_field('zdjecie', $strona->ID);?>" />
-          </a>
-        <?php } ?>
-
-      </div>
-        <div> 
-      </div>
+        echo '</div>';
+      } ?>
     </div>
   </div>
 

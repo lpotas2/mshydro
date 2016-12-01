@@ -1,4 +1,4 @@
-body.realization-page {
+body.page-template-realization-main {
   aside {
     position: relative;
   }
@@ -27,46 +27,6 @@ body.realization-page {
         padding: 5px 0 5px 30px;
         border-left: 3px solid $white;
         box-sizing: border-box;
-      }
-    }
-
-    .stats {
-      width: 60%;
-      margin: 0 auto;
-      margin-top: 75px;
-      text-align: center;
-
-      & > span {
-        display: block;
-        font-size: 1.25em;
-        font-weight: 700;
-        margin-bottom: 15px;
-      }
-
-      & > div {
-        display: inline-block;
-        width: calc(100% / 3);
-        vertical-align: top;
-      }
-
-      .number, .label {
-        display: block;
-        line-height: 100%;
-
-        small {
-          display: inline-block;
-          margin-left: 10px;
-          font-size: 0.5em;
-        }
-      } 
-
-      .number {
-        font-size: 5em;
-        font-weight: 900;
-      }
-
-      .label {
-        font-weight: 700;
       }
     }
 

@@ -1,5 +1,7 @@
-body.produkty {
-  margin-top: 75px;
+body.page-template-products-main {
+  section.produkty {
+    margin-bottom: 75px;
+  }
 }
 
 section.produkty {
@@ -64,14 +66,7 @@ section.produkty {
         display: inline-block;
         width: 100%;
         max-width: $max-width;
-        text-align: justify;
         vertical-align: top;
-
-        &:after {
-          content: "";
-          display: inline-block;
-          width: 100%;
-        }
 
         &:hover {
           a {
@@ -82,10 +77,10 @@ section.produkty {
         a {
           position: relative;
           display: inline-block;
-          width: calc(1025px / 6);
-          margin-right: 15px;
+          width: 170px;
           height: 175px;
           padding: 15px;
+          margin-right: 15px;
           box-sizing: border-box;
           border: 2px solid $grey;
           background: #fff;

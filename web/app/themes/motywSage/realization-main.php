@@ -53,7 +53,7 @@
             </div><!--
             --><div class="gallery">
               <?php
-                $rows = get_field('zdjęcia_galeryjne', $strona->ID);
+                $rows = get_field('galeria', $strona->ID);
                 $rowsCount = count($rows);
                 
                 if($rows): ?>
@@ -62,7 +62,7 @@
                   <!--
                   <?php
                     foreach($rows as $row) {
-                      echo '--><div style="background-image: url(' . $row['zdjęcie'] . ');"></div><!--';
+                      echo '--><div style="background-image: url(' . $row['zdjecie'] . ');"></div><!--';
                     }
                   ?>
                   -->

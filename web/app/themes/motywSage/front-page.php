@@ -164,31 +164,30 @@
 <?php include "products-main.php" ?>
 
 <section class="aktualnosci">
-  <h2>
-    <a href="<?php the_permalink(14);?>">
-      <?php echo get_the_title(14); ?>
-    </a>
-  </h2>
-  <div>
-    <?php query_posts('cat=10&posts_per_page=8'); while (have_posts()) : the_post(); ?>
-    <div class="box">
-      <div class="inner">
-        <div class="heading">
-          <?php if(get_field('zdjecie_wpisu')){?>
-          <div class="image" style="background-image: url(<?php the_field('zdjecie_wpisu');?>);"></div>
-          <?php } ?>
-          <span><?php echo get_the_date();?></span>
-          <h3><?php echo get_the_title();?></h3>
+  <h2>AKTUALNOŚCI</h2>
+  <div class="wrapper">
+    <!--
+    <?php query_posts('cat = 10 & posts_per_page = 8'); while (have_posts()) : the_post(); ?>
+    --><div class="box<?php echo (get_field("wpis_wyrozniony") ? " red" : ""); ?>">
+      <h3><?php echo get_the_title(); ?></h3>
+      <p><?php the_field('zajawka'); ?></p>
+      <?php if(get_field('zdjecie_wpisu')){?>
+        <div class="image">
+          <div style="background-image: url(<?php the_field('zdjecie_wpisu'); ?>);"></div>
         </div>
-        <p>
-          <?php echo get_excerpt();?>
-        </p>
+      <?php } ?>
+      <div class="footer">
+        <span class="date"><?php echo get_the_date(); ?></span>
+        <span class="read-more">CZYTAJ WIĘCEJ <i class="fa fa-chevron-right" aria-hidden="true"></i></span>
       </div>
-    </div>
-
+    </div><!--
     <?php endwhile; ?>
-
+    -->
     <?php wp_reset_query(); ?>
+
+    <div style="text-align: center;">
+      <a class="button" href="">Zobacz wszystkie aktualności<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    </div>
   </div>
 </section>
 
@@ -239,7 +238,7 @@
 </section>
 
 <!-- google map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd35rlK75_qBzEaEsQwzTWtrzXc66T4ro&sensor=false&extension=.js"></script>
 <script>
   google.maps.event.addDomListener(window, 'load', init);
   var map;
