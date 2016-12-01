@@ -13,6 +13,16 @@ function body_class($classes) {
     if (!in_array(basename(get_permalink()), $classes)) {
       $classes[] = basename(get_permalink());
     }
+    // $tmp = get_page_template();
+    // echo $tmp;
+  }
+  if (is_page_template('offer.php')||
+  is_page_template('offer-main.php')||
+  is_page_template('realization.php')||
+  is_page_template('realization-main.php') ||
+  is_page_template('product.php')||
+  is_page_template('products-main.php')) {
+      array_push($classes, "for_contact");
   }
 
   // Add class if sidebar is active

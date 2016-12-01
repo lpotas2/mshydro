@@ -21,200 +21,228 @@
       init: function () {
 
         // JavaScript to be fired on all pages
-  var header = $('header');
-  var footer = $('footer');
-  var sections = $('section');
-  var sectionsCount = $('section').length;
-  var bullets = $('.bullets');
-  var jobOffers = $('section.praca ul li');
-  var menu = $('nav.primary');
-  var menuOffer = $('nav.secondary');
+        var header = $('header');
+        var footer = $('footer');
+        var sections = $('section');
+        var sectionsCount = $('section').length;
+        var bullets = $('.bullets');
+        var jobOffers = $('section.praca ul li');
+        var menu = $('nav.primary');
+        var menuOffer = $('nav.secondary');
 
-  function menuSelect(name) {
-    menu.find('li').removeClass('active');
-    menu.find('.' + name).addClass('active');
-  }
-  function init() {
-    if($("body").hasClass("home")) {
-      $("section.ms-hydro").fixTypography([
-        "bastards"
-      ]);
-
-      $(window).on("scroll", function() {
-        if((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
-          header.addClass("fixed");
-          menuOffer.addClass("fixed");
-        } else {
-          header.removeClass("fixed");
-          menuOffer.removeClass("fixed");
+        function menuSelect(name) {
+          menu.find('li').removeClass('active');
+          menu.find('.' + name).addClass('active');
         }
-      });
+        function init() {
+          if ($("body").hasClass("home")) {
+            $("section.ms-hydro").fixTypography([
+              "bastards"
+            ]);
 
-      var waypointsUp = $('section').waypoint({
-        handler: function(direction) {
-          if(direction == 'up') {
-            bullets.children().removeClass('active');
-            bullets.find('.' + this.element.className).addClass('active');
+            $(window).on("scroll", function () {
+              if ((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
+                header.addClass("fixed");
+                menuOffer.addClass("fixed");
+              } else {
+                header.removeClass("fixed");
+                menuOffer.removeClass("fixed");
+              }
+            });
 
-            menuSelect(this.element.className);
+            var waypointsUp = $('section').waypoint({
+              handler: function (direction) {
+                if (direction == 'up') {
+                  bullets.children().removeClass('active');
+                  bullets.find('.' + this.element.className).addClass('active');
+
+                  menuSelect(this.element.className);
+                }
+              },
+              offset: '-50%'
+            });
+
+            var waypointsDown = $('section').waypoint({
+              handler: function (direction) {
+                if (direction == 'down') {
+                  bullets.children().removeClass('active');
+                  bullets.find('.' + this.element.className).addClass('active');
+
+                  menuSelect(this.element.className);
+                }
+              },
+              offset: '50%'
+            });
+
+            menu.find('li').on('click', function () {
+              if ($(this).hasClass == 'search') {
+                return false;
+              }
+
+              Jump('section.' + this.className, {
+                offset: -75
+              });
+            });
+
+            function slideUpMenu() {
+              menuOffer.removeClass("slideDown");
+            }
+
+            menu.find('li').on('mouseenter', function () {
+              if ($(this).hasClass('oferta')) {
+                menuOffer.addClass("slideDown");
+                menuOffer.on("mouseleave", slideUpMenu);
+              } else {
+                menuOffer.removeClass("slideDown");
+                menuOffer.off("mouseleave", slideUpMenu);
+              }
+            });
+
+            bullets.children().on('click', function () {
+              if ($(this).hasClass == 'active') {
+                return false;
+              }
+
+              menu.find('li.' + this.className).trigger('click');
+            });
+
+            $('.scroll-down').on('click', function () {
+              menu.find('li').first().trigger('click');
+            });
+
+            footer.find('li').on('click', function () {
+              menu.find('li.' + this.className).trigger('click');
+            });
           }
-        },
-        offset: '-50%'
-      });
 
-      var waypointsDown = $('section').waypoint({
-        handler: function(direction) {
-          if(direction == 'down') {
-            bullets.children().removeClass('active');
-            bullets.find('.' + this.element.className).addClass('active');
+          $("a").on("click", function (e) {
+            e.preventDefault();
 
-            menuSelect(this.element.className);
+            var url = $(this).attr("href");
+
+            if (url && url !== '') {
+              $(".overlay").show();
+
+              setTimeout(function () {
+                window.location.href = url;
+              }, Math.floor(Math.random() * (15 - 10 + 1) + 10) * 100);
+            }
+
+            return true;
+          });
+
+          if ($("body").hasClass("product-page")) {
+            $('table').filterTable({
+              placeholder: "Szukaj",
+              label: "",
+              minRows: "1"
+            });
           }
-        },
-        offset: '50%'
-      });
 
-      menu.find('li').on('click', function() {
-        if($(this).hasClass == 'search') {
-          return false;
-        }
+          //praca
+          jobOffers.children(".title").on("click", function () {
+            var parent = $(this).parent();
 
-        Jump('section.' + this.className, {
-          offset: -75
-        });
-      });
+            if (parent.hasClass("active")) {
+              parent.removeClass("active");
+              $(this).next(".desc").slideUp();
+            } else {
+              jobOffers.removeClass("active");
+              jobOffers.children(".desc").not(this).slideUp();
+              parent.addClass("active");
+              $(this).next(".desc").slideDown();
+            }
+          });
 
-      function slideUpMenu() {
-        menuOffer.removeClass("slideDown");
-      }
+          $("section.produkty > ul li").on("click", function () {
+            if ($(this).hasClass("active")) {
+              return false;
+            }
 
-      menu.find('li').on('mouseenter', function() {
-        if($(this).hasClass('oferta')) {
-          menuOffer.addClass("slideDown");
-          menuOffer.on("mouseleave", slideUpMenu);
-        } else {
-          menuOffer.removeClass("slideDown");
-          menuOffer.off("mouseleave", slideUpMenu);
-        }        
-      });
+            var pos = $(this).attr("class").substr(1);
 
-      bullets.children().on('click', function() {
-        if($(this).hasClass == 'active') {
-          return false;
-        }
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
 
-        menu.find('li.' + this.className).trigger('click');
-      });
+            var slider = $("section.produkty .slider");
 
-      $('.scroll-down').on('click', function() {
-        menu.find('li').first().trigger('click');
-      });
+            slider.css("left", -pos * slider.parent().innerWidth());
+          });
 
-      footer.find('li').on('click', function() {
-        menu.find('li.' + this.className).trigger('click');
-      });
-    }
+          //realizacje
+          $("section.realizacje .desc").perfectScrollbar();
 
-    $("a").on("click", function(e) {
-      e.preventDefault();
+          $("section.realizacje .gallery span").on("click", function () {
+            var gallery = $(this).parent();
+            var galleryWidth = gallery.innerWidth();
+            var gallerySlider = gallery.children(".slider");
+            var gallerySliderWidth = gallerySlider.innerWidth();
 
-      var url = $(this).attr("href");
+            var leftPos = gallerySlider.css("left");
+            leftPos = parseInt(leftPos);
 
-      if(url && url !== '') {
-        $(".overlay").show();
+            if ($(this).hasClass("next") && -(leftPos - galleryWidth) < gallerySliderWidth) {
+              gallerySlider.css("left", leftPos - galleryWidth);
+            } else if ($(this).hasClass("prev") && leftPos < 0) {
+              gallerySlider.css("left", leftPos + galleryWidth);
+            }
+          });
 
-        setTimeout(function() {
-          window.location.href = url;
-        }, Math.floor(Math.random() * (15 - 10 + 1) + 10) * 100);
-      }
-      
-      return true;
-    });
+          //proces
+          var stages = $("section.proces .char ul li").not(".parent");
+          stages.children(".title").on("mouseenter", function () {
+            stages.removeClass("active");
+            $(this).parent().addClass("active");
+          });
 
-    if($("body").hasClass("product-page")) {
-      $('table').filterTable({
-        placeholder: "Szukaj",
-        label: "",
-        minRows: "1"
-      });
-    }
+          $(".monit .fa-times").on("click", function () {
+            $(this).parent().hide();
+          });
+          var data = new Date()
+          var isCookie;
+          var timeToGetEmail = 300; //w milisekundach
 
-    //praca
-    jobOffers.children(".title").on("click", function() {
-      var parent = $(this).parent();
+          if (document.cookie != "") {
+            var cookies = document.cookie;
+            cookies = cookies.split(';');
+            console.log(cookies)
+            cookies = cookies.find(function (value, index) {
+              // debugger;
+              console.log(index)
+              value = value.trim();
+              isCookie = value.match(/^canSee=true$/)
+              return typeof (isCookie) == 'object';
 
-      if(parent.hasClass("active")) {
-        parent.removeClass("active");
-        $(this).next(".desc").slideUp();
-      } else {
-        jobOffers.removeClass("active");
-        jobOffers.children(".desc").not(this).slideUp();
-        parent.addClass("active");
-        $(this).next(".desc").slideDown();
-      }
-    });
+            })
+          }
 
-    $("section.produkty > ul li").on("click", function() {
-      if($(this).hasClass("active")) {
-        return false;
-      }
-
-      var pos = $(this).attr("class").substr(1);
-
-      $(this).addClass("active");
-      $(this).siblings().removeClass("active");
-
-      var slider = $("section.produkty .slider");
-
-      slider.css("left", -pos * slider.parent().innerWidth());
-    });
-
-    //realizacje
-    $("section.realizacje .desc").perfectScrollbar();
-
-    $("section.realizacje .gallery span").on("click", function() {
-      var gallery = $(this).parent();
-      var galleryWidth = gallery.innerWidth();
-      var gallerySlider = gallery.children(".slider");
-      var gallerySliderWidth = gallerySlider.innerWidth();
-
-      var leftPos = gallerySlider.css("left");
-      leftPos = parseInt(leftPos);
-
-      if($(this).hasClass("next") && -(leftPos - galleryWidth) < gallerySliderWidth) {
-        gallerySlider.css("left", leftPos - galleryWidth);
-      } else if($(this).hasClass("prev") && leftPos < 0) {
-        gallerySlider.css("left", leftPos + galleryWidth);
-      }
-    });
-
-    //proces
-    var stages = $("section.proces .char ul li").not(".parent");
-    stages.children(".title").on("mouseenter", function() {
-      stages.removeClass("active");
-      $(this).parent().addClass("active");
-    });
-
-    $(".monit .fa-times").on("click", function() {
-      $(this).parent().hide();
-    });
-
-     var handler = function () {
+          var handler = function () {
             var mshydroScrollValue = $("section.ms-hydro").offset().top;
             var windowScrollValue = $(document).scrollTop();
-            if (windowScrollValue > mshydroScrollValue) {
-              setTimeout(function() {
-                $("#contactUs").css("display","none");
-              }, 3000);
+            var cookieLifeTimeInHours = 1;
+
+            if ((windowScrollValue > mshydroScrollValue) && (isCookie == null)) {
+              setTimeout(function () {
+                // $("#contactUs").css("display", "block");
+
+                var currentTime = new Date();
+                currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
+                document.cookie = 'canSesade=true;expires=' + currentTime + ';';
+
+                document.cookie = 'canSee=true;expires=' + currentTime + ';';
+
+
+
+              }, timeToGetEmail);
               window.removeEventListener("scroll", handler);
             }
           }
 
           window.addEventListener("scroll", handler);
 
-  }
+        }
 
-  init();
+        init();
 
       },
       finalize: function () {
@@ -236,6 +264,49 @@
 
         // JavaScript to be fired on the about us page
       }
+    },
+    'for_contact': {
+      init: function () {
+        var data = new Date()
+        var isCookie;
+        var cookieLifeTimeInHours = 1;
+        var timeToGetEmail = 300; //w milisekundach
+
+        if (document.cookie != "") {
+          var cookies = document.cookie;
+          cookies = cookies.split(';');
+          cookies = cookies.find(function (value) {
+            value = value.trim();
+// debugger
+            isCookie = value.match(/^canSeeOnNonFrontPage=true$/);
+
+            return typeof (isCookie) == 'object';
+
+          })
+        }
+
+
+        if (isCookie == null) {
+          setTimeout(function () {
+            // $("#contactUs").css("display", "block");
+
+            var currentTime = new Date();
+            currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
+            document.cookie = 'canSeeOnNonFrontPage=true;expires=' + currentTime + ';';
+
+
+
+          }, timeToGetEmail);
+
+        }
+
+
+
+      },
+      finalize: function () {
+        // JavaScript to be fired on the feature page, after the init JS
+      }
+
     }
   };
 
