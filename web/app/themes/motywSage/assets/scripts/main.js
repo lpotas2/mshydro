@@ -94,19 +94,23 @@
       }
     },
     'page_template_jobs_page': {
-      $('section.praca ul li').children(".title").on("click", function () {
-        var parent = $(this).parent();
+      init: function () {
+        var jobOffers = $('section.praca ul li');
 
-        if (parent.hasClass("active")) {
-          parent.removeClass("active");
-          $(this).next(".desc").slideUp();
-        } else {
-          jobOffers.removeClass("active");
-          jobOffers.children(".desc").not(this).slideUp();
-          parent.addClass("active");
-          $(this).next(".desc").slideDown();
-        }
-      });
+        jobOffers.children(".title").on("click", function () {
+          var parent = $(this).parent();
+
+          if (parent.hasClass("active")) {
+            parent.removeClass("active");
+            $(this).next(".desc").slideUp();
+          } else {
+            jobOffers.removeClass("active");
+            jobOffers.children(".desc").not(this).slideUp();
+            parent.addClass("active");
+            $(this).next(".desc").slideDown();
+          }
+        });
+      }
     },
     'home': {
       init: function () {
