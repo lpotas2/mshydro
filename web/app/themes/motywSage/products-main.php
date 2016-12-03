@@ -23,7 +23,7 @@
 
     $i = 0;
     foreach($categorys as $category) {
-      echo '--><li class="' . ($i == 0 ? 'active ' : '') . 's' . $i++ . '"><i class="fa fa-times" aria-hidden="true"></i><span>' . $category . '</span></li><!--';
+      echo '--><li class="' . ($i == 0 ? 'active ' : '') . 's' . $i++ . '"><i class="fa fa-check" aria-hidden="true"></i><span>' . $category . '</span></li><!--';
     }
   ?>
   -->
