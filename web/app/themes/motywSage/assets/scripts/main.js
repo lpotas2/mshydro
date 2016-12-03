@@ -21,6 +21,22 @@
         // JavaScript to be fired on all pages
 
         function init() {
+          $("a").on("click", function (e) {
+            e.preventDefault();
+
+            var url = $(this).attr("href");
+
+            if (url && url !== '') {
+              $(".overlay").show();
+
+              setTimeout(function () {
+                window.location.href = url;
+              }, Math.floor(Math.random() * (15 - 10 + 1) + 10) * 100);
+            }
+
+            return true;
+          });
+          
           $("section.realizacje .slider").each(function() {
             $(this).lory({
               infinite: 1
@@ -149,22 +165,6 @@
           menu.find('li').removeClass('active');
           menu.find('.' + name).addClass('active');
         }
-        
-        $("a").on("click", function (e) {
-          e.preventDefault();
-
-          var url = $(this).attr("href");
-
-          if (url && url !== '') {
-            $(".overlay").show();
-
-            setTimeout(function () {
-              window.location.href = url;
-            }, Math.floor(Math.random() * (15 - 10 + 1) + 10) * 100);
-          }
-
-          return true;
-        });
 
         $("section.ms-hydro").fixTypography([
           "bastards"

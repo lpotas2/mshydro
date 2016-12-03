@@ -107,5 +107,5 @@ if ( $query->have_posts() ) {
   Podaj nam swój ades email
 </div>
 <div class="overlay">
-  <img src="<?php print get_template_directory_uri(); ?>/dist/images/gear-icon.png" />
+  <i class="fa fa-cog" aria-hidden="true"></i>
 </div>
