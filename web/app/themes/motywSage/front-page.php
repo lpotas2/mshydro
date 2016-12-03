@@ -1,3 +1,9 @@
+<?php
+/**
+ * Template Name: Strona główna
+ */
+?>
+
 <?php while (have_posts()) : the_post(); ?>
   <?php get_template_part('templates/content', 'page'); ?>
 <?php endwhile; ?>
@@ -57,13 +63,14 @@
             endwhile; 
           endif;?>
       </p>
-      <a href="" class="button">
+      <span class="button">
         <?php if( have_rows('pierwszy_ekran') ):
             while ( have_rows('pierwszy_ekran') ) : the_row();
               the_sub_field('napis_przycisku');
             endwhile; 
           endif;?>
-        <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </span>
     </div>
 
     <span class="scroll-down"><i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -142,7 +149,9 @@
                 --><li class="<?php echo ($item == 0 ? 'active' : ''); ?>">
                   <div class="title"><span><?php the_sub_field('nazwa');?></span></div>
                   <div class="desc">
-                    <img src="<?php the_sub_field('ikona');?>" /> 
+                    <div class="icon">
+                      <img src="<?php the_sub_field('ikona');?>" />
+                    </div>
                     <p><?php the_sub_field('opis'); ?></p>
                   </div>
                 </li><!--
@@ -177,7 +186,13 @@
         </div>
       <?php } ?>
       <div class="footer">
-        <span class="date"><?php echo get_the_date(); ?></span>
+        <span class="date">
+          <?php 
+            $date = get_field('data', false, false);
+            $date = new DateTime($date);
+            echo $date->format('d/m/Y');
+          ?>
+        </span>
         <span class="read-more">CZYTAJ WIĘCEJ <i class="fa fa-chevron-right" aria-hidden="true"></i></span>
       </div>
     </div><!--

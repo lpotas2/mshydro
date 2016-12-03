@@ -4,6 +4,14 @@
  */
 ?>
 <section class="praca">
+  <div class="bg-lines">
+    <span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span>
+  </div>
+  
   <h2>PRACA</h2>
 
   <ul>
@@ -22,5 +30,5 @@
       </li>
         <?php endwhile;endif;?>
   </ul><!--
-    --><img src="<?php the_field('zdjecie');?>" /><!--
+    --><img src="<?php the_field('praca_zdjecie');?>" /><!--
 --></section>

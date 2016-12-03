@@ -57,20 +57,20 @@
                 $rowsCount = count($rows);
                 
                 if($rows): ?>
-
-                <div class="slider" style="width: <?php echo ($rowsCount * 436); ?>px;">
-                  <!--
-                  <?php
-                    foreach($rows as $row) {
-                      echo '--><div style="background-image: url(' . $row['zdjecie'] . ');"></div><!--';
-                    }
-                  ?>
-                  -->
+                <div class="slider js_percentage percentage">
+                  <div class="frame js_frame">
+                    <ul class="slides js_slides">
+                      <?php
+                        foreach($rows as $row) {
+                          echo '<li class="js_slide" style="background-image: url(' . $row['zdjecie'] . ');"></li>';
+                        }
+                      ?>
+                    </ul>
+                  </div>
+                  <span class="js_prev prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                  <span class="js_next next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                 </div>
-
               <?php endif;?>
-              <span class="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
-              <span class="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
             </div>
           </div>
         <?php } ?>

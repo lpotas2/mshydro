@@ -12,135 +12,23 @@
 
 
 (function ($) {
-
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
   var Sage = {
     // All pages
     'common': {
       init: function () {
-
         // JavaScript to be fired on all pages
-        var header = $('header');
-        var footer = $('footer');
-        var sections = $('section');
-        var sectionsCount = $('section').length;
-        var bullets = $('.bullets');
-        var jobOffers = $('section.praca ul li');
-        var menu = $('nav.primary');
-        var menuOffer = $('nav.secondary');
 
-        function menuSelect(name) {
-          menu.find('li').removeClass('active');
-          menu.find('.' + name).addClass('active');
-        }
         function init() {
-          if ($("body").hasClass("home")) {
-            $("section.ms-hydro").fixTypography([
-              "bastards"
-            ]);
-
-            $(window).on("scroll", function () {
-              if ((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
-                header.addClass("fixed");
-                menuOffer.addClass("fixed");
-              } else {
-                header.removeClass("fixed");
-                menuOffer.removeClass("fixed");
-              }
+          $("section.realizacje .slider").each(function() {
+            $(this).lory({
+              infinite: 1
             });
-
-            var waypointsUp = $('section').waypoint({
-              handler: function (direction) {
-                if (direction == 'up') {
-                  bullets.children().removeClass('active');
-                  bullets.find('.' + this.element.className).addClass('active');
-
-                  menuSelect(this.element.className);
-                }
-              },
-              offset: '-50%'
-            });
-
-            var waypointsDown = $('section').waypoint({
-              handler: function (direction) {
-                if (direction == 'down') {
-                  bullets.children().removeClass('active');
-                  bullets.find('.' + this.element.className).addClass('active');
-
-                  menuSelect(this.element.className);
-                }
-              },
-              offset: '50%'
-            });
-
-            menu.find('li').on('click', function () {
-              if ($(this).hasClass == 'search') {
-                return false;
-              }
-
-              Jump('section.' + this.className, {
-                offset: -75
-              });
-            });
-
-            function slideUpMenu() {
-              menuOffer.removeClass("slideDown");
-            }
-
-            menu.find('li').on('mouseenter', function () {
-              if ($(this).hasClass('oferta')) {
-                menuOffer.addClass("slideDown");
-                menuOffer.on("mouseleave", slideUpMenu);
-              } else {
-                menuOffer.removeClass("slideDown");
-                menuOffer.off("mouseleave", slideUpMenu);
-              }
-            });
-
-            bullets.children().on('click', function () {
-              if ($(this).hasClass == 'active') {
-                return false;
-              }
-
-              menu.find('li.' + this.className).trigger('click');
-            });
-
-            $('.scroll-down').on('click', function () {
-              menu.find('li').first().trigger('click');
-            });
-
-            footer.find('li').on('click', function () {
-              menu.find('li.' + this.className).trigger('click');
-            });
-          }
-
-          $("a").on("click", function (e) {
-            e.preventDefault();
-
-            var url = $(this).attr("href");
-
-            if (url && url !== '') {
-              $(".overlay").show();
-
-              setTimeout(function () {
-                window.location.href = url;
-              }, Math.floor(Math.random() * (15 - 10 + 1) + 10) * 100);
-            }
-
-            return true;
-          });
-
-          if ($("body").hasClass("product-page")) {
-            $('table').filterTable({
-              placeholder: "Szukaj",
-              label: "",
-              minRows: "1"
-            });
-          }
+          })
 
           //praca
-          jobOffers.children(".title").on("click", function () {
+          $('section.praca ul li').children(".title").on("click", function () {
             var parent = $(this).parent();
 
             if (parent.hasClass("active")) {
@@ -188,16 +76,6 @@
             }
           });
 
-          //proces
-          var stages = $("section.proces .char ul li").not(".parent");
-          stages.children(".title").on("mouseenter", function () {
-            stages.removeClass("active");
-            $(this).parent().addClass("active");
-          });
-
-          $(".monit .fa-times").on("click", function () {
-            $(this).parent().hide();
-          });
           var data = new Date()
           var isCookie;
           var timeToGetEmail = 300; //w milisekundach
@@ -243,26 +121,143 @@
         }
 
         init();
-
       },
       finalize: function () {
         // JavaScript to be fired on the home page, after the init JS
       }
     },
-    // About us page, note the change from about-us to about_us.
-    'about_us': {
+    'page-template-product': {
       init: function () {
-
-      },
-      finalize: function () {
-        // JavaScript to be fired on all pages, after page specific JS is fired
+        $('table').filterTable({
+          placeholder: "Szukaj",
+          label: "",
+          minRows: "1"
+        });
       }
     },
-    // Home page
     'home': {
       init: function () {
+        var header = $('header');
+        var footer = $('footer');
+        var sections = $('section');
+        var sectionsCount = $('section').length;
+        var bullets = $('.bullets');
+        var menu = $('nav.primary');
+        var menuOffer = $('nav.secondary');
 
-        // JavaScript to be fired on the about us page
+        function menuSelect(name) {
+          menu.find('li').removeClass('active');
+          menu.find('.' + name).addClass('active');
+        }
+        
+        $("a").on("click", function (e) {
+          e.preventDefault();
+
+          var url = $(this).attr("href");
+
+          if (url && url !== '') {
+            $(".overlay").show();
+
+            setTimeout(function () {
+              window.location.href = url;
+            }, Math.floor(Math.random() * (15 - 10 + 1) + 10) * 100);
+          }
+
+          return true;
+        });
+
+        $("section.ms-hydro").fixTypography([
+          "bastards"
+        ]);
+
+        $(window).on("scroll", function () {
+          if ((document.documentElement.scrollTop || document.body.scrollTop) >= 45) {
+            header.addClass("fixed");
+            menuOffer.addClass("fixed");
+          } else {
+            header.removeClass("fixed");
+            menuOffer.removeClass("fixed");
+          }
+        });
+
+        var waypointsUp = $('section').waypoint({
+          handler: function (direction) {
+            if (direction == 'up') {
+              bullets.children().removeClass('active');
+              bullets.find('.' + this.element.className).addClass('active');
+
+              menuSelect(this.element.className);
+            }
+          },
+          offset: '-50%'
+        });
+
+        var waypointsDown = $('section').waypoint({
+          handler: function (direction) {
+            if (direction == 'down') {
+              bullets.children().removeClass('active');
+              bullets.find('.' + this.element.className).addClass('active');
+
+              menuSelect(this.element.className);
+            }
+          },
+          offset: '50%'
+        });
+
+        menu.find('li').on('click', function () {
+          if ($(this).hasClass == 'search') {
+            return false;
+          }
+
+          Jump('section.' + this.className, {
+            offset: -75
+          });
+        });
+
+        function slideUpMenu() {
+          menuOffer.removeClass("slideDown");
+        }
+
+        menu.find('li').on('mouseenter', function () {
+          if ($(this).hasClass('oferta')) {
+            menuOffer.addClass("slideDown");
+            menuOffer.on("mouseleave", slideUpMenu);
+          } else {
+            menuOffer.removeClass("slideDown");
+            menuOffer.off("mouseleave", slideUpMenu);
+          }
+        });
+
+        bullets.children().on('click', function () {
+          if ($(this).hasClass == 'active') {
+            return false;
+          }
+
+          menu.find('li.' + this.className).trigger('click');
+        });
+
+        $('.scroll-down').on('click', function () {
+          menu.find('li.ms-hydro').trigger('click');
+        });
+
+        $('section.top .button').on('click', function () {
+          menu.find('li.oferta').trigger('click');
+        });
+
+        footer.find('li').on('click', function () {
+          menu.find('li.' + this.className).trigger('click');
+        });
+
+        //proces
+        var stages = $("section.proces .char ul li").not(".parent");
+        stages.children(".title").on("mouseenter", function () {
+          stages.removeClass("active");
+          $(this).parent().addClass("active");
+        });
+
+        $(".monit .fa-times").on("click", function () {
+          $(this).parent().hide();
+        });
       }
     },
     'for_contact': {
@@ -302,11 +297,7 @@
 
 
 
-      },
-      finalize: function () {
-        // JavaScript to be fired on the feature page, after the init JS
       }
-
     }
   };
 

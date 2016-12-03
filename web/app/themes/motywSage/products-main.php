@@ -49,6 +49,6 @@
   </div>
 
   <div style="text-align: center;">
-    <a class="button" href="">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    <a class="button" href="<?php the_permalink(540); ?>">Warunki sprzedaży<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
   </div>
 </section>
