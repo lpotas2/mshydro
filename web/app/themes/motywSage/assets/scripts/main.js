@@ -36,27 +36,12 @@
 
             return true;
           });
-          
+
           $("section.realizacje .slider").each(function() {
             $(this).lory({
               infinite: 1
             });
           })
-
-          //praca
-          $('section.praca ul li').children(".title").on("click", function () {
-            var parent = $(this).parent();
-
-            if (parent.hasClass("active")) {
-              parent.removeClass("active");
-              $(this).next(".desc").slideUp();
-            } else {
-              jobOffers.removeClass("active");
-              jobOffers.children(".desc").not(this).slideUp();
-              parent.addClass("active");
-              $(this).next(".desc").slideDown();
-            }
-          });
 
           $("section.produkty > ul li").on("click", function () {
             if ($(this).hasClass("active")) {
@@ -91,49 +76,6 @@
               gallerySlider.css("left", leftPos + galleryWidth);
             }
           });
-
-          var data = new Date()
-          var isCookie;
-          var timeToGetEmail = 300; //w milisekundach
-
-          if (document.cookie != "") {
-            var cookies = document.cookie;
-            cookies = cookies.split(';');
-            console.log(cookies)
-            cookies = cookies.find(function (value, index) {
-              // debugger;
-              console.log(index)
-              value = value.trim();
-              isCookie = value.match(/^canSee=true$/)
-              return typeof (isCookie) == 'object';
-
-            })
-          }
-
-          var handler = function () {
-            var mshydroScrollValue = $("section.ms-hydro").offset().top;
-            var windowScrollValue = $(document).scrollTop();
-            var cookieLifeTimeInHours = 1;
-
-            if ((windowScrollValue > mshydroScrollValue) && (isCookie == null)) {
-              setTimeout(function () {
-                // $("#contactUs").css("display", "block");
-
-                var currentTime = new Date();
-                currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
-                document.cookie = 'canSesade=true;expires=' + currentTime + ';';
-
-                document.cookie = 'canSee=true;expires=' + currentTime + ';';
-
-
-
-              }, timeToGetEmail);
-              window.removeEventListener("scroll", handler);
-            }
-          }
-
-          window.addEventListener("scroll", handler);
-
         }
 
         init();
@@ -150,6 +92,21 @@
           minRows: "1"
         });
       }
+    },
+    'page_template_jobs_page': {
+      $('section.praca ul li').children(".title").on("click", function () {
+        var parent = $(this).parent();
+
+        if (parent.hasClass("active")) {
+          parent.removeClass("active");
+          $(this).next(".desc").slideUp();
+        } else {
+          jobOffers.removeClass("active");
+          jobOffers.children(".desc").not(this).slideUp();
+          parent.addClass("active");
+          $(this).next(".desc").slideDown();
+        }
+      });
     },
     'home': {
       init: function () {
@@ -258,6 +215,45 @@
         $(".monit .fa-times").on("click", function () {
           $(this).parent().hide();
         });
+
+        var data = new Date();
+        var isCookie;
+        var timeToGetEmail = 300; //w milisekundach
+
+        if (document.cookie != "") {
+          var cookies = document.cookie;
+          cookies = cookies.split(';');
+          console.log(cookies)
+          cookies = cookies.find(function (value, index) {
+            // debugger;
+            console.log(index)
+            value = value.trim();
+            isCookie = value.match(/^canSee=true$/)
+            return typeof (isCookie) == 'object';
+
+          })
+        }
+
+        var handler = function () {
+          var mshydroScrollValue = $("section.ms-hydro").offset().top;
+          var windowScrollValue = $(document).scrollTop();
+          var cookieLifeTimeInHours = 1;
+
+          if ((windowScrollValue > mshydroScrollValue) && (isCookie == null)) {
+            setTimeout(function () {
+              // $("#contactUs").css("display", "block");
+
+              var currentTime = new Date();
+              currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
+              document.cookie = 'canSesade=true;expires=' + currentTime + ';';
+
+              document.cookie = 'canSee=true;expires=' + currentTime + ';';
+            }, timeToGetEmail);
+            window.removeEventListener("scroll", handler);
+          }
+        }
+
+        window.addEventListener("scroll", handler);
       }
     },
     'for_contact': {
