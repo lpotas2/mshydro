@@ -66,7 +66,7 @@
             var galleryWidth = gallery.innerWidth();
             var gallerySlider = gallery.children(".slider");
             var gallerySliderWidth = gallerySlider.innerWidth();
-
+ 
             var leftPos = gallerySlider.css("left");
             leftPos = parseInt(leftPos);
 
@@ -74,6 +74,15 @@
               gallerySlider.css("left", leftPos - galleryWidth);
             } else if ($(this).hasClass("prev") && leftPos < 0) {
               gallerySlider.css("left", leftPos + galleryWidth);
+            }
+          });
+          $("nav.primary li.search").click(function () {
+            $("form#searchform").css("display", "block")
+          });
+
+          $(document).click(function (event) {
+            if (!$(event.target).closest("nav.primary li.search, form#searchform").length) {
+              $("form#searchform").css("display", "none")
             }
           });
         }
@@ -248,7 +257,7 @@
           }
         }
         window.addEventListener("scroll", handler);
-      } 
+      }
     },
     'for_contact': {
       init: function () {

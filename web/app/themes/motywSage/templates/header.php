@@ -63,7 +63,9 @@ if ( $query->have_posts() ) {
           <li class="praca"><a href="<?php echo get_permalink(16); ?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="warunki-sprzedazy"><a href="<?php echo get_permalink(540); ?>">Warunki sprzedaży <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
-        <?php } else { ?>
+        <?php 
+        get_search_form();
+        } else { ?>
           <li><a href="<?php echo get_home_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 
           <?php if( $post->post_parent != 0 ) { ?>
@@ -72,7 +74,11 @@ if ( $query->have_posts() ) {
 
           <li><?php the_title();?></li>
           <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
-        <?php } ?>
+        <?php 
+        get_search_form();
+
+
+        } ?>
       </ul>
     </nav>
   </div>
