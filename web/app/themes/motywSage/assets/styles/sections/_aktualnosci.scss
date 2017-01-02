@@ -9,6 +9,7 @@ section.aktualnosci {
     box-sizing: border-box;
     background: $light-grey;
     vertical-align: top;
+    cursor: pointer;
 
     &:nth-of-type(3), &:nth-of-type(6) {
       margin-right: 0;
@@ -23,12 +24,6 @@ section.aktualnosci {
       h3 {
         color: $red;
       }
-
-      .footer {
-        .read-more {
-          display: block;
-        }
-      }
     }
 
     h3 {
@@ -37,9 +32,11 @@ section.aktualnosci {
     }
 
     .image {
+      position: absolute;
+      left: 0;
+      bottom: 65px;
       width: 100%;
       height: 150px;
-      margin-top: 25px;
       
       div {
         width: 100%;
@@ -64,18 +61,8 @@ section.aktualnosci {
       border-top: 1px solid $grey;
     }
 
-    .read-more {
+    .content {
       display: none;
-      position: absolute;
-      right: 25px;
-      bottom: 10px;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      color: $red;
-
-      .fa {
-        margin-left: 5px;
-      }
     }
 
     &.red {
@@ -96,10 +83,6 @@ section.aktualnosci {
 
       .date {
         border-color: #c32119;
-      }
-
-      .read-more {
-        color: #961913;
       }
     }
   }

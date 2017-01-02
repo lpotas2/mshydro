@@ -22,15 +22,28 @@
 
         function init() {
           var overlay = $(".overlay");
+          var newsContainer = overlay.children(".news-container");
+          var searchForm = $("form#searchform");
+          var overlayVisible = false;
 
-          $(document).click(function (event) {
-            if (overlay.css('display') === 'block') {
-              if (!$(event.target).closest("form#searchform").length) {
-                overlay.hide();
-                searchForm.hide();
-              }
+          function hideOverlay() {
+            overlay.hide();
+            searchForm.hide();
+            newsContainer.hide();
+            newsContainer.removeClass('red');
+
+            overlayVisible = false;
+
+            $(document).off("click", documentClickHandler);
+          }
+
+          function documentClickHandler(e) {
+            console.log('aaaaa')
+
+            if (!$(e.target).closest("form#searchform").length && !$(e.target).closest(".news-container").length) {
+              hideOverlay();
             }
-          });
+          }
 
           $("a").on("click", function (e) {
             e.preventDefault();
@@ -89,11 +102,36 @@
             }
           });
 
-          var searchForm = $("form#searchform");
-
           $("nav.primary li.search").click(function () {
             overlay.show();
             searchForm.show();
+
+            setTimeout(function() {
+              $(document).on("click", documentClickHandler);
+            }, 0);
+          });
+
+          $("section.aktualnosci .box").on("click", function() {
+            newsContainer.find('.image').css('backgroundImage', $(this).find('.image div').css('backgroundImage'));
+
+            newsContainer.find('h3').html($(this).find('h3').html());
+            newsContainer.find('.date').html($(this).find('.date').html());
+            newsContainer.find('.content div').html($(this).find('.content').html());
+
+            if ($(this).hasClass('red')) {
+              newsContainer.addClass('red');
+            }
+
+            overlay.show();
+            newsContainer.show();
+
+            setTimeout(function() {
+              $(document).on("click", documentClickHandler);
+            }, 0);
+          });
+
+          newsContainer.find(".close").on("click", function() {
+            hideOverlay();
           });
         }
 

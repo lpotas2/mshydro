@@ -113,5 +113,18 @@ if ( $query->have_posts() ) {
 <div class="overlay">
   <?php get_search_form(); ?>
 
+  <div class="news-container">
+    <div class="inner">
+      <i class="fa fa-times close" aria-hidden="true"></i>
+
+      <div class="image"></div><!--
+      --><div class="content">
+        <span class="date"></span>
+        <h3></h3>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
   <i class="fa fa-cog" aria-hidden="true"></i>
 </div>

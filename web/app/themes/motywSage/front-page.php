@@ -185,6 +185,7 @@
           <div style="background-image: url(<?php the_field('zdjecie_wpisu'); ?>);"></div>
         </div>
       <?php } ?>
+      <div class="content"><?php echo get_the_content(); ?></div>
       <div class="footer">
         <span class="date">
           <?php 
@@ -193,7 +194,6 @@
             echo $date->format('d/m/Y');
           ?>
         </span>
-        <span class="read-more">CZYTAJ WIĘCEJ <i class="fa fa-chevron-right" aria-hidden="true"></i></span>
       </div>
     </div><!--
     <?php endwhile; ?>
