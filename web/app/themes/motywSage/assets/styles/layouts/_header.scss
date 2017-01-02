@@ -1,16 +1,12 @@
 header {
-  position: absolute;
-  top: 44px;
-  left: 0;
+  position: relative;
+  top: 0;
   width: 100%;
   background: $white;
   box-shadow: 0 0 30px rgba(#000, 0.15);
   z-index: 100;
 
   &.fixed {
-    position: fixed;
-    top: 0;
-
     .wrapper {
       padding: 10px 0 37.5px;
     }
@@ -71,9 +67,13 @@ header {
     z-index:9999;
     display: none;
 }
-.page-parent, .page-child {
-  header {
-    position: relative;
+
+body.home header {
+  position: absolute;
+  top: 44px;
+
+  &.fixed {
+    position: fixed;
     top: 0;
   }
 }

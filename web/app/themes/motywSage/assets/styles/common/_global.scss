@@ -2,7 +2,7 @@ body {
   position: relative;
   min-height: 100vh;
   box-sizing: border-box;
-  padding-bottom: 212px;
+  padding-bottom: 161.5px;
   background: $white;
   color: $black;
   font-family: 'Roboto', sans-serif;
@@ -10,7 +10,6 @@ body {
   line-height: 200%;
 
   &.home {
-    padding-top: 161.5px;
     padding-bottom: 266px;
   }
 }
@@ -101,6 +100,10 @@ aside {
       background: #443539;
     }
   }
+}
+
+body.home aside {
+  position: relative;
 }
 
 .page-parent, .page-child {
