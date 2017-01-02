@@ -14,6 +14,10 @@ body {
   }
 }
 
+* {
+  outline: none;
+}
+
 p {
   margin-bottom: 1em;
 
@@ -262,12 +266,45 @@ body.home aside {
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 64px;
-    line-height: 100%;
+    display: none;
     margin-top: -32px;
     margin-left: -32px;
+    font-size: 64px;
+    line-height: 100%;
     color: $red;
     animation: spin 1.5s ease-in-out infinite;
+  }
+
+  #searchform {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    //max-width: $max-width;
+
+    label {
+      font-weight: 900;
+      color: $black;
+    }
+    
+    input {
+      width: 100%;
+      padding: 15px 5px;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 2px solid $red;
+      background: transparent;
+      outline: none;
+      font-size: 3em;
+      line-height: 100%;
+      font-weight: 900;
+      color: $black;
+    }
+
+    #searchsubmit {
+      display: none;
+    }
   }
 }
 

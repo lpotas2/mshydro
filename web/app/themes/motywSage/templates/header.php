@@ -52,7 +52,7 @@ if ( $query->have_posts() ) {
 
     <nav class="primary">
       <ul>
-        <?php if(is_front_page()){ ?>
+        <?php if(is_front_page() || is_search()){ ?>
           <li class="ms-hydro"><a>MS-Hydro</a></li>
           <li class="oferta"><a>Oferta</a> <i class="fa fa-chevron-down" aria-hidden="true"></i></li>
           <li class="proces"><a>Proces</a></li>
@@ -63,22 +63,16 @@ if ( $query->have_posts() ) {
           <li class="praca"><a href="<?php echo get_permalink(16); ?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="warunki-sprzedazy"><a href="<?php echo get_permalink(540); ?>">Warunki sprzedaży <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
-        <?php 
-        get_search_form();
-        } else { ?>
-          <li><a href="<?php echo get_home_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+          <?php } else { ?>
+            <li><a href="<?php echo get_home_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 
-          <?php if( $post->post_parent != 0 ) { ?>
-            <li><a href="<?php echo get_permalink( $post->post_parent );?>"><?php echo get_the_title( $post->post_parent );?></a></li>
+            <?php if( $post->post_parent != 0 ) { ?>
+              <li><a href="<?php echo get_permalink( $post->post_parent );?>"><?php echo get_the_title( $post->post_parent );?></a></li>
+            <?php } ?>
+
+            <li><?php the_title();?></li>
+            <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
           <?php } ?>
-
-          <li><?php the_title();?></li>
-          <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
-        <?php 
-        get_search_form();
-
-
-        } ?>
       </ul>
     </nav>
   </div>
@@ -114,4 +108,6 @@ if ( $query->have_posts() ) {
 </div>
 <div class="overlay">
   <i class="fa fa-cog" aria-hidden="true"></i>
+
+  <?php get_search_form(); ?>
 </div>

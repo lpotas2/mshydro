@@ -21,13 +21,16 @@
         // JavaScript to be fired on all pages
 
         function init() {
+          var overlay = $(".overlay");
+
           $("a").on("click", function (e) {
             e.preventDefault();
 
             var url = $(this).attr("href");
 
             if (url && url !== '') {
-              $(".overlay").show();
+              overlay.show();
+              overlay.children('.fa-cog').show();
 
               setTimeout(function () {
                 window.location.href = url;
@@ -76,15 +79,21 @@
               gallerySlider.css("left", leftPos + galleryWidth);
             }
           });
+
+          var searchForm = $("form#searchform");
+
           $("nav.primary li.search").click(function () {
-            $("form#searchform").css("display", "block")
+            overlay.show();
+            searchForm.show();
           });
 
+/*
           $(document).click(function (event) {
             if (!$(event.target).closest("nav.primary li.search, form#searchform").length) {
               $("form#searchform").css("display", "none")
             }
           });
+*/
         }
 
         init();
@@ -175,7 +184,9 @@
         });
 
         menu.find('li').on('click', function () {
-          if ($(this).hasClass == 'search') {
+          console.log('aaaaa')
+
+          if ($(this).hasClass('search')) {
             return false;
           }
 
