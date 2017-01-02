@@ -25,12 +25,5 @@
       </a>
     </div><!--
   <?php }?>
-    --><div class="box">
-      <div class="container">
-        <a href="http://mshydro2.kraftweb.pl/app/uploads/2016/12/ms-hydro-oferta.pdf">
-          <img src="<?php print get_template_directory_uri(); ?>/dist/images/pdf-icon.png" />
-          <span>Pobierz całą ofertę</span>
-        </a>
-      </div>
-    </div>
+    -->
 </section>

@@ -65,6 +65,52 @@ section.proces {
       z-index: 0;
     }
 
+    .negative, .positive {
+      position: absolute;
+      top: -75px;
+      left: -50%;
+      transform: translateX(-50%);
+      width: calc(200% - 5px);
+      height: 1px;
+      margin-left: -5px;
+      background: #fff;
+      
+      span {
+        display: block;
+        margin-top: -1.5em;
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 100%;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 75px;
+        width: 1px;
+        background: #fff;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 75px;
+        width: 1px;
+        background: #fff;
+      }
+    }
+
+    .positive {
+      left: 50%;
+      transform: translateX(0);
+      width: calc(150% - 5px);
+      margin-left: 5px;
+    }
+
     ul {
       position: relative;
       line-height: 0;

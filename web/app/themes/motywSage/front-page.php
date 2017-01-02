@@ -154,6 +154,11 @@
                     </div>
                     <p><?php the_sub_field('opis'); ?></p>
                   </div>
+
+                  <?php if($item == 4){?>
+                    <div class="negative"><span>WYNIK NEGATYWNY</span></div>
+                    <div class="positive"><span>WYNIK POZYTYWNY</span></div>
+                  <?php } ?>
                 </li><!--
                  <?php if($item == 4){?>
                 --></ul>
@@ -200,9 +205,11 @@
     -->
     <?php wp_reset_query(); ?>
 
+    <!--
     <div style="text-align: center;">
       <a class="button" href="">Zobacz wszystkie aktualności<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
     </div>
+    -->
   </div>
 </section>
 
@@ -276,89 +283,88 @@
       overviewMapControl: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: [
-        {
-            "featureType": "landscape",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "labels.icon",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "stylers": [
-                {
-                    "hue": "#0000FF"
-                },
-                {
-                    "saturation": -100
-                },
-                {
-                    "gamma": 2.15
-                },
-                {
-                    "lightness": 12
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "labels.text.fill",
-            "stylers": [
-                {
-                    "visibility": "on"
-                },
-                {
-                    "lightness": 24
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "lightness": 57
-                }
-            ]
-        }
-    ]
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#fcfcfc"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#fcfcfc"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#dddddd"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#dddddd"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#eeeeee"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#dddddd"
+            }
+        ]
+    }
+]
     }
 
     var mapElement = document.getElementById('map');

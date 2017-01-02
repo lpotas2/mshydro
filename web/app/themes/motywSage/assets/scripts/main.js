@@ -299,14 +299,18 @@
           if ((windowScrollValue > mshydroScrollValue) && (myCookie == undefined)) {
             setTimeout(function () {
               $("#contactUs").css("display", "block");
+
               var currentTime = new Date();
               currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
+
               document.cookie = 'canSee=true;expires=' + currentTime + ';';
             }, timeToGetEmail);
-            window.removeEventListener("scroll", handler);
+
+            $(window).off("scroll", handler);
           }
         }
-        window.addEventListener("scroll", handler);
+
+        $(window).on("scroll", handler);
       }
     },
     'for_contact': {
