@@ -1,3 +1,43 @@
 body.search {
-  
+  .search-result {
+    padding: 30px 0;
+    border-bottom: 2px solid $grey;
+
+    &:first-of-type() {
+      padding-top: 0;
+    }
+
+    &:last-of-type() {
+      margin-bottom: 50px;
+    }
+
+    &:hover {
+      border-color: $red;
+    }
+
+    .page-title {
+      margin-bottom: 15px;
+
+      a {
+        display: inline-block;
+        text-transform: uppercase;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+
+    .read-more {
+      font-weight: 900;
+
+      .fa {
+        margin-left: 5px;
+      }
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
 }

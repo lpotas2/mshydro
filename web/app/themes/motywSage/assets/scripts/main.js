@@ -23,6 +23,15 @@
         function init() {
           var overlay = $(".overlay");
 
+          $(document).click(function (event) {
+            if (overlay.css('display') === 'block') {
+              if (!$(event.target).closest("form#searchform").length) {
+                overlay.hide();
+                searchForm.hide();
+              }
+            }
+          });
+
           $("a").on("click", function (e) {
             e.preventDefault();
 
@@ -86,14 +95,6 @@
             overlay.show();
             searchForm.show();
           });
-
-/*
-          $(document).click(function (event) {
-            if (!$(event.target).closest("nav.primary li.search, form#searchform").length) {
-              $("form#searchform").css("display", "none")
-            }
-          });
-*/
         }
 
         init();

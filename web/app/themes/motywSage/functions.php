@@ -35,10 +35,10 @@ unset($file, $filepath);
  */
 function wpdocs_my_search_form( $form ) {
     $form = '<form style="display: none" role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
-    <div><label class="screen-reader-text" for="s">' . __( 'Wyszukiwarka produktów' ) . '</label>
-    <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Podaj nazwę produktu lub symbol" />
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <label class="screen-reader-text" for="s">' . __( 'Wyszukiwarka' ) . '</label>
+    <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Wpisz szukane hasło i wciśnij Enter" />
     <input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search' ) .'" />
-    </div>
     </form>';
  
     return $form;

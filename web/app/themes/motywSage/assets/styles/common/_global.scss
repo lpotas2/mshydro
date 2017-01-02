@@ -2,7 +2,7 @@ body {
   position: relative;
   min-height: 100vh;
   box-sizing: border-box;
-  padding-bottom: 161.5px;
+  padding-bottom: 212px;
   background: $white;
   color: $black;
   font-family: 'Roboto', sans-serif;
@@ -108,6 +108,7 @@ aside {
 
 body.home aside {
   position: relative;
+  margin-bottom: 117.5px;
 }
 
 .page-parent, .page-child {
@@ -300,6 +301,17 @@ body.home aside {
       line-height: 100%;
       font-weight: 900;
       color: $black;
+    }
+
+    .fa-search {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(-100%, -50%);
+      margin-left: -15px;
+      margin-top: 10px;
+      font-size: 3em;
+      color: $red;
     }
 
     #searchsubmit {
