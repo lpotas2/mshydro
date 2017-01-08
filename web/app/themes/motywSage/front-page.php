@@ -158,8 +158,14 @@
                   </div>
 
                   <?php if($item == 4){?>
-                    <div class="negative"><span><i class="fa fa-times" aria-hidden="true"></i> WYNIK NEGATYWNY</span></div>
-                    <div class="positive"><span><i class="fa fa-check" aria-hidden="true"></i> WYNIK POZYTYWNY</span></div>
+                    <div class="negative">
+                      <span><i class="fa fa-times" aria-hidden="true"></i> WYNIK NEGATYWNY</span>
+                      <div class="traingle"></div>
+                    </div>
+                    <div class="positive">
+                      <span><i class="fa fa-check" aria-hidden="true"></i> WYNIK POZYTYWNY</span>
+                      <div class="traingle"></div>
+                    </div>
                   <?php } ?>
                 </li><!--
                  <?php if($item == 4){?>
