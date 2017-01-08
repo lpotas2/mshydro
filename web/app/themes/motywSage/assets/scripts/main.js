@@ -299,7 +299,7 @@
         });
 
         var myCookie;
-        var timeToGetEmail = 300; //w milisekundach
+        var timeToGetEmail = 3000; //w milisekundach
 
         if (document.cookie != "") {
           var cookies = document.cookie;
@@ -336,14 +336,17 @@
       init: function () {
         var myCookie;
         var cookieLifeTimeInHours = 1;
-        var timeToGetEmail = 300; //w milisekundach
+        var timeToGetEmail = 1000; //w milisekundach
 
         if (document.cookie != "") {
           var cookies = document.cookie;
           cookies = cookies.split(';');
           myCookie = cookies.find(function (cookieValue) {
+            // debugger
             cookieValue = cookieValue.trim();
-            return cookieValue == 'canSeeOnNonFrontPage=true';
+            // return cookieValue == 'canSeeOnNonFrontPage=true';
+
+            return cookieValue == 'canSee=true';
           })
         }
 
@@ -353,7 +356,8 @@
 
             var currentTime = new Date();
             currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
-            document.cookie = 'canSeeOnNonFrontPage=true;expires=' + currentTime + ';';
+            document.cookie = 'canSee=true;expires=' + currentTime + ';path=/';
+            // document.cookie = 'canSeeOnNonFrontPage=true;expires=' + currentTime + ';';
           }, timeToGetEmail);
         }
       }
