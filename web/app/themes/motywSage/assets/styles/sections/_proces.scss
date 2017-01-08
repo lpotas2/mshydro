@@ -71,9 +71,10 @@ section.proces {
       left: -50%;
       transform: translateX(-50%);
       width: calc(200% - 5px);
-      height: 1px;
+      height: 70px;
       margin-left: -5px;
-      background: #fff;
+      border: solid $white;
+      border-width: 1px 1px 0 1px;
       
       span {
         display: block;
@@ -83,19 +84,17 @@ section.proces {
         line-height: 100%;
       }
 
-      &:after, &:before {
+      &:before {
         content: "";
         position: absolute;
-        right: 0;
-        top: 0;
-        height: 70px;
-        width: 1px;
-        background: #fff;
-      }
-
-      &:before {
-        right: auto;
         left: 0;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 4px 0 4px;
+        border-color: $white transparent transparent transparent;
       }
     }
 
@@ -104,6 +103,10 @@ section.proces {
       transform: translateX(0);
       width: calc(150% - 5px);
       margin-left: 5px;
+
+      &:before {
+        left: 100%;
+      }
     }
 
     ul {
