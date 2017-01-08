@@ -28,9 +28,15 @@
         
     <div class="gallery">
       <!--
-      <?php if( have_rows('galeria') ):
-        while ( have_rows('galeria') ) : the_row();?>
-          --><div style="background-image: url(<?php the_sub_field('zdjecie')?>);"></div><!--
+      <?php if( have_rows('galeria') ) :
+        while ( have_rows('galeria') ) : the_row();
+
+          $title = get_sub_field('tytul'); ?>
+          --><div class="<?php echo $title ? 'hasBorder' : ''; ?>" style="background-image: url(<?php the_sub_field('zdjecie')?>);">
+            <?php if($title) : ?>
+              <span><?php echo $title ?></span>
+            <?php endif; ?>
+          </div><!--
       <?php endwhile; endif;?>
       -->
     </div>
