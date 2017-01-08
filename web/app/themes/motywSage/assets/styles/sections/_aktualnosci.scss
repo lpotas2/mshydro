@@ -8,6 +8,7 @@ section.aktualnosci {
     margin-right: 30px;
     box-sizing: border-box;
     background: $light-grey;
+    border: 2px solid transparent;
     vertical-align: top;
     cursor: pointer;
 
@@ -24,6 +25,8 @@ section.aktualnosci {
       h3 {
         color: $red;
       }
+
+      border-color: $red;
     }
 
     h3 {
