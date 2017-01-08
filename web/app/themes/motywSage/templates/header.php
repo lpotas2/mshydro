@@ -112,7 +112,8 @@ if ( $query->have_posts() ) {
 <div id="contactUs">
   <i class="fa fa-times close" aria-hidden="true"></i>
 
-  <p><strong>Jesteś zaintersowany</br>naszą ofertą?</strong></br><span>Zadzwoń lub napisz</span></p>
+  <h4>Jesteś zaintersowany</br>naszą ofertą?</h4>
+  <span>Zadzwoń lub napisz</span>
 
   <div class="phone">
     <i class="fa fa-phone" aria-hidden="true"></i>

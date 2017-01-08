@@ -165,7 +165,7 @@
     'page_template_product': {
       init: function () {
         $('table').filterTable({
-          placeholder: "Szukaj",
+          placeholder: "Filtruj tabelę",
           label: "",
           minRows: "1"
         });
@@ -205,7 +205,7 @@
           menu.find('.' + name).addClass('active');
         }
 
-        $("section.ms-hydro").fixTypography([
+        $("section.ms-hydro, section.oferta .box .container .desc").fixTypography([
           "bastards"
         ]);
 

@@ -59,11 +59,11 @@ header {
 
 #contactUs {
   position: fixed;
-  bottom: 30px;
-  right: 50px;
+  bottom: 40px;
+  right: 40px;
   display: none;
-  width: 600px;
-  height: 250px;
+  width: 500px;
+  height: 200px;
   padding: 25px 30px;
   box-sizing: border-box;
   background-color: $white;
@@ -78,29 +78,29 @@ header {
   &:before {
     content: "";
     position: absolute;
-    left: 226px;
+    left: 200px;
     top: 0;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 250px 100px 0 0;
+    border-width: 200px 100px 0 0;
     border-color: $white transparent transparent transparent;
     z-index: -1;
   }
 
-  p {
-    strong {
-      font-size: 1.5em;
-    }
+  h4 {
+    display: block;
+    margin-bottom: 15px;
+    line-height: 150%;
+    text-transform: uppercase;
+  }
 
-    span {
-      font-size: 1.25em;
-    }
+  span {
+    font-weight: 700;
+    text-transform: uppercase;
   }
 
   .phone, .email {
-    font-size: 1.25em;
-
     .fa {
       margin-right: 10px;
       color: $red;
@@ -108,7 +108,7 @@ header {
   }
 
   .phone {
-    margin-top: 30px;
+    margin-top: 15px;
   }
 
   .close {
