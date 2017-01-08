@@ -52,7 +52,7 @@ section.proces {
   .char {
     position: relative;
     font-size: 0;
-    margin-bottom: 150px;
+    margin: 100px 0 150px;
 
     &:before {
       content: "";
@@ -67,7 +67,7 @@ section.proces {
 
     .negative, .positive {
       position: absolute;
-      top: -75px;
+      top: -70px;
       left: -50%;
       transform: translateX(-50%);
       width: calc(200% - 5px);
@@ -83,24 +83,19 @@ section.proces {
         line-height: 100%;
       }
 
-      &:after {
+      &:after, &:before {
         content: "";
         position: absolute;
         right: 0;
         top: 0;
-        height: 75px;
+        height: 70px;
         width: 1px;
         background: #fff;
       }
 
       &:before {
-        content: "";
-        position: absolute;
+        right: auto;
         left: 0;
-        top: 0;
-        height: 75px;
-        width: 1px;
-        background: #fff;
       }
     }
 
@@ -116,34 +111,15 @@ section.proces {
       line-height: 0;
       z-index: 1;
 
-      &:before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: -4px;
-        margin-top: -4px;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: $white;
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: -4px;
-        margin-top: -4px;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: $white;
-      }
-
       & > li {
         &.active {
-          & > .title:before {
-            opacity: 1;
+          & > .title {
+            background: $white;
+            color: $red;
+
+            &:before {
+              opacity: 1;
+            }
           }
 
           & > .desc {
@@ -162,10 +138,10 @@ section.proces {
 
         .desc {
           position: absolute;
-          top: 200px;
+          top: 155px;
           left: 0;
           width: calc(1100px / 5 * 2);
-          height: 85px;
+          height: 100px;
           padding: 15px 15px 15px 100px;
           box-sizing: border-box;
           border-top: 1px solid $white;
@@ -205,7 +181,7 @@ section.proces {
           position: relative;
           display: inline-block;
           width: calc(100% - 30px);
-          height: 100px;
+          height: 85px;
           border: 1px solid $white;
           box-sizing: border-box;
           background: $red;
@@ -215,7 +191,7 @@ section.proces {
             position: absolute;
             left: 50%;
             top: 100%;
-            height: 100px;
+            height: 71px;
             width: 1px;
             background: $white;
             opacity: 0;
@@ -251,7 +227,7 @@ section.proces {
           }
 
           & > div {
-            height: 200px;
+            height: 150px;
             border: 1px dashed $white;
 
             ul {
@@ -276,6 +252,32 @@ section.proces {
             }
           }
         }
+      }
+    }
+
+    & > ul {
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -4px;
+        margin-top: -4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $white;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -4px;
+        margin-top: -4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $white;
       }
     }
   }
