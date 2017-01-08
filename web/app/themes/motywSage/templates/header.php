@@ -64,6 +64,7 @@ if ( $query->have_posts() ) {
           <li class="warunki-sprzedazy"><a href="<?php echo get_permalink(540); ?>">Warunki sprzedaży <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
           <?php } else { ?>
+            <li><span class="historyBack"><i class="fa fa-chevron-left" aria-hidden="true"></i></span></li>
             <li><a href="<?php echo get_home_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 
             <?php if (!is_search()) { ?>
@@ -107,9 +108,22 @@ if ( $query->have_posts() ) {
       </div>
     </nav>
 <?php } ?>
+
 <div id="contactUs">
-  Podaj nam swój ades email
+  <i class="fa fa-times close" aria-hidden="true"></i>
+
+  <p><strong>Jesteś zaintersowany</br>naszą ofertą?</strong></br><span>Zadzwoń lub napisz</span></p>
+
+  <div class="phone">
+    <i class="fa fa-phone" aria-hidden="true"></i>
+    +48 (58) 306 90 08
+  </div>
+  <div class="email">
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    biuro@mshydro.pl
+  </div>
 </div>
+
 <div class="overlay">
   <?php get_search_form(); ?>
 

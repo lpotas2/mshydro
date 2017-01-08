@@ -96,15 +96,17 @@
         endwhile;
       endif?>
 
-      <?php if( have_rows('sekcja_ms-hydro')):
-        while ( have_rows('sekcja_ms-hydro')) : the_row();
+      <?php if( have_rows('sekcja_ms-hydro')): ?>
+        <!--
+        <?php while ( have_rows('sekcja_ms-hydro')) : the_row();
           if( get_row_layout() == 'szczegołowy_opis' ): ?>
-          <div>
+          --><div>
             <h4><?php the_sub_field('tytuł_kolumny'); ?></h4>
             <?php the_sub_field('szczegoły');?>
-          </div>
+          </div><!--
           <?php endif; ?>
         <?php endwhile; ?>
+        -->
       <?php endif; ?>
     </div>
   </section>

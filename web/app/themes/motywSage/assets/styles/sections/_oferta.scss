@@ -91,7 +91,9 @@ section.oferta {
         padding: 25px 25px 15px;
         box-sizing: border-box;
         background-image: linear-gradient(rgba(#191415, 0), rgba(#191415, 1));
-        text-shadow: 0 0 5px #191415;
+        text-shadow: 0 0 5px rgba(#191415, 0.75);
+        font-size: 1.25em;
+        font-weight: 700;
         transition: 0.7s all ease-out;
       }
     }

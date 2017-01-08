@@ -82,7 +82,7 @@ aside {
   left: 0;
   width: 100%;
   background: $black;
-  color: #fff;
+  color: $white;
   z-index: 100;
 
   .wrapper {
@@ -221,7 +221,7 @@ body.home aside {
 .monit {
   position: absolute;
   bottom: 30px;
-  right: 30px;
+  right: 50px;
   width: 350px;
   min-height: 50px;
   padding: 25px 55px 25px 105px;
@@ -260,7 +260,7 @@ body.home aside {
   display: none;
   width: 100%;
   height: 100%;
-  background: rgba(#fff, 0.85);
+  background: rgba($white, 0.9);
   z-index: 50;
 
   .fa-cog {
@@ -332,10 +332,10 @@ body.home aside {
     &.red {
       .content {
         background: $red;
-        color: #fff;
+        color: $white;
 
         h3 {
-          color: #fff;
+          color: $white;
         }
       }
     }
@@ -346,7 +346,7 @@ body.home aside {
       width: 60%;
       min-height: 250px;
       margin: 0 auto;
-      background: #fff;
+      background: $white;
       border: 2px solid $grey;
     }
 
@@ -356,11 +356,11 @@ body.home aside {
       right: -2px;
       width: 50px;
       height: 50px;
-      border: 2px solid $grey;
+      border: 2px solid $white;
       background: rgba(#000, 0.15);
       font-size: 1.5em;
       line-height: 50px;
-      color: #fff;
+      color: $white;
       text-align: center;
       cursor: pointer;
       z-index: 1;

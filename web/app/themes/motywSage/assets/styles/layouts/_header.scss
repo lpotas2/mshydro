@@ -57,15 +57,74 @@ header {
   }
 }
 
-#contactUs{
-  width:200px;
-  height: 120px;
-  background-color: red;
+#contactUs {
   position: fixed;
-  left:50%;
-  top:50%;
-  z-index:9999;
+  bottom: 30px;
+  right: 50px;
   display: none;
+  width: 600px;
+  height: 250px;
+  padding: 25px 30px;
+  box-sizing: border-box;
+  background-color: $white;
+  background-image: url(../images/contact-us.jpg);
+  background-size: auto 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  border: 2px solid $white;
+  box-shadow: 0 0 30px rgba(#000, 0.15);
+  z-index: 101;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 226px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 250px 100px 0 0;
+    border-color: $white transparent transparent transparent;
+    z-index: -1;
+  }
+
+  p {
+    strong {
+      font-size: 1.5em;
+    }
+
+    span {
+      font-size: 1.25em;
+    }
+  }
+
+  .phone, .email {
+    font-size: 1.25em;
+
+    .fa {
+      margin-right: 10px;
+      color: $red;
+    }
+  }
+
+  .phone {
+    margin-top: 30px;
+  }
+
+  .close {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    padding: 10px;
+    border: 2px solid $white;
+    background: rgba(#000, 0.15);
+    font-size: 1.5em;
+    line-height: 100%;
+    color: $white;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+  }
 }
 
 body.home header {

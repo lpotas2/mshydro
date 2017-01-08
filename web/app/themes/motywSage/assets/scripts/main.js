@@ -24,6 +24,7 @@
           var overlay = $(".overlay");
           var newsContainer = overlay.children(".news-container");
           var searchForm = $("form#searchform");
+          var cog = overlay.children('.fa-cog');
           var overlayVisible = false;
 
           function hideOverlay() {
@@ -38,21 +39,27 @@
           }
 
           function documentClickHandler(e) {
-            console.log('aaaaa')
-
             if (!$(e.target).closest("form#searchform").length && !$(e.target).closest(".news-container").length) {
               hideOverlay();
             }
           }
 
-          $("a").on("click", function (e) {
-            e.preventDefault();
+          $(window).on("pageshow", function() {
+            hideOverlay();
+          });
+
+          $(".historyBack").on("click", function() {
+            window.history.back();
+          });
+
+          $("a").on("click", function (event) {
+            event.preventDefault();
 
             var url = $(this).attr("href");
 
             if (url && url !== '') {
               overlay.show();
-              overlay.children('.fa-cog').show();
+              cog.show();
 
               setTimeout(function () {
                 window.location.href = url;
@@ -81,7 +88,17 @@
             var slider = $("section.produkty .slider");
 
             slider.css("left", -pos * slider.parent().innerWidth());
+
+            var categoryItemsCount = slider.children().eq(pos).children().length;
+
+            if (categoryItemsCount > 6) {
+              slider.parent().css('height', 395);
+            } else {
+              slider.parent().css('height', 190);
+            }
           });
+
+          $("section.produkty > ul li").first().trigger("click");
 
           //realizacje
           $("section.realizacje .desc").perfectScrollbar();
@@ -133,6 +150,10 @@
           newsContainer.find(".close").on("click", function() {
             hideOverlay();
           });
+
+          $("#contactUs .close").on("click", function() {
+            $(this).parent().hide();
+          });
         }
 
         init();
@@ -141,7 +162,7 @@
         // JavaScript to be fired on the home page, after the init JS
       }
     },
-    'page-template-product': {
+    'page_template_product': {
       init: function () {
         $('table').filterTable({
           placeholder: "Szukaj",
@@ -223,8 +244,6 @@
         });
 
         menu.find('li').on('click', function () {
-          console.log('aaaaa')
-
           if ($(this).hasClass('search')) {
             return false;
           }
@@ -298,7 +317,7 @@
 
           if ((windowScrollValue > mshydroScrollValue) && (myCookie == undefined)) {
             setTimeout(function () {
-              $("#contactUs").css("display", "block");
+              $("#contactUs").show();
 
               var currentTime = new Date();
               currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
@@ -330,7 +349,8 @@
 
         if (myCookie == undefined) {
           setTimeout(function () {
-            $("#contactUs").css("display", "block");
+            $("#contactUs").show();
+
             var currentTime = new Date();
             currentTime.setTime(currentTime.getTime() + (cookieLifeTimeInHours * 60 * 60 * 1000));
             document.cookie = 'canSeeOnNonFrontPage=true;expires=' + currentTime + ';';
