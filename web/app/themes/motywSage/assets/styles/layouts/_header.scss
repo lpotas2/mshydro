@@ -113,10 +113,11 @@ header {
 
   .close {
     position: absolute;
-    top: -2px;
-    right: -2px;
+    top: 0;
+    right: 0;
     padding: 10px;
-    border: 2px solid $white;
+    border: solid $white;
+    border-width: 0 0 2px 2px;
     background: rgba(#000, 0.15);
     font-size: 1.5em;
     line-height: 100%;

@@ -131,7 +131,7 @@
           $("section.aktualnosci .box").on("click", function() {
             newsContainer.find('.image').css('backgroundImage', $(this).find('.image div').css('backgroundImage'));
 
-            newsContainer.find('h3').html($(this).find('h3').html());
+            newsContainer.find('h4').html($(this).find('h4').html());
             newsContainer.find('.date').html($(this).find('.date').html());
             newsContainer.find('.content div').html($(this).find('.content').html());
 
