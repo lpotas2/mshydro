@@ -2,7 +2,7 @@
   <?php 
     $isRealizationPage = get_the_ID() == 10;
 
-  if( !$isRealizationPage ): ?>
+    if( !$isRealizationPage ): ?>
     <div class="clip">
       <div class="bullets">
         <div class="ms-hydro"><span class="title">MS-HYDRO</span><span class="square"></span></div>
@@ -14,46 +14,41 @@
         <div class="kontakt"><span class="title">KONTAKT</span><span class="square"></span></div>
       </div>
     </div>
-
-    <div class="bg-lines">
-      <span></span><!--
-      --><span></span><!--
-      --><span></span><!--
-      --><span></span><!--
-      --><span></span>
-    </div>
   <?php endif; ?>
 
+  <div class="bg-lines">
+    <span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span><!--
+    --><span></span>
+  </div>
+  
   <div class="wrapper">
     <h2>Realizacje</h2>
-
+      <!--
       <?php
         if ( $isRealizationPage ) {
-          $strony = get_pages($args = array(
+          $pages = get_pages($args = array(
             'child_of' => 10,
             'sort_column' => 'ID',
             'order' => 'ASC'
           ));
         } else {
-          $strony = get_pages($args = array(
+          $pages = get_pages($args = array(
             'parent' => 10,
             'sort_column' => 'ID',
             'hierarchical' => false,
             'order' => 'ASC',
-            'number' => 3
+            'number' => 4
           ));
         }
-
-        foreach ( $strony as $strona ) { ?>
-          <div class="realization">
-            <div class="desc">
-              <h3><?php echo $strona->post_title; ?></h3>
-              <?php the_field('opis',$strona->ID)?>       
-
-            </div><!--
-            --><div class="gallery">
+        foreach ( $pages as $page ) { ?>
+          --><div class="realization">
+            <div class="gallery">
               <?php
-                $rows = get_field('galeria', $strona->ID);
+                $pageID = $page->ID;
+                $rows = get_field('galeria', $pageID);
                 $rowsCount = count($rows);
                 
                 if($rows): ?>
@@ -71,9 +66,13 @@
                   <span class="js_next next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                 </div>
               <?php endif;?>
+              <div class="title">
+                <h4><?php echo get_the_title($pageID); ?></h4>
+              </div>
             </div>
-          </div>
+          </div><!--
         <?php } ?>
+        -->
 
       <?php if( !$isRealizationPage ): ?>
       <div style="text-align: center;">
