@@ -8,7 +8,7 @@ section.aktualnosci {
     margin-right: 30px;
     box-sizing: border-box;
     background: $light-grey;
-    border-top: 2px solid transparent;
+    border-top: 3px solid transparent;
     vertical-align: top;
     cursor: pointer;
 
@@ -63,6 +63,7 @@ section.aktualnosci {
       width: 100%;
       padding: 10px 0;
       border-top: 1px solid $grey;
+      font-weight: 600;
     }
 
     .content {

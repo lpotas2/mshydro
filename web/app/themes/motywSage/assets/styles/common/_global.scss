@@ -385,9 +385,14 @@ body.home aside {
       padding: 25px;
       box-sizing: border-box;
 
-      h3 {
+      .date {
+        font-weight: 600;
+      }
+
+      h4 {
         margin: 5px 0 25px;
         color: $red;
+        line-height: 150%;
         text-transform: uppercase;
       }
     }
