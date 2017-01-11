@@ -102,7 +102,7 @@ section.proces {
     .positive {
       left: 50%;
       transform: translateX(0);
-      width: calc(150% - 5px);
+      width: calc(100% - 5px);
       margin-left: 5px;
 
       &:before {
@@ -243,10 +243,10 @@ section.proces {
             }
 
             li {
-              width: 32%;
+              width: calc(100% / 3);
 
               .title {
-                width: calc(100% - 40px);
+                width: calc(100% - 30px);
               }
 
               .desc {
