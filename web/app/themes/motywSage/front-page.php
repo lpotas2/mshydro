@@ -159,10 +159,10 @@
 
                   <?php if($item == 4){?>
                     <div class="negative">
-                      <span><i class="fa fa-times" aria-hidden="true"></i> WYNIK NEGATYWNY</span>
+                      <span><i class="fa fa-times" aria-hidden="true"></i> NEGATYWNY</span>
                     </div>
                     <div class="positive">
-                      <span><i class="fa fa-check" aria-hidden="true"></i> WYNIK POZYTYWNY</span>
+                      <span><i class="fa fa-check" aria-hidden="true"></i> POZYTYWNY</span>
                     </div>
                   <?php } ?>
                 </li><!--
