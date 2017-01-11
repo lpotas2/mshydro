@@ -33,7 +33,7 @@
             <?php endwhile; endif;?>
           </a>
 
-          <div class="copyright">Copyright © 2015 <strong>MS-Hydro s.c.</strong> All Rights Reserved</div>
+          <div class="copyright">Copyright © 2017 <strong>MS-Hydro s.c.</strong> All Rights Reserved | Design &amp; code by <a href="http://kraftweb.pl" title="Kraftweb">Kraftweb</a></div>
         </div>
       </div>
     </footer>
