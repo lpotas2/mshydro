@@ -38,7 +38,13 @@
           if($category == get_field('kategoria', $strona->ID)) : ?>
             <a href="<?php echo get_page_link($strona->ID) ?>">
               <strong><?php echo get_the_title($strona->ID) ?></strong>
-              <img src="<?php the_field('thumb', $strona->ID);?>" />
+
+              <?php
+                $thumb = get_field('thumb', $strona->ID);
+
+                if ($thumb) : ?>
+                  <img src="<?php echo $thumb; ?>" />
+                <? endif; ?>
             </a>
           <?php endif; ?>
         <?php }
