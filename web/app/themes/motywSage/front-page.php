@@ -189,7 +189,7 @@
     <!--
     <?php query_posts('cat = 10 & posts_per_page = 8'); while (have_posts()) : the_post(); ?>
     --><div class="box<?php echo (get_field("wpis_wyrozniony") ? " red" : ""); ?>">
-      <h4><?php echo get_the_title(); ?></h4>
+      <h3><?php echo get_the_title(); ?></h3>
       <p><?php the_field('zajawka'); ?></p>
       <?php if(get_field('zdjecie_wpisu')){?>
         <div class="image">
@@ -202,7 +202,7 @@
           <?php 
             $date = get_field('data', false, false);
             $date = new DateTime($date);
-            echo $date->format('d/m/Y');
+            echo $date->format('d-m-Y');
           ?>
         </span>
       </div>

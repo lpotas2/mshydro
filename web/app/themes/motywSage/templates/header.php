@@ -135,7 +135,7 @@ if ( $query->have_posts() ) {
       <div class="image"></div><!--
       --><div class="content">
         <span class="date"></span>
-        <h4></h4>
+        <h3></h3>
         <div></div>
       </div>
     </div>
