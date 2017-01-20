@@ -298,13 +298,14 @@
           $(this).parent().hide();
         });
 
+
         var myCookie;
         var timeToGetEmail = 3000; //w milisekundach
 
         if (document.cookie != "") {
           var cookies = document.cookie;
           cookies = cookies.split(';');
-          myCookie = cookies.find(function (cookieValue) {
+          myCookie = cookies.forEach(function (cookieValue) {
             cookieValue = cookieValue.trim();
             return cookieValue == 'canSee=true';
           })
@@ -341,10 +342,8 @@
         if (document.cookie != "") {
           var cookies = document.cookie;
           cookies = cookies.split(';');
-          myCookie = cookies.find(function (cookieValue) {
-            // debugger
+          myCookie = cookies.forEach(function (cookieValue) {
             cookieValue = cookieValue.trim();
-            // return cookieValue == 'canSeeOnNonFrontPage=true';
 
             return cookieValue == 'canSee=true';
           })
