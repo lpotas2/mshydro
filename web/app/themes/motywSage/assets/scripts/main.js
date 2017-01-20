@@ -305,9 +305,12 @@
         if (document.cookie != "") {
           var cookies = document.cookie;
           cookies = cookies.split(';');
-          myCookie = cookies.forEach(function (cookieValue) {
+          cookies.forEach(function (cookieValue) {
             cookieValue = cookieValue.trim();
-            return cookieValue == 'canSee=true';
+
+            if(cookieValue == 'canSee=true'){
+              myCookie = true;
+            }
           })
         }
 
@@ -342,10 +345,13 @@
         if (document.cookie != "") {
           var cookies = document.cookie;
           cookies = cookies.split(';');
-          myCookie = cookies.forEach(function (cookieValue) {
+          
+          cookies.forEach(function (cookieValue) {
             cookieValue = cookieValue.trim();
 
-            return cookieValue == 'canSee=true';
+            if(cookieValue == 'canSee=true'){
+              myCookie = true;
+            }
           })
         }
 
