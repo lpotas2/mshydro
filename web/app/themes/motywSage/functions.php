@@ -44,3 +44,14 @@ function wpdocs_my_search_form( $form ) {
     return $form;
 }
 add_filter( 'get_search_form', 'wpdocs_my_search_form' );
+
+function SearchFilter($query) {
+if ($query->is_search) {
+  
+$query->set('post__not_in', array(194));
+}
+return $query;
+}
+
+add_action('pre_get_posts','SearchFilter');
+
