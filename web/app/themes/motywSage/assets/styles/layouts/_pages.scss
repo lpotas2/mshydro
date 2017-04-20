@@ -1,0 +1,8 @@
+section {
+  box-sizing: border-box;
+
+  @include bp(desktop) {
+    padding-left: $mobile-padding;
+    padding-right: $mobile-padding;
+  }
+}

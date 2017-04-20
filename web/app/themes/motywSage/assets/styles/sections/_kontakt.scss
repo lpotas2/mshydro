@@ -11,10 +11,20 @@ section.kontakt {
 
   .left {
     padding-right: 25px;
+
+    @include bp(mobile) {
+      padding: 0;
+      width: 100%;
+    }
   }
 
   .right {
     padding-left: 25px;
+
+    @include bp(mobile) {
+      padding: 0;
+      width: 100%;
+    }
   }
 
   .address, .phone, .email {
@@ -22,6 +32,12 @@ section.kontakt {
     width: calc(100% / 5);
     margin-bottom: 15px;
     text-align: center;
+
+    @include bp(mobile) {
+      width: 100%;
+      margin-left: 0;
+      text-align: left;
+    }
 
     div, .fa {
       display: inline-block;
@@ -40,6 +56,11 @@ section.kontakt {
   .email {
     margin-left: calc(100% / 5);
 
+    @include bp(mobile) {
+      width: 100%;
+      margin-left: 0;
+    }
+
     .fa {
       font-size: 2em;
     }
@@ -51,6 +72,11 @@ section.kontakt {
 
   .phone {
     margin-left: calc(100% / 5);
+
+    @include bp(mobile) {
+      width: 100%;
+      margin-left: 0;
+    }
 
     .fa {
       font-size: 2.25em;

@@ -21,7 +21,7 @@ if ( $query->have_posts() ) {
           if( get_sub_field('logo') ):?>
             <a class="brand" href="/" title="MS-Hydro - hydraulika siłowa"><img src="<?php the_sub_field('logo'); ?>" /></a>
         <?php endif; endwhile; endif;?>
-
+        <div id="toggle-menu"></div>
       <div class="contact">
         <div class="phone"><i class="fa fa-phone" aria-hidden="true"></i>
           <?php if( have_rows('pierwszy_ekran') ):
@@ -62,7 +62,7 @@ if ( $query->have_posts() ) {
           <li class="kontakt"><a>Kontakt</a></li>
           <li class="praca"><a href="<?php echo get_permalink(16); ?>">Praca <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
           <li class="warunki-sprzedazy"><a href="<?php echo get_permalink(540); ?>">Warunki sprzedaży <i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
-          <li class="search"><i class="fa fa-search" aria-hidden="true"></i>Szukaj</li>
+          <li class="search"><i class="fa fa-search" aria-hidden="true"></i><span>Szukaj</span></li>
           <?php } else { ?>
             <li><span class="historyBack"><i class="fa fa-chevron-left" aria-hidden="true"></i></span></li>
             <li><a href="<?php echo get_home_url(); ?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>

@@ -44,7 +44,7 @@
 
                 if ($thumb) : ?>
                   <img src="<?php echo $thumb; ?>" />
-                <? endif; ?>
+                <?php endif; ?>
             </a>
           <?php endif; ?>
         <?php }

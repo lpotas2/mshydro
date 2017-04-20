@@ -6,6 +6,9 @@ body.page-template-products-main {
 
 section.produkty {
   ul {
+    @include bp(mobile) {
+      display: none;
+    }
     li {
       display: inline-block;
       margin-right: 20px;
@@ -54,6 +57,14 @@ section.produkty {
     margin-top: 30px;
     overflow: hidden;
 
+    @include bp(tablet) {
+      height: 400px;
+    }
+
+    @include bp(mobile) {
+      height: auto;
+    }
+
     .slider {
       position: absolute;
       left: 0;
@@ -62,6 +73,11 @@ section.produkty {
       font-size: 0;
       white-space: nowrap;
       transition: 0.4s left ease-out;
+
+      @include bp(mobile) {
+        white-space: normal;
+        position: static;
+      }
 
       div {
         display: inline-block;
@@ -93,6 +109,16 @@ section.produkty {
           text-transform: uppercase;
           vertical-align: top;
 
+          @include bp(tablet) {
+            width: calc((100% - 75px) / 3);
+          }
+
+          @include bp(mobile) {
+            width: 100%;
+            margin-right: 0;
+            height: auto;
+          }
+
           &:nth-child(6) {
             margin-right: 0;
           }
@@ -107,6 +133,11 @@ section.produkty {
             bottom: 15px;
             left: 15px;
             width: calc(100% - 20px);
+
+            @include bp(mobile) {
+              width: 100%;
+              position: static;
+            }
           }
         }
       }

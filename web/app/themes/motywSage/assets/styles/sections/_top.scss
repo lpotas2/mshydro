@@ -8,6 +8,10 @@ section.top {
   background-position: center center;
   z-index: 11;
 
+  @include bp(mobile) {
+      height: calc(100vh - 100px);
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -21,6 +25,10 @@ section.top {
   .wrapper {
     min-height: 100%;
 
+    @include bp(mobile) {
+      padding: $mobile-padding;
+    }
+
     div {
       position: absolute;
       top: 50%;
@@ -28,11 +36,19 @@ section.top {
       color: $white;
       text-shadow: 0 0 15px rgba(#000, 0.5);
 
+      @include bp(tablet) {
+        padding: 0 $mobile-padding;
+      }
+
       h2 {
         border-top: none;
         padding-top: 0;
         font-size: 5em;
         line-height: 125%;
+
+        @include bp(mobile) {
+          font-size: 3em
+        }
       }
 
       p {

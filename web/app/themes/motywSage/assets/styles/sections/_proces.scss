@@ -6,6 +6,10 @@ section.proces {
   overflow: hidden;
   z-index: 11;
 
+  @include bp(mobile) {
+    display: none;
+  }
+
   .clip {
     position: absolute;
     top: 0;

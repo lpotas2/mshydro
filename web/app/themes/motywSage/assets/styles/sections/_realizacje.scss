@@ -61,10 +61,20 @@ section.realizacje {
 
     &:nth-child(odd) {
       padding-left: 25px;
+      
+      @include bp(mobile) {
+        padding: 0;
+        width: 100%;
+      }
     }
 
     &:nth-child(even) {
       padding-right: 25px;
+
+      @include bp(mobile) {
+        padding: 0;
+        width: 100%;
+      }
     }
 
     .gallery {

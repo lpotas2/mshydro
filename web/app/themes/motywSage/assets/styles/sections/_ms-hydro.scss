@@ -21,6 +21,10 @@ section.ms-hydro {
     font-weight: 300;
     text-align: justify;
 
+    @include bp(mobile) {
+      text-align: left;
+    }
+
     strong {
       font-weight: 500;
     }
@@ -33,6 +37,10 @@ section.ms-hydro {
     padding-right: 30px;
     box-sizing: border-box;
     vertical-align: top;
+
+    @include bp(mobile) {
+      width: 100%;
+    }
 
     h4 {
       margin-bottom: 15px;
