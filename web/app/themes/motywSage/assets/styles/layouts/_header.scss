@@ -23,6 +23,10 @@ header {
     position: relative;
     top: 21px;
 
+    @include bp(mobile) {
+      margin-right: $mobile-padding;
+    }
+
     &:before,
     &:after {
       content: '';
@@ -46,6 +50,13 @@ header {
 
       @include bp(mobile) {
         padding: 10px $mobile-padding;
+      }
+    }
+
+    .brand, #toggle-menu {
+      @include bp(mobile) {
+        padding: 0;
+        margin: 0;
       }
     }
     
@@ -76,6 +87,7 @@ header {
 
     @include bp(mobile) {
       max-width: 200px;
+      padding-left: $mobile-padding - 5;
     }
   }
 
