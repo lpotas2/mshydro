@@ -64,6 +64,10 @@ header {
 
   .wrapper {
     padding: 15px 0 42.5px;
+
+    @include bp(mobile) {
+      padding: 10px 0;
+    }
   }
 
   .brand {
@@ -88,6 +92,11 @@ header {
     top: 35px;
     right: 0;
     display: inline-block;
+
+    @include bp(mobile) {
+      position: static;
+      padding: 10px $mobile-padding 0;
+    }
 
     div {
       display: inline-block;
