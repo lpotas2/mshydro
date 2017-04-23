@@ -18,11 +18,25 @@ body.page-template-product {
       border-top: 0;
       text-transform: uppercase;
       text-align: center;
+
+      @include bp(mobile) {
+        padding: 0 $mobile-padding;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+      }
     }
 
     img {
       position: absolute;
       top: 0;
+
+      @include bp(mobile) {
+        position: static;
+        display: inline-block;
+        width: 48%;
+        margin: 20px 0;
+      }
 
       &:first-of-type {
         left: 0;
@@ -95,6 +109,12 @@ body.page-template-product {
       border-width: 0 1px 1px 0;
       border-spacing: 0;
       border-collapse: separate;
+
+      @include bp(mobile) {
+        width: 100vw;
+        display: table-caption;
+        overflow: scroll;
+      }
 
       td, th {
         position: relative;
