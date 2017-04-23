@@ -14,11 +14,20 @@ nav.primary {
 
   @include bp(mobile) {
     display: none;
+    height: calc(100vh - 140px);
+    position: fixed;
+    left: 0;
+    transform: none;
   }
 
   ul {
     margin-left: 0 !important;
     list-style-type: none !important;
+
+    @include bp(mobile) {
+      height: 100%;
+      overflow-y: auto;
+    }
 
     li {
       position: relative;
@@ -29,6 +38,10 @@ nav.primary {
       font-weight: 700;
       line-height: 54px;
       text-transform: uppercase;
+
+      @include bp(mobile) {
+        display: block;
+      }
 
       @include bp(tablet) {
         margin-right: 5px;
@@ -44,8 +57,18 @@ nav.primary {
         cursor: pointer;
       }
 
+      &.proces {
+        @include bp(mobile) {
+          display: none;
+        }
+      }
+
       .fa {
         margin-left: 3px;
+
+        @include bp(mobile) {
+          display: none;
+        }
       }
 
       .fa-home {
@@ -92,6 +115,10 @@ nav.primary {
           top: 27px;
           right: -20px;
           margin-right: 0;
+        }
+
+        @include bp(mobile) {
+          position: static;
         }
 
         span {

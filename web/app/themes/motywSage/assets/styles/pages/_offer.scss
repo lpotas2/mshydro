@@ -7,6 +7,16 @@ body.page-template-offer {
       top: 10px;
       left: 0;
       width: 20%;
+
+      @include bp(mobile) {
+        position: static;
+      }
+
+      img {
+        @include bp(mobile) {
+          width: 100%;
+        }
+      }
     }
 
     .desc {
@@ -17,6 +27,11 @@ body.page-template-offer {
       border-left: 3px solid $red;
       font-size: 1.25em;
       text-align: left;
+
+      @include bp(mobile) {
+        width: 100%;
+        padding: 5px 0 5px 15px;
+      }
     }
 
     h2 {
@@ -90,7 +105,8 @@ body.page-template-offer {
       position: relative;
       display: block;
       height: 50px;
-      width: calc(1100px / 5 * 3);
+      max-width: calc(1100px / 5 * 3);
+      width: 100%;
       margin: 50px auto 0;
       text-align: center;
 

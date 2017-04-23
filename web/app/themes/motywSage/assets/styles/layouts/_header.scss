@@ -22,8 +22,10 @@ header {
     float: right;
     position: relative;
     top: 21px;
+    display: none;
 
     @include bp(mobile) {
+      display: block;
       margin-right: $mobile-padding;
     }
 
@@ -50,6 +52,12 @@ header {
 
       @include bp(mobile) {
         padding: 10px $mobile-padding;
+      }
+    }
+
+    nav.primary {
+      @include bp(mobile) {
+        height: calc(100vh - 65px);
       }
     }
 
@@ -108,12 +116,16 @@ header {
     @include bp(mobile) {
       position: static;
       padding: 10px $mobile-padding 0;
+      font-size: 0.75em;
     }
 
     div {
       display: inline-block;
       margin-right: 15px;
 
+      @include bp(mobile) {
+        margin-right: 5px;
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -123,6 +135,10 @@ header {
         margin-right: 5px;
         font-size: 14px;
         color: $red;
+
+        @include bp(mobile-small) {
+          display: none;
+        }
       }
     }
   }

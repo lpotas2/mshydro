@@ -9,6 +9,10 @@ body {
   font-size: 12px;
   line-height: 200%;
 
+  &.fixed {
+    overflow: hidden;
+  }
+
   &.home {
     padding-bottom: 266px;
   }

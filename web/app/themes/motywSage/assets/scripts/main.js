@@ -16,13 +16,13 @@
 var Sage = {
   // All pages
   'common': {
-    isTablet: false,
+    isMobile: false,
     init: function () {
       // JavaScript to be fired on all pages
       if (window.innerWidth <= 768) {
-        this.isTablet = true;
+        this.isMobile = true;
       } else {
-        this.isTablet = false;
+        this.isMobile = false;
       }
       function init() {
         var overlay = $(".overlay");
@@ -42,11 +42,22 @@ var Sage = {
           $(document).off("click", documentClickHandler);
         }
 
+        if (Sage.common.isMobile == true) {
+          $('.slider-container .slider').find('div').eq(0).show();
+        }
+
         function documentClickHandler(e) {
           if (!$(e.target).closest("form#searchform").length && !$(e.target).closest(".news-container").length) {
             hideOverlay();
           }
         }
+
+        $('#toggle-menu, nav.primary li').on('click', function() {
+          if (Sage.common.isMobile == true) {
+            $('nav.primary').toggle();
+            $('body').toggleClass('fixed');
+          }
+        });
 
         $(window).on("pageshow", function () {
           hideOverlay();
@@ -89,23 +100,16 @@ var Sage = {
           $(this).addClass("active");
           $(this).siblings().removeClass("active");
 
+          if (Sage.common.isMobile == true) {
+            $('.slider-container .slider div').hide();
+            $('.slider-container .slider').find('div').eq(pos).show();
+          }
+
           var slider = $("section.produkty .slider");
 
           slider.css("left", -pos * slider.parent().innerWidth());
 
           var categoryItemsCount = slider.children().eq(pos).children().length;
-
-          if (isTablet) {
-            if (categoryItemsCount > 3) {
-              slider.parent().css('height', 400);
-            }
-          } else {
-            if (categoryItemsCount > 6) {
-              slider.parent().css('height', 395);
-            } else {
-              slider.parent().css('height', 190);
-            }
-          }
         });
 
         $("section.produkty > ul li").first().trigger("click");
@@ -194,9 +198,9 @@ var Sage = {
 
       $(window).smartresize(function () {
         if (window.innerWidth <= 768) {
-          Sage['common'].isTablet = true;
+          Sage['common'].isMobile = true;
         } else {
-          Sage['common'].isTablet = false;
+          Sage['common'].isMobile = false;
         }
         console.log(window.innerWidth);
       });

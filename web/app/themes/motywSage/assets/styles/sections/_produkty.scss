@@ -6,9 +6,6 @@ body.page-template-products-main {
 
 section.produkty {
   ul {
-    @include bp(mobile) {
-      display: none;
-    }
     li {
       display: inline-block;
       margin-right: 20px;
@@ -85,6 +82,10 @@ section.produkty {
         max-width: $max-width;
         vertical-align: top;
         white-space: normal;
+
+        @include bp(mobile) {
+          display: none;
+        }
 
         &:hover {
           a {
